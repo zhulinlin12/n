@@ -1,0 +1,148 @@
+<div class="c-jh">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>我的报价信息</h4>
+			<!--<span style="color: #a0a0a1;">您已成功发布<ts>0</ts>条采购计划</span>-->
+		</div>
+		<div class="fbcg" style="padding-top: 0px; height: auto;">
+			<div class="f-rq">
+				<span>发布日期：从</span>
+				<input def-laydate type="text"  id="start" ng-model="startTime" class="laydate-icon" />
+				<k class="k">到</k>
+				<input def-laydate type="text"  id="end" ng-model="endTime" class="laydate-icon" />
+				<div class="c-wr2" ng-controller="fenl" style="display: inline-block;">
+				
+						<select ng-model="pl.type" ng-change="xz('lb',pl.type)"  ng-options="o.code as o.name for o in dataw.category.categories">
+							<option value="">采购类型</option>
+						</select>
+			
+			
+						<select ng-model="pl.type2" ng-change="ej('lb',pl.type2)" ng-click="mms()"  ng-options="o.code as o.name for o in res.category.categories" >
+							<option value="">采购类型</option>
+						</select>
+						
+						
+						<select ng-model="pl.type3"  ng-options="o.code as o.name for o in rew.category.categories" >
+							<option value="">采购类型</option>
+					<!--		<option value="">物资分类</option>-->
+						</select>
+					
+					
+				</div>
+				<button class="btw">搜素</button>
+			</div>
+			<div class="f-qb">
+				<li class="ac" ng-click="yb(0)" colorw>全部<span>({{data.biddingPriceList.all}})</span></li>
+				<li colorw ng-click="yb(1)">待投标<span>({{data.biddingPriceList.waitBids}})</span></li>
+				<li colorw ng-click="yb(2)">待开标<span>({{data.biddingPriceList.waitOpenBids}})</span></li>
+				<li colorw ng-click="yb(3)">待发货<span>({{data.biddingPriceList.waitDeliver}})</span></li>
+			</div>
+			<!--外壳-->
+			<div class="f-sp" ng-show="up" >
+				<div class="f-spf">
+					<span class="f-y9">商品分类</span>
+					<span class="f-y12" style="width:300px;" >商品信息</span>
+					<span class="f-y8">采购类型</span>
+					<span class="f-y8">状态</span>
+					<span class="f-y12" style="width:260px">备注说明</span>
+					<span class="f-y8">操作</span>
+				</div>
+				<!--全部投标信息-->
+				<div class="z-spf" >
+				<div class="f-wq clearfix" ng-repeat="lh in data.biddingPriceList.applyList" >
+					<div class="f-w">
+						<span>单号：<lp ng-bind="lh.orderCode">{{lh.orderCode}}</lp></span>
+						<span>发布日期：<lp ng-bind="lh.createTime">{{lh.createTime}}</lp></span>
+						<span>招标单位：<lp ng-bind="lh.memberName">{{lh.memberName}}</lp></span>
+						<span>联系人：<lp ng-bind="lh.contactPerson">{{lh.contactPerson}}</lp></span>
+						<span>电话：<lp ng-bind="lh.contactTel">{{lh.contactTel}}</lp></span>
+					</div>
+					<div style="width:100%; height: 100px; overflow: hidden;">
+					<div class="f-wp">
+						<div class="f-y9" ng-bind="lh.applyItemList[0].materialType1">{{lh.applyItemList[0].materialType1}}</div>
+						<div class="f-y12" style="width:300px;display: table-cell;text-align: center;vertical-align: middle;">
+				<div class="wojz" >
+                           <span ng-repeat="shop in lh.applyItemList">{{shop.materialName}}</span>
+                           
+                           </div>
+						</div>
+						<div class="f-y8">联合采购</div>
+						<div class="f-y8">
+							<span ng-show="{{lh.status}}==11">已报名</span>
+						</div>
+						<div class="f-y12" style="width:260px; ">
+							<div  class="wojz">
+                           <span ng-repeat="shop in lh.applyItemList">{{shop.otherRequire | bus}}</span>
+                           
+
+                         
+                          </div>
+						</div>
+							<div class="f-y11" ng-show="{{lh.status}}==11" style="width:105px;">
+								<div class="f-rt f-red"  style="width:68px;padding-left: 2px; padding-right: 2px;">支付保证金</div>
+								<div class="f-rt f-xg" ui-sref="buyt.makelh({staur:2,spid:lh.biddingId})">报价</div>
+								<div class="f-rt f-blue" >查看信息</div>
+							</div>
+						<!--<div class="f-y11 f-pq" style="width:105px;">
+							<div class="f-rt f-blue" ui-sref="buyt.qrfh">确认发货</div>
+							<div class="f-rt f-xg" ui-sref="buyt.ckjh">查看信息</div>
+						</div>-->
+					</div>
+					
+						</div>
+				</div>
+
+				
+				</div>
+				
+			
+
+									<div class="f-d">
+					<span>显示第<iw>{{page}}</iw>页，共<w>{{num}}</w>条记录</span>
+					<div class="f-r">
+						<nav aria-label="Page navigation" class="clearfix">
+							<ul class="pagination pagination-sm pagination1 fr" style="margin: 0">
+								<li ng-class="{disabled:page==1}">
+									<a href="javascript:void(0)" aria-label="Previous" ng-click="sub(page-1<1?1:page-1)" ng-disabled="page==1">
+										<span aria-hidden="true">上一页</span>
+									</a>
+								</li>
+								<li ng-if="page >= pageNum && lastPage !== pageNum" ng-click="sub(1)" ng-class="{active:item==1}">
+									<a href="javascript:void(0)">1</a>
+								</li>
+								<li ng-if="page >= pageNum && lastPage !== pageNum">
+									<a href="javascript:void(0)">...</a>
+								</li>
+								<li ng-click="sub(item)" ng-class="{active:item==page}" ng-repeat="item in pages">
+									<a href="javascript:void(0)">{{item}}</a>
+								</li>
+								<li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum">
+									<a href="javascript:void(0)">...</a>
+								</li>
+								<li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum" ng-click="sub(lastPage)" ng-class="{active:item==page}">
+									<a href="javascript:void(0)">{{lastPage}}</a>
+								</li>
+								<li ng-class="{disabled:page==lastPage}">
+									<a href="javascript:void(0)" aria-label="Next" ng-click="sub(page+1>lastPage?page:page+1)">
+										<span aria-hidden="true">下一页</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+			</div>
+			<!--全部-->
+				<div class="fbcg" style="padding-top: 0px; height: auto; " ng-if="lhhide" >
+	
+			<div class="fb-z" style="margin-top: 90px;">
+				<div class="f-xx"></div>
+				<h3>您还没有针对招募报名！</h3>
+				<!--<p>发布采购计划可以快速获得供应商报价，获得更多采购资源，同时也能了解更多的供应商信息</p>-->
+				<button ui-sref='index.bilh' class="btwe">查询招募</button>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>

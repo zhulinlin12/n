@@ -1,0 +1,138 @@
+<!--查看报价-->
+<div class="c-jh lhzm">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>我的投标信息>>供应商报名</h4>
+		</div>
+		<div class="c-qw">
+		<form name="myForm" novalidate>
+			<div class="c-wr font" >
+				<span><b >招募活动:</b></span>
+				<f class="gayw hs"><b>{{data.title}}</b></f>
+				<input type="hidden" ng-model="data.biddingId" />
+			</div>
+			<div class="c-wr2">
+					<span>企业简述:</span>
+					<div class="ysa">
+					
+						<div class="tex" style="width:600px">
+							<textarea class="text-l" ng-model="firm1" ng-class="{error: qinr1}" ng-blur="fou(1)"></textarea>
+						</div>
+							<div ng-show="ourl1!=''"><wt>{{ourl1}}</wt><oi style="margin-left: 40px;" ng-click="dels(1)">删除</oi></div>
+							
+						<button class="qww unselected" ng-class="{red:tup1}">
+							<k>上传附件</k>
+						   <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files,1)"/>
+						</button>
+					
+					</div>
+				</div>
+			<div class="c-wr2">
+					<span>产品描述:</span>
+					<div class="ysa">
+						<div class="tex">
+							<textarea class="text-l" ng-model="firm2" ng-class="{error: qinr2}" ng-blur="fou(2)"></textarea>
+						</div>
+							<div ng-show="ourl2!=''"><wt>{{ourl2}}</wt><oi style="margin-left: 40px;" ng-click="dels(2)">删除</oi></div>
+						<button class="qww unselected" ng-class="{red:tup2}">
+							<k>上传附件</k>
+						   <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files,2)"/>
+						</button>
+					</div>
+				</div>
+			<div class="c-wr2">
+					<span>技术质量承诺:</span>
+					<div class="ysa">
+						<div class="tex">
+							<textarea class="text-l" ng-model="firm3" ng-class="{error: qinr3}" ng-blur="fou(3)"></textarea>
+						</div>
+							<div ng-show="ourl3!=''"><wt>{{ourl3}}</wt><oi style="margin-left: 40px;" ng-click="dels(3)">删除</oi></div>
+						<button class="qww unselected" ng-class="{red:tup3}">
+								<k>上传附件</k>
+						   <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files,3)"/>
+						</button>
+						</button>
+					</div>
+				</div>
+			<div class="c-wr2">
+					<span>商务要求承诺:</span>
+					<div class="ysa">
+						<div class="tex">
+							<textarea class="text-l" ng-model="firm4" ng-class="{error: qinr4}" ng-blur="fou(4)"></textarea>
+						</div>
+						<div ng-show="ourl4!=''"><wt>{{ourl4}}</wt><oi style="margin-left: 40px;" ng-click="dels(4)">删除</oi></div>
+						<button class="qww unselected" ng-class="{red:tup4}">
+							<k>上传附件</k>
+						   <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files,4)"/>
+						</button>
+					</div>
+				</div>
+			<div class="c-wr2">
+					<span>产品业绩描述:</span>
+					<div class="ysa">
+						<div class="tex">
+							<textarea class="text-l" ng-model="firm5" ng-class="{error: qinr5}" ng-blur="fou(5)"></textarea>
+						</div>
+							<div ng-show="ourl5!=''"><wt>{{ourl5}}</wt><oi style="margin-left: 40px;" ng-click="dels(5)">删除</oi></div>
+						<button class="qww unselected" ng-class="{red:tup5}">
+							<k>上传附件</k>
+						   <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files,5)"/>
+						</button>
+					</div>
+			</div>
+			<div class="lh-xx">
+		
+				<div class="c-wr" >
+				<span style="line-height: 40px;">联系人:</span>
+				<input type="text" ng-model="name" placeholder="请填写收货人" name="name" ng-pattern="/[\u4e00-\u9fa5]/" ng-minlength="2" ng-maxlength="4" required ng-focus="wr2=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wr2 && myForm.name.$invalid">
+							<saw ng-show="myForm.name.$error.required">用户名是必须的。</saw>
+							<saw ng-show="myForm.name.$error.pattern||myForm.name.$error.maxlength||myForm.name.$error.minlength">请输入您真实得姓名</saw>
+						</div>
+			</div>
+			<div class="c-wr" >
+				<span style="line-height: 40px;">联系电话:</span>
+				<input type="tel" ng-model="contact" name="tel" placeholder="请填写您联系方式" ng-pattern="/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/"   required ng-focus="wr=true" />
+				<div style="color:red; display: inline-block;" ng-show="wr && myForm.tel.$invalid">
+							<saw ng-show="myForm.tel.$error.required">请输入您联系方式</saw>
+							<saw ng-show="myForm.tel.$error.pattern">输入正确得联系方式</saw>
+						</div>
+			</div>
+			<div class="c-wr" style="margin-bottom: 0px;" >
+				<span style="line-height: 40px;">发货地址:</span>
+				<input type="text" ng-model="site" name="site" required placeholder="例:xx省xx市xx区" ng-focus="wr3=true" />
+				<div style="color:red; display: inline-block;" ng-show="wr3 && myForm.site.$invalid">
+							<saw ng-show="myForm.site.$error.required">请输入您发货地址</saw>
+						</div>
+			</div>
+			<div class="c-wr" style="margin-bottom: 0px; margin-top: 20px;">
+				<span></span>
+				<div>
+					<input type="checkbox" checked="checked" disabled="false" style="cursor:pointer;" name="ww" />
+					<k >我已认真阅读招募要求，并同意招募书的要求及规则。</k>
+					</div>
+			</div>
+			<div class="c-wr" style="margin-bottom: 0px;">
+				<span></span>
+				<div>
+					<input type="checkbox" name="ww" disabled="false" style="cursor:pointer;" checked="checked" />
+					<k >可对采购物资完整报价、不漏项。</k>
+				</div>
+			</div>
+			
+			</div>
+<div class="c-wr2" style="margin-top: 50px; padding-bottom: 20px;">
+				<span></span>
+				 <div class="ysa">
+				<div class="tex">
+			<button class="qww unselected" ng-disabled="myForm.name.$dirty && myForm.name.$invalid&&myForm.tel.$dirty && myForm.tel.$invalid"  ng-click="sign()" >报名</button> 
+			<teme style="color: #FF0000;" ng-if="lhif">您对这条招募报过名，不可报名哦</teme>
+				</div>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+
+</div>
+<wo></wo>

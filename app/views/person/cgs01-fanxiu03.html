@@ -1,0 +1,126 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">返修/退换货</h2>
+    </div>
+    <div class="tab_nav2 clear fanxiu">
+        <div class="list"><a href="javascript:;" ui-sref="buyt.cgs01-fanxiu01">申请返修/退换货</a></div>
+        <div class="list ac"><a href="javascript:;">返修/退换货记录</a></div>
+    </div>
+    <div class="content">
+        <div class="m_top fx_box1">
+            <input type="text" class="wb_2 ddhm" placeholder="订单编号" />
+            <span class="s1">下单时间：从 </span>
+            <input type="text" class="laydate-icon wb_2 time1" onclick="laydate()" style="width: 128px;"/>
+            <span class="s1">到</span>
+            <input type="text" class="laydate-icon wb_2 time2" onclick="laydate()" style="width: 128px;" />
+            <span class="s1" style="padding-left:70px;">退换状态:</span>
+            <select class="wb_2" style="width: 100px;">
+                <option>已退款</option>
+            </select>
+            <button type="button" class="search_btn" ng-click="searchFn()">搜索</button>
+        </div>
+        <div class="t_warp th_con" style="width: auto">
+            <div class="row tit_box">
+                <div class="col-xs-2">返修/退换货编号</div>
+                <div class="col-xs-2">订单编号</div>
+                <div class="col-xs-3">商品名称</div>
+                <div class="col-xs-2">申请时间</div>
+                <div class="col-xs-1">退货状态</div>
+                <div class="col-xs-2">操作</div>
+            </div>
+            <div class="item_warp">
+                <div class="con_inner fanxiu3">
+                    <div class="row item_box" ng-repeat="item in data.service.productList">
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{item.serviceCode}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{item.orderCode}}</p>
+                        </div>
+                        <div class="col-xs-3 col_box">
+                            <p class="pp3">{{item.productName}}  </p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="pp4">-</p>
+                            <p class="pp5">-</p>
+                        </div>
+                        <div class="col-xs-1 col_box">
+                            <p class="pp1">-</p>
+                        </div>
+
+                        <div class="col-xs-2 col_box">
+                            <a href="javascript:;" class="btn2 btn1" ui-sref="buyt.cgs01-fanxiu05-chakan"  data-serviceId="{{item.serviceId}}" ng-click="getserviceId($event)">查看</a>
+                            <a href="javascript:;" class="btn3 btn1" ui-sref="buyt.cgs01-fanxiu04-mingxi">退款明细</a>
+                        </div>
+
+                    </div>
+                    <!--<div class="row item_box">-->
+                        <!--<div class="col-xs-2 col_box">-->
+                            <!--<p class="pp1">229667406</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-2 col_box">-->
+                            <!--<p class="pp1">100123123122</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<p class="pp3">商品名称商品名称商品名称商品称商品名称商型号  </p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-2 col_box">-->
+                            <!--<p class="pp4">2017-05-29</p>-->
+                            <!--<p class="pp5">18:48:42</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-1 col_box">-->
+                            <!--<p class="pp1">已完成</p>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs-2 col_box">-->
+                            <!--<a href="javascript:;" class="btn2 btn1">查看</a>-->
+                            <!--<a href="javascript:;" class="btn3 btn1">退款明细</a>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <p ng-show="data.service.count<1" style="text-align: center;line-height: 56px;font-size:15px;color:#999;">没有数据！</p>
+
+        <div class="c_btm clear" style="padding:0 22px 20px;">
+            <!--<p class="page_hint">显示第一页，共36条记录</p>-->
+            <!--<div class="page_box">-->
+                <!--<a href="javascript:;" class="item">上一页</a>-->
+                <!--<a href="javascript:;" class="item ac">1</a>-->
+                <!--<a href="javascript:;" class="item">2</a>-->
+                <!--<span class="s1">...</span>-->
+                <!--<a href="javascript:;" class="item">6</a>-->
+                <!--<input type="text" class="page_txt" />-->
+                <!--<a href="javascript:;" class="item">下一页</a>-->
+
+            <!--</div>-->
+            <div class="box">
+                <div id="pagination2" class="page fl"></div>
+                <div class="info fl">
+                </div>
+            </div>
+            <p class="page_hint">一共{{data.service.count}}条信息，共<span class="page_gong"></span>页</p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<!--常见问题-->
+<!-- <div ng-controller="articlectrl"> -->
+
+<div class="z-cj">
+    <div class="c-tr">
+        <div class="container">
+            <div class="na-l">
+                <img class="img2" src="images/logo2_03.jpg" class="img-responsive" ui-sref="index.op" style="display: inline-block; float: left; margin-top: 10px;  height: 99px; margin-left: 66px; width: auto;" />
+                <div class="mh">
+                    <div class="ss-k">
+                        <input type="text" placeholder="请简单描述您的问题或问题关键词" />
+                    </div>
+                    <div class="sc-an" ui-sref="index.lb"><img src="images/ss-an.png" alt="" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hide_site">
+</div>
+<div class="container">
+    <div class="kp clearfix" style="padding-left: 5px;padding-right: 5px; margin-bottom: 50px">
+        <div class="lef-b" style="width: 48%; margin-right:10px;">
+            <h4>规则</h4>
+            <div class="mad" id="accordion" style="padding-left: 10px;height: 550px;">
+                <li class="panel" ng-repeat="menuGz in ArticleListsGZ">
+                    <span class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{menuGz.id}}" style="border-bottom: 1px dashed #ccc">
+                        <a ui-sref="index.article({articleid:menuGz.id})">[规则]{{menuGz.articleTitle}}</a>
+                        <i style="font-weight: normal; font-style: normal; float: right; color: #ccc;margin-right: 4px">{{menuGz.releaseTime | date:'yyyy-MM-dd HH:mm:ss'}}</i>
+                    </span>
+                </li>
+            </div>
+            <div class="lb-z-feny clearfloat ">
+                <button class="lb-z-syy" ng-click="PreviousGZ()">
+                    上一页
+                </button>
+                <div class="lb-z-ui">
+                    <li ng-repeat="selPageGZ in pageListGZ" ng-click="selectPageGZ(selPageGZ)" ng-class="{'active': activeGZ(selPageGZ)}">{{selPageGZ}}</li>
+                </div>
+                <div class="lb-dot"></div>
+                <button class="lb-z-xyy" id="next" ng-click="selPageGZ >= totalSizeGZ||NextGZ()">下一页</button>
+                <div class="lb-z-tob" style="color:#666">共{{totalSizeGZ}}页 </div>
+            </div>
+        </div>
+        <div class="lef-b" style="width: 48%; margin-right: 0px; float: right;">
+            <h4>公告</h4>
+            <div class="mad" id="accordion" style="height: 550px">
+                <li class="panel" ng-repeat="menuGG in ArticleListsGG">
+                    <span class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{menuGG.id}}" style="border-bottom: 1px dashed #ccc">  
+                    <a ui-sref="index.article({articleid:menuGG.id})">[公告]{{menuGG.articleTitle}}</a>
+                    <i style="font-weight: normal; font-style: normal; float: right; color: #ccc;margin-right: 4px">{{menuGG.releaseTime | date:'yyyy-MM-dd HH:mm:ss'}}</i>
+                    </span>
+                </li>
+            </div>
+            <div class="lb-z-feny clearfloat ">
+                <button class="lb-z-syy" ng-click="Previous()">
+                    上一页
+                </button>
+                <div class="lb-z-ui">
+                    <li ng-repeat="selPageGG in pageList" ng-click="selectPage(selPageGG)" ng-class="{'active': active(selPageGG)}">{{selPageGG}}</li>
+                </div>
+                <div class="lb-dot"></div>
+                <button class="lb-z-xyy" id="next" ng-click="selPageGG >= totalSizeGG||Next()">下一页</button>
+                <div class="lb-z-tob" style="color:#666">共{{totalSizeGG}}页 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

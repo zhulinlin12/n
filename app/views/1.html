@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="ftitApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--<script type='text/javascript' src='../../lib/jquery/dist/jquery.js'></script>-->  
+	<!--<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>-->
+<!--<script type='text/javascript' src='../../lib/angular/angular.js'></script>-->  
+<!--<script type='text/javascript' src='../../lib/ng-infinite-scroll/build/ng-infinite-scroll.min.js'></script>-->  
+	<body>
+
+		<!--<div ng-controller='PostListController'>  
+    <div infinite-scroll='demo.nextPage()' infinite-scroll-disabled='demo.busy' infinite-scroll-distance='1'>  
+        <div ng-repeat='item in demo.items'>  
+            <p>  
+                <input type="hidden" value="{{item.PostId}}" />  
+                <label>{{item.WriterName}}</label>  
+                <label>{{item.WriterMail}}</label>  
+                <label>{{item.WreckerName}}</label>  
+                <label>{{item.StartDate}}</label>  
+                <label>{{item.Location}}</label>  
+                <label>{{item.Story}}</label>  
+            </p>  
+        </div>  
+        <div ng-show='demo.busy'>Loading data...</div>  
+    </div>  
+</div>  
+<div style="overflow: auto; height:30px;width: 300px;">
+dncvjkdfnvkjfnvkjfnv
+dvmkfldv
+dkjvlfkdvkfdnvdkj
+cdlsknvlcs
+</div>-->
+<script>
+	/*var ftitAppModule = angular.module('ftitApp', ['infinite-scroll']).config('$sceDelegateProvider',[function ($sceDelegateProvider){
+		$sceDelegateProvider.resourceUrlBlacklist([
+    'http://192.168.3.95:7002/api/post/nextpage**']);
+	}]).controller('PostListController',   
+    function ($scope, Demo) {  
+        $scope.demo = new Demo();  
+})   
+// 创建后台数据交互工厂  
+.factory('Demo', function ($http,$sce) {  
+    var Demo = function () {  
+        this.items = [];  
+        this.busy = false;  
+        this.after = '';  
+        this.page = 0;  
+    };  
+      
+    Demo.prototype.nextPage = function () {  
+        if (this.busy) return;  
+        this.busy = true;  
+          
+        Demo.url=$sce.trustAsUrl("http://192.168.3.95:7002/api/post/nextpage?id=" + this.page + "&callback=JSON_CALLBACK");
+        $http(
+        	{  method:'JSONP',
+        	   url:Demo.url
+        	}
+        	).then(function (data) {
+            var items = data;  
+            for (var i = 0; i < items.length; i++) {  
+                this.items.push(items[i]);  
+            }  
+            this.after = "t3_" + this.items[this.items.length - 1].id;  
+            this.busy = false;  
+            this.page += 1;  
+        	}.bind(this)
+        );
+    };  
+  
+    return Demo;  
+});  
+
+*/
+	
+</script>
+	</body>
+</html>

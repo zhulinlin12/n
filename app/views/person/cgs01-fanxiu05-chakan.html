@@ -1,0 +1,118 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">返修/退换货记录>>查看</h2>
+    </div>
+    <div class="m_top two">
+        <span class="s1">订单编号：{{data.service.orderCode}}</span>
+        <span class="s1">状态：{{data.service.dealList[0].status}} </span>
+        <span class="s1">申请时间：{{data.service.dealList[0].checkTime}}</span>
+        <p class="p1">
+            本次退货已经处理完毕，希望我们的服务令您满意，感谢您的支持，谢谢！
+        </p>
+        <img src="images/tuihui_jd_03.jpg" alt="" class="jd_pic1">
+
+    </div>
+
+    <div class="content sq_box">
+        <div class="floor">
+            <h2 class="tit_1">进度跟踪</h2>
+            <table class="t_box2">
+                <thead>
+                <tr>
+                    <th>处理时间</th>
+                    <th>处理信息</th>
+                    <th>操作人</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in data.service.dealList">
+                    <td>{{item.createTime}}</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.disposer}}</td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="floor mes">
+            <h2 class="tit_1" style="margin-bottom: 20px;">详细信息</h2>
+            <div class="row">
+                <div class="col-xs-1 tit">退款方式 :</div>
+                <div class="col-xs-10 p3">退回至原支付卡 </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1 tit">处理方式 :</div>
+                <div class="col-xs-10 p3">客户期望处理方式为“退款” ，最终处理方式为“退款”</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1 tit">问题描述 :</div>
+                <div class="col-xs-10 p3">{{data.service.note}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1 tit">取件地址 :</div>
+                <div class="col-xs-10 p3">{{data.service.address}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1 tit">联系信息 :</div>
+                <div class="col-xs-10 p3">联系人：{{data.service.consignee}}     手机：{{data.service.consigneeMoblie}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1 tit">发货单信息 :</div>
+                <div class="col-xs-10 p3">运费信息：{{data.service.deliveryMoney}} (元) 快递公司：中通快递 运单号:{{data.service.deliveryCode}}</div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+    /*
+     * 服务器地址,成功返回,失败返回参数格式依照jquery.ajax习惯;
+     * 其他参数同WebUploader
+     */
+
+    $('#test').diyUpload({
+        url: 'server/fileupload.php',
+        success: function (data) {
+            console.info(data);
+        },
+        error: function (err) {
+            console.info(err);
+        }
+    });
+
+    $('#as').diyUpload({
+        url: 'server/fileupload.php',
+        success: function (data) {
+            console.info(data);
+        },
+        error: function (err) {
+            console.info(err);
+        },
+        buttonText: '选择文件',
+        chunked: true,
+        // 分片大小
+        chunkSize: 512 * 1024,
+        //最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
+        fileNumLimit: 50,
+        fileSizeLimit: 500000 * 1024,
+        fileSingleSizeLimit: 50000 * 1024,
+        accept: {}
+    });
+</script>
+
+
+
+
+
+

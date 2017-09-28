@@ -1,0 +1,343 @@
+<div ng-controller="shopCar">
+	<div id="tank" ng-if="tank">
+		<div class="mod-bg"></div>
+		<div class="mod-dialog" style="left: 591.5px; top: 140.5px; display: block;">
+			<div class="dialog-nav"><span class="dialog-title">删除货品</span>
+				<a ng-click="qx()" class="dialog-close">&#10006</a>
+			</div>
+			<div class="dialog-main">
+				<div class="dialog-content">
+					<p>确认要删除该货品？</p>
+				</div>
+				<div class="dialog-console clearfix_new">
+					<a class="console-btn-cancel" ng-click="qx()">取消</a>
+					<a class="console-btn-confirm" ng-click="del()">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="guowuche">
+		<div class="c-tr">
+			<div class="container">
+				<div class="na-l">
+					<img class="img2" ui-sref="index.op" src="images/logo2_03.jpg" />
+                <div class="sr clearfix" style=" width:700px; height:50px;margin: auto;">
+                    <search></search>
+                </div>
+				</div>
+				<div>
+					<div class="sp-lb">
+						<div class="sma"><span>我的采购车</span>
+							<shu>({{cart.count}})</shu>
+						</div>
+						<!--<bnt ng-click="checkStatus()" style="cursor: pointer; display: none;">批量下单</bnt>-->
+					</div>
+
+					<!--{{cart}}-->
+					<div ng-show="cart.count>0">
+						<div class="mw">
+							<div class="pagt">
+								<h><input class="check goods-check" type="checkbox" id="selectAll" /></h><span>全选</span></div>
+							<li>货品</li>
+							<li>单价(元)</li>
+							<li>数量</li>
+							<li>金额(元)</li>
+							<li>操作</li>
+						</div>
+						<div class="wup">
+							<div class="wp-box" ng-repeat="ct  in arr" is-over="toggle.now">
+								<had>
+									<h><input class="check goods-check shopcheck" type="checkbox" onclick="shopCheck(this)" /></h>
+									<span>{{ct.shopName}}</span>
+								</had>
+								<div class="wupin" ng-repeat="wp in ct.detailList" ng-class="{'losebj':wp.saleStatus!=1}">
+									<h ng-show="wp.saleStatus==1"><input class="check goods-check" ng-class="{'goodsCheck':wp.saleStatus==1}" type="checkbox" onclick="goodsCheck(this) " />
+										<input type="hidden" shopm="{{ct}}" merchandise="{{wp}}" />
+									</h>
+									<div class="lose" ng-show="wp.saleStatus!=1">失效</div>
+									<div class="img">
+										<a ui-sref="index.xq({id:wp.productId})" target="_blank"><img ng-src="{{wp.imageUrl}}" alt="" /></a>
+									</div>
+									<div class="wenzi">
+										<a ui-sref="index.xq({id:wp.productId})" target="_blank">{{wp.productName}}</a>
+									</div>
+									<span class="zllnum">
+						<div ng-repeat="pri in  wp.priceList" class="sop" ng-class="{'nonx':pri.zid}" style="height: 30px;">{{pri.changeRule}}  价格为：<sop> {{pri.price}}</sop></div>					
+						</span>
+									<div class="mp-a" ng-if="wp.saleStatus==1" style="background: none; width:180px; border: none;">
+										<div class="mp-a" style="margin-left: 0px;">
+										<button class="reduce" ng-click="reduce(wp.count,wp,ct,-1)">－</button>
+										<shul title="{{wp.count}}"><input type="text" ng-model="wp.count" ng-keyup="uop($index,$parent.$index,wp.count)"  ng-blur="lose(wp.count,wp,ct)" /></shul>
+										<button class="plus" ng-click="reduce(wp.count,wp,ct,1)">+</button>
+										</div>
+										<br />
+										<br />
+									<span class="lk" style="color:#262626;">物品总供应量为{{wp.stockSize}}</span>
+									</div>
+										
+										<div class="losemp" ng-if="wp.saleStatus!=1" >
+										<shul>{{wp.count}}</shul>
+									</div>
+									<div class="price_total">
+										{{wp.subtotal}}
+									</div>
+									<div class="cz">
+										<sp ng-click="remove(wp,ct,$index,$parent.$index)">删除</sp>
+										<!--	<sc>收藏</sc>-->
+									</div>
+								</div>
+								<div class="dib" ng-if="arr.length!=1">
+									<!--<div class="pagt" >							
+							</div>-->
+									<!--<samp ng-click="remove(ct)">删除选中的货品</samp>-->
+									<div class="r-bo" style="margin-right: 120px;">
+										<lp>
+											<mk class="Shopnumber">0</mk>件货品,共计(不含运费):
+											<ja>￥<span class="ShopTotal"> 0.00</span>元</ja>
+										</lp>
+										<!--<que ui-sref="index.order">确认下单</que>-->
+									</div>
+								</div>
+							</div>
+							<div id="hide_site">
+							</div>
+							<div class="dib" id="foot_layout" style="margin-top: 0px;">
+								<div class="pagt">
+									<h><input class="check goods-check" type="checkbox" id="selectqll" style="margin-top: 20px;" /></h><span>全选</span></div>
+								<!--<samp ng-click="remove(ct)">删除选中的货品</samp>-->
+								<div class="r-bo">
+									<lp>
+										<mk class="Zhopnumber">0</mk>件货品,共计(不含运费):
+										<ja>￥<span class="ZhopTotal"> 0.00</span>元</ja>
+									</lp>
+									<que class="oder" ng-click="place()">确认下单</que>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mj-t" ng-show="cart.count==0">
+						<div class="mj-cent">
+							<div class="mj-img">
+								<img src="images/zlllgwc.png" alt="" />
+							</div>
+							<div class="mg-kl">
+								<h3>您的采购车还是空的，赶紧行动吧!</h3>
+								<p>
+									<a href="#!index.op">去首页</a>
+									，挑选感兴趣的货品
+								</p>
+							</div>
+							<div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		window.onscroll = function() {
+			footview(706)
+		}
+
+		function footview(shu) {
+			//console.log(document.getElementById("hide_site").offsetTop)
+			var noneSite = document.getElementById("hide_site").offsetTop - shu;
+			//减去底部高度（706）根据页面实际情况调整 如果这里不会调可以联系博主QQ285679784
+			var nowSite = document.body.scrollTop + document.documentElement.scrollTop;
+			//	$(".zllyes").html("隐藏位置:" + (noneSite) + "px,当前位置:" + nowSite + "px" +document.getElementById("hide_site").offsetTop);
+			if(nowSite <= noneSite) {
+				//console.log('ppp')
+				//$('#foot_layout').removeClass('foot_ch');
+				$('#foot_layout').addClass('foot_ch');
+			} else {
+				//console.log('356')
+				$('#foot_layout').removeClass('foot_ch');
+				//$('#foot_layout').addClass('full_screen_no');
+			}
+		}
+
+		function shopCheck(a) {
+			if($(a).prop("checked") == true) {
+				$(a).parents(".wp-box").find(".goods-check").prop('checked', true);
+				if($(".shopcheck").length == $(".shopcheck:checked").length) {
+					$("#selectAll").prop('checked', true);
+					$("#selectqll").prop('checked', true);
+					TotalPrice();
+				} else {
+					$("#selectAll").prop('checked', false);
+					$("#selectqll").prop('checked', false);
+				}
+			} else {
+				$(a).parents(".wp-box").find(".goods-check").prop('checked', false);
+			}
+			if($(".shopcheck").length != $(".shopcheck:checked").length) {
+				$("#selectAll").prop('checked', false);
+				$("#selectqll").prop('checked', false);
+				TotalPrice();
+			} else {
+				$("#selectAll").prop('checked', true);
+				$("#selectqll").prop('checked', true);
+				TotalPrice();
+			}
+		}
+
+		function goodsCheck(obj) {
+			//获取本店铺的所有商品
+			var goods = $(obj).closest(".wp-box").find(".goodsCheck");
+			//获取本店铺所有被选中的商品
+			var goodsC = $(obj).closest(".wp-box").find(".goodsCheck:checked");
+			//获取本店铺的全选按钮
+			var Shops = $(obj).closest(".wp-box").find(".shopcheck");
+			if(goods.length == goodsC.length) {
+				//店铺全选按钮被选中
+				Shops.prop('checked', true);
+				//如果店铺被选中的数量等于店铺所有的数量
+				if($('.shopcheck').length == $('.shopcheck:checked').length) {
+					$("#selectAll").prop('checked', true);
+					$("#selectqll").prop('checked', true);
+					TotalPrice();
+				} else {
+					$("#selectAll").prop('checked', false);
+					$("#selectqll").prop('checked', false);
+					TotalPrice();
+				}
+			} else {
+				Shops.prop('checked', false);
+				$("#selectAll").prop('checked', false);
+				$("#selectqll").prop('checked', false);
+				TotalPrice();
+			}
+		}
+
+		//全选
+		$("#selectAll").click(function() {
+			if($(this).prop("checked") == true) { //如果全选按钮被选中
+				$(".goods-check").prop('checked', true); //所有按钮都被选中
+				$("#selectqll").prop('checked', true);
+				TotalPrice();
+			} else {
+				$(".goods-check").prop('checked', false); //else所有按钮不全选
+				$("#selectqll").prop('checked', false);
+				TotalPrice();
+			}
+		});
+		//全选
+		$("#selectqll").click(function() {
+			if($(this).prop("checked") == true) { //如果全选按钮被选中
+				$(".goods-check").prop('checked', true); //所有按钮都被选中
+				$("#selectAll").prop('checked', true);
+				TotalPrice();
+			} else {
+				$(".goods-check").prop('checked', false); //else所有按钮不全选
+
+				$("#selectAll").prop('checked', false);
+				TotalPrice();
+			}
+		});
+		//计算
+		function TotalPrice() {
+			//循环每个店铺
+			$(".wp-box").each(function() {
+				//店铺的总价
+				var storePrice = 0;
+				var num = 0;
+				//循环店铺里的所有商品
+				$(this).find(".goodsCheck").each(function() {
+					if($(this).is(":checked")) {
+						num = num + 1
+							//数量
+							//var num = parseInt($(this).parents(".wupin").find(".num").val());
+						var price = parseFloat($(this).parents(".wupin").find(".price_total").text());
+						var total = Number(price);
+						storePrice += Number(total);
+						//	$(this).closest('.wp-box').find('.ShopTotal').text(storePrice.toFixed(2));
+						console.log(num)
+					}
+					$(this).closest('.wp-box').find('.ShopTotal').text(storePrice.toFixed(2));
+					$(this).closest('.wp-box').find('.Shopnumber').text(num);
+				});
+			});
+			var znum = 0;
+			var zprice = 0;
+			$(".goodsCheck").each(function() {
+				if($(this).is(":checked")) {
+					znum = znum + 1
+					var pricew = parseFloat($(this).parents(".wupin").find(".price_total").text());
+					var totalz = Number(pricew);
+					zprice += Number(totalz);
+				}
+
+			})
+			$('.ZhopTotal').text(zprice.toFixed(2));
+			$('.Zhopnumber').text(znum);
+		}
+
+		//加
+		function addClick(c) {
+			//加数量
+			var t = $(c).parent().find('.num');
+			t.val(parseInt(t.val()) + 1);
+
+			//本店铺所有商品
+			var goods = $(c).closest(".wp-box").find(".goodsCheck");
+			console.log(goods.length);
+			$(c).parents('.wupin').find('.goods-check').prop('checked', true);
+			//获取本店铺所有被选中的商品
+			var goodsC = $(c).closest(".wp-box").find(".goodsCheck:checked");
+			console.log(goodsC.length);
+			//获取本店铺的全选按钮
+			var Shops = $(c).closest(".wp-box").find(".shopcheck");
+			if(goods.length == goodsC.length) {
+				//店铺全选按钮被选中
+				Shops.prop('checked', true);
+				if($('.shopcheck').length == $('.shopcheck:checked').length) {
+					$("#selectAll").prop('checked', true);
+					TotalPrice();
+				} else {
+					$("#selectAll").prop('checked', false);
+					TotalPrice();
+				}
+			} else {
+				Shops.prop('checked', false);
+				$("#selectAll").prop('checked', false);
+				TotalPrice();
+			}
+			TotalPrice();
+		}
+		//减
+		function signClick(b) {
+			var t = $(b).parent().find('.num');
+			t.val(parseInt(t.val()) - 1);
+			var count = t.val();
+			if(count <= 1) {
+				t.val(1);
+			}
+			//本店铺所有商品
+			var goods = $(b).closest(".wp-box").find(".goodsCheck");
+			console.log(goods.length);
+			$(b).parents('.wupin').find('.goods-check').prop('checked', true);
+			//获取本店铺所有被选中的商品
+			var goodsC = $(b).closest(".wp-box").find(".goodsCheck:checked");
+			console.log(goodsC.length);
+			//获取本店铺的全选按钮
+			var Shops = $(b).closest(".wp-box").find(".shopcheck");
+			if(goods.length == goodsC.length) {
+				//店铺全选按钮被选中
+				Shops.prop('checked', true);
+				if($('.shopcheck').length == $('.shopcheck:checked').length) {
+					$("#selectAll").prop('checked', true);
+					TotalPrice();
+				} else {
+					$("#selectAll").prop('checked', false);
+					TotalPrice();
+				}
+			} else {
+				Shops.prop('checked', false);
+				$("#selectAll").prop('checked', false);
+				TotalPrice();
+			}
+			TotalPrice();
+		}
+	</script>

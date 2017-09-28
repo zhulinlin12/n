@@ -1,0 +1,88 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">商品评价</h2>
+        <a href="javascript:;" class="a2" ui-sref="index.op">去首页,挑选感兴趣的商品 >></a>
+    </div>
+    <div class="tab_nav2 clear fanxiu">
+        <div class="list ac"><a href="javascript:;">未评价订单 </a></div>
+        <div class="list"><a href="javascript:;" ui-sref="buyt.cgs01-shangpinpingjia2">已评价订单 </a></div>
+    </div>
+    <div class="content">
+
+        <div class="t_warp th_con" style="width: auto">
+            <div class="row tit_box">
+                <div class="col-xs-5">订单详情</div>
+                <div class="col-xs-3">收货人</div>
+                <div class="col-xs-2">金额</div>
+                <div class="col-xs-2">操作</div>
+            </div>
+            <div class="item_warp">
+                <div class="con_inner fanxiu3" ng-repeat="item in data.evaluate.orderList">
+                    <div class="txt_box">
+                        <span class="s1">{{item.createTime}}</span>
+                        <span class="s1">单号：{{item.orderCode}}</span>
+                    </div>
+                    <div class="row item_box">
+                        <div class="col-xs-5 col_box">
+                            <div class="mes_box">
+                                <img ng-src="{{item.productList[0].imageUrl}}" alt="" class="pic2">
+                                <span class="txt1">{{item.productList[0].productName}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col_box">
+                            <p class="pp1">{{item.consignee}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{item.payTotal}}</p>
+                        </div>
+
+                        <div class="col-xs-2 col_box">
+                            <a href="javascript:;" class="btn4 btn1">订单详情</a>
+                            <a href="javascript:;" class="btn5 btn1">评价</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="c_btm clear" style="padding:0 22px 20px;">
+            <!--<p class="page_hint">显示第一页，共36条记录</p>-->
+            <!--<div class="page_box">-->
+                <!--<a href="javascript:;" class="item">上一页</a>-->
+                <!--<a href="javascript:;" class="item ac">1</a>-->
+                <!--<a href="javascript:;" class="item">2</a>-->
+                <!--<span class="s1">...</span>-->
+                <!--<a href="javascript:;" class="item">6</a>-->
+                <!--<input type="text" class="page_txt" />-->
+                <!--<a href="javascript:;" class="item">下一页</a>-->
+
+            <!--</div>-->
+            <div class="box">
+                <div id="pagination2" class="page fl"></div>
+                <div class="info fl">
+                </div>
+            </div>
+            <p class="page_hint">一共{{data.evaluate.count}}条信息，共<span class="page_gong"></span>页</p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

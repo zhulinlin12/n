@@ -1,0 +1,107 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">售后订单处理</h2>
+        <p class="a2">去商品管理上架商品吧>></p>
+    </div>
+    <div class="m_top">
+        <input type="text" class="wb_2 ddhm" placeholder="搜索订单编号" />
+        <span class="s1">　　从</span>
+        <input type="text" class="laydate-icon wb_2 time1" onclick="laydate()" style="width: 168px;"/>
+        <span class="s1">到</span>
+        <input type="text" class="laydate-icon wb_2 time2" onclick="laydate()" style="width: 168px;" />
+        <span class="s1">状态</span>
+        <select class="wb_2" style="width: 110px;">
+            <option>申请退款</option>
+        </select>
+
+        <button type="button" class="search_btn" ng-click="searchFn()">查询</button>
+    </div>
+
+    <div class="content" id="cgdd">
+
+        <div class="t_warp">
+            <div class="row tit_box">
+                <div class="col-xs-2">订单编号</div>
+                <div class="col-xs-1">时间</div>
+                <div class="col-xs-2">商品名称</div>
+                <div class="col-xs-3">采购商</div>
+                <div class="col-xs-2">商品金额</div>
+                <div class="col-xs-2">操作</div>
+
+            </div>
+            <div class="item_warp">
+                <div class="con_inner">
+                    <div class="row item_box" ng-repeat="item in data.service.serviceList">
+                        <div class="col-xs-2 col_box">
+                            <p class="p1">{{item.orderCode}}</p>
+                        </div>
+                        <div class="col-xs-1 col_box">
+                            <p class="p6">{{item.createTime}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="p5">{{item.productName}}</p>
+                        </div>
+                        <div class="col-xs-3 col_box">
+                            <p class="p1">{{item.shopName}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="p1">{{item.serviceMoney}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <div class="btn_box">
+                                <a href="javascript:;" class="btn1" data-type="{{item.orderId}}" ng-click="getYimaichuId($event)" ui-sref="buyt.mjds01-shouhoudingdan-xq">立即处理</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!--<script>-->
+                <!--$('.pj_con .btn2').on('click',function(){-->
+                    <!--$('.pj_con .hf_box').hide();-->
+                    <!--$(this).parent().next().show();-->
+                <!--})-->
+                <!--$('.pj_con .close').on('click',function(){-->
+                    <!--$(this).parents('.pj_con .hf_box').hide();-->
+                <!--})-->
+            <!--</script>-->
+
+
+        </div>
+        <p ng-show="data.service.count<1" style="text-align: center;line-height: 56px;font-size:15px;color:#999;">没有数据！</p>
+
+        <div class="page_box2 clear">
+            <!--<div class="page">-->
+                <!--<a href="javascript:;" class="item"><<</a>-->
+                <!--<a href="javascript:;" class="item ac">1</a>-->
+                <!--<a href="javascript:;" class="item">2</a>-->
+                <!--<a href="javascript:;" class="item">3</a>-->
+                <!--<a href="javascript:;" class="item">>></a>-->
+            <!--</div>-->
+            <div class="box">
+                <div id="pagination2" class="page fl"></div>
+                <div class="info fl">
+                </div>
+            </div>
+            <p class="page_hint">显示第{{page_num1}}页，共{{data.service.count}}条记录</p>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

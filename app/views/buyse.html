@@ -1,0 +1,152 @@
+<div class="c-tr" ng-controller="receipt">
+<div class="container">
+		<!--头部-->
+			<div class="header-one">
+				<div class="logo">
+					<img src="images/logo2_03.jpg" ui-sref="index.op" style="height: 99px; margin-top: 20px;margin-left: 66px;"/>
+				</div>
+				<!--<div id="bb">
+					<ul class=" pull-right lct">
+						<li class="bla">
+							<span>1</span>
+						</li>
+						<li  class="bla">
+							<span>2</span>
+						</li>
+						<li  class="bla"><span>3</span></li>
+						<li class="bla"><span>4</span></li>
+						<li class="bsl"><span>5</span></li>
+						<li><span>6</span></li>
+					</ul>
+					<ul class="pull-right lct-x">
+						<li class="lct-x-2" >买家下单</li>
+						<li class="lct-x-2">卖家确认订单</li>
+						<li class="lct-x-2">买家付款</li>
+						<li class="lct-x-2">卖家发货</li>
+						<li class="lct-x-1">确认收货</li>
+						<li ui-sref="index.pj">交易成功</li>
+					</ul>
+				</div>-->
+			</div>
+			<!--下面-->
+			<!--第一个-->
+			<div ng-if="opiu">
+			<div class="mj-message" id="mj-1"   style="height: auto; padding-bottom: 30px;"> 
+				<p class="message" style="margin-bottom: 0;">
+					<b>订单信息</b>
+				</p>
+				<div  class="clearfix" id="dingdan1" style="padding-left: 0px;  padding-right: 0px;">
+			<div class="ddbh1" style="height: 50px;line-height: 50px; ">
+				 <span id="dingdan2">
+					订单编号：<b ng-bind="oder.orderCode">{{oder.orderCode}}</b>
+				</span>
+				<span ng-if="oder.companyName!=''">卖家：{{oder.companyName}}</span>
+				<span>联系人：{{oder.consignee}}</span>
+				<span>联系方式：{{oder.consigneeMoblie}}</span>
+			</div>
+			<div class="zll-pui">
+				<ul  class="col-lg-12 ci-op lkiu">
+					<li class="col-lg-3" style="border-left: none;">商品信息</li>
+					<li class="col-lg-1">单价（元）</li>
+					<li class="col-lg-1">数量</li>
+					<li class="col-lg-1">金额</li>
+					<li class="col-lg-1">运费（元）</li>
+					<li class="col-lg-2">订单总金额（元）</li>
+					<li class="col-lg-1">商品状态</li>
+					<li class="col-lg-2">实际交易金额（元）</li>
+					
+				</ul>
+				<ul  class="col-lg-12 ci-op" style="height: 160px;"  ng-class="{'bn-bl':$index==0}" ng-repeat="item in oder.productList">
+					<li class="col-lg-3" style="border-left: none;"><dl class="dl-zlw">
+							<dt><img ng-src="{{item.imageUrl}}" style="width: 100%;height: 100%;"/></dt>
+							<dd>{{item.productName}}</dd>
+						</dl></li>
+					<li class="col-lg-1">{{item.price}}元</li>
+					<li class="col-lg-1">{{item.count}}</li>
+					<li class="col-lg-1">{{item.amount}}</li>
+					<li class="col-lg-1" ><span ng-if="oder.freight!=''">{{oder.freight}}</span><span ng-if="oder.freight==''">0.00</span></li>
+				
+					<li class="col-lg-2">{{oder.payAmount}}</li>
+					<li class="col-lg-1"> <p class="p4" ng-if="item.status==80">交易失败</p>
+                            <p class="p4" ng-if="item.status==82">等待付款</p>
+                            <p class="p4" ng-if="item.status==83">已付款</p>
+                            <p class="p4" ng-if="item.status==84">待确认</p>
+                            <p class="p4" ng-if="item.status==85">未收货</p>
+                             <p class="p4" ng-if="item.status==86">支付待确认</p>
+                            <p class="p4" ng-if="item.status==87">已收货</p>
+                            <p class="p4" ng-if="item.status==88">交易成功</p>
+                             <p class="p4" ng-if="item.status==89">交易过期</p>
+                              <p class="p4" ng-if="item.status==90">退款中</p>
+                               <p class="p4" ng-if="item.status==91">退款成功</p>
+                                <p class="p4" ng-if="item.status==92">已取消订单</p></li>
+					<li class="col-lg-2">{{oder.totalAmount}}</li>
+					
+				</ul>
+				
+		
+				</div>
+				
+				
+			</div>
+		
+			
+			</div>
+			<!--第二个-->
+			<div class="mj-message" id="mj-2" ng-if="item.status==85||item.status==87||item.status==88||item.status==89||item.status==90||item.status==91"> 
+				<p class="message">
+					<b>收货和物流信息</b>
+				</p>
+				
+			</div>
+			<!--第三个-->
+			<div class="mj-message" id="mj-3" style="height: auto; min-height: 360px;"> 
+				<p class="message">
+					<b>订单操作信息</b>
+				</p>
+				<div class="z-ddan">
+				
+				<p ng-repeat="op in oder.locus">{{op.createTime}}:
+					<span ng-if="op.opType=='CONFIRM_PAY'">确认付款</span>
+					<span ng-if="op.opType=='MODITY_PRICE'">确认订单</span>
+					<span ng-if="op.opType=='CREATE_ORDER'">确认下单</span>
+					<span ng-if="op.opType=='DELIVERY_GOODS'">确认发货</span>
+					<span ng-if="op.opType=='CANCELLATION_ORDER'">取消订单</span>
+					<span ng-if="op.opType=='COMPLETION_GOODS'">确认收货</span>
+					<span ng-if="op.opType=='ORDER_EXPIRATION'">交易过期</span>
+
+					
+				</p>
+				</div>
+			</div>
+			</div>
+			<div ng-if="opwr"> 客官，现在网络繁忙，请稍候再试 ！ </div>
+		</div>
+		</div>
+		<style>
+					.bn-bl{
+						border-top: none;
+					}
+					.zlopwe{
+						display: block; margin: auto; width:180px; height: 40px; background: #EAEAEA; margin-top: 20px; border-radius: 4px; border:none; color: #FFFFFF;
+					}
+					.zlopte{
+						background: #006CFF;
+					}
+					.z-ddan{
+						width:100%;
+						min-height: 200px;
+						height: auto;
+						padding: 10px;
+						padding-left: 40px;
+						letter-spacing: 2px;
+						margin-top: 30px;
+						
+					}
+					.z-ddan p{
+						color: #666666;
+						font-size: 14px;
+					}
+					.z-ddan p span{
+						color: #000000;
+					}
+				</style>

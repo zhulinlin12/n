@@ -1,0 +1,15 @@
+<div class="zh-ma" ng-controller="findPasswordsCtrl">
+	<div class="container">
+		<p style="color: #666666; margin-top: 30px;">请您输入您要找会密码的用户名</p>
+		<form action="" id="retrieve-form">
+			<div style="color:#666666">
+				登录名：<input type="text" name="" id="" value="{{phoneNum}}"  ng-model="phoneNum" placeholder="手机/邮箱/会员名" style="height: 40px;width: 270px;padding-left: 10px;" />
+			</div>
+			<div for="" style="color:#666666">
+				&nbsp;&nbsp;&nbsp;验证：<button type="submit" style="height: 40px;width: 240px;background: #7ac23c;border:none;color: #FFFFFF;">验证通过</button><span style="display:inline-block;width: 40px;height:40px;border: 1px solid #EBEBEB;position:relative;top:15px"></span>
+			</div>
+			<!-- <button type="submit" class="true1" style="position: relative;left:55px" ng-click="getAdmin()"   ui-sref="logintou.czmm({id:phoneNum})">确定</button> -->
+			<button type="submit" class="true1" style="position: relative;left:55px" ui-sref="logintou.czmm({id:phoneNum})">确定</button>
+		</form>
+	</div>
+</div>

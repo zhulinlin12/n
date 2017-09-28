@@ -1,0 +1,40 @@
+<div class="cy-yz" ng-controller="resetPassword">
+    <div class="cett">
+        <div class="qwe">
+            <div class="yq">1</div>
+            <div class="zt"></div>
+            <div class="yq gay">2</div>
+            <div class="zt"></div>
+            <div class="yq gay">✔</div>
+        </div>
+        <div class="qwe">
+            <li class="ys" style="margin-left: 0px;">验证身份</li>
+            <li>重置登录</li>
+            <li>密码重置成功</li>
+        </div>
+        <div class="cz-kz">
+            <div class="hed">您正在使用<span class="ys">验证短信</span>进行校验</div>
+            <div class="yz">
+                <p>手机号码<span>{{phoneNum | to_faleNum}}</span></p>
+                <form name="randomForm" nclass="jzy" novalidate>
+                    校验码
+
+                    <input type="text" name="random" style="border: 1px solid #ccc;width:200px; height: 40px;" ng-model="randomNum" required ng-pattern="/^\d{6,}$/" ng-blur="random=true">
+                    <button ng-click="getkey($event.target)" style="width:100px; color: #FFFFFF; height: 40px; background: #006CFF; border: 1px solid #EBEBEB; outline: none;">{{buttonText}}</button>
+
+                    <span style="color:red" ng-show="randomForm.random.$invalid && random">
+  						<span ng-show="randomForm.random.$error.required">请输入验证码。</span>
+                    	<span ng-show="randomForm.random.$error.pattern">您输入的验证码有误，请核对正确后再次输入</span>
+                	</span>
+                </form>
+               
+                <h5 id="messErrInfo" style="color: #ee2e2c; margin-left: 54px;">&nbsp;</h5>
+
+                <div class="cz-d">
+                    <button class="cz-xb" ng-click="!randomNum || getStatus(randomNum)">下一步</button>
+                    <!-- <div class="cz-cx">重新选择验证方式</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

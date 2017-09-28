@@ -1,0 +1,146 @@
+<div class="perf-infor perf-lw" >
+	<div class="title">公司信息完善(<span style="display: inline-block; height: 30px;  color: orangered; line-height: 30px; " ng-bind="starus">{{starus}}</span>)</div>
+	<div class="main" ng-show="lzut">
+		<form name="cyForm" ng-submit="cyInfoSubmit()">
+		<div class="designation clearfix">
+			<p><span>*</span>企业名称：</p>
+			<input type="text" name="qyname" ng-model="qyname" maxlength="30" required ng-focus="nameFocus = true"/>
+			<span class="error-hint" ng-show="cyForm.qyname.$error.required && nameFocus">请输入企业的名称</span>
+		</div>
+		<input type="hidden" ng-model="infoData" />
+		<div class="type clearfix">
+			<p><span>*</span>企业类型：</p>
+			<select name="qytype" ng-model="qyt" ng-change="qytyer(qyt)"   ng-options="qytype.code as qytype.name for qytype in qyTypeData.baseCode">
+				<option value="">请选择</option>
+			</select>
+		</div>
+		<div class="pattern clearfix">
+			<p><span>*</span>经营模式：</p>
+			<div style="float: left;">
+				<ul>
+					<li ng-repeat="patters in patternData.baseCode" ng-click="patternSelect($index+1)" ng-class="{active: pattersId == $index+1}">
+						<input type="radio" name="patterns" value="{{patters.code}}" mg-model="patters.code" ng-checked ="pattersId == $index+1"/>
+						<em>{{ patters.name }}</em>
+					</li>
+					<!--<li ng-repeat="patters in patternData.baseCode" ng-class="{}">
+						<input type="radio" name="{{ patters.name }}" id="patters.code" ng-checked ="ischecked(patters.id)" ng-click="updateCheck($event,patters.id)"/>
+						<em>{{ patters.name }}</em>
+					</li>-->
+				</ul>	
+			</div>
+			<span class="error-hint" ng-show="checkboxHint">请选择公司的经营模式</span>
+		</div>
+		<div class="license clearfix">
+			<p><span>*</span>经营执照：</p>
+			
+			<div class="license-file" >
+				
+				<div class="file-upload" style="position: relative;">
+					<input type="file" id="one-input" name="pic" accept="images/*" title=" " onchange="angular.element(this).scope().img_upload(this.files)"/>
+					<div class="f-status">+</div>
+					<div class="images-upload" style="position: absolute; top:0px; left:0px;">
+                    <img ng-show="zhmian" ng-src="{{zhmian}}" style="width:80px; height: 80px; display: block;"/>
+                    
+				</div>
+				</div>
+			</div>
+			<!--<div class="license-file" >
+				
+				<div class="file-upload" style="position: relative;">
+					<input type="file" id="one-input" name="pic" accept="images/*" title=" " onchange="angular.element(this).scope().img_upload2(this.files)"/>
+					<div class="f-status">+</div>
+					<div class="images-upload" style="position: absolute; top:0px; left:0px;">
+                    <img ng-show="zhmian2" ng-src="{{zhmian2}}" style="width:80px; height: 80px; display: block;"/>
+                 
+				</div>
+				</div>
+			</div>-->
+			<ol style="float: left;">
+				<li>1.业务认证须提供有效期3个月以上的营业执照</li>
+				<li>2.请保证营业执照上的信息清晰可见</li>
+				<li>3.支持jpg,png,gif,文件不超过6MB</li>
+			</ol>
+			<span class="error-hint" ng-show="form.length < 2 && picHint">请上传您的营业执照</span>
+		</div>
+		<div class="sale clearfix">
+			<p><span></span>销售产品：</p>
+			<ul>
+				<li ng-repeat="shop in promoting track by $index"><input title="{{shop.picUrl}}" maxlength="10" type="text" ng-model="shop.picUrl" /></li>
+				<!--<li ng-repeat="sell in sellData" ng-class="{active: isSelected(sell.id)}">
+					<input type="checkbox" id={{sell.id}} name="{{sell.name}}" ng-checked="isSelected(sell.id)" ng-click="updateSelection($event,sell.id)">
+					<em>{{ sell.name }}</em>
+				</li>-->
+				<div class="dsjia" ng-click="jo()">+</div>
+			</ul>
+		</div>
+		<div class="sale clearfix">
+			<p><span></span>采购产品：</p>
+			<ul>
+				<li ng-repeat="sho2 in products track by $index"><input title="{{sho2.picUrl}}" maxlength="10"  type="text" ng-model="sho2.picUrl" /></li>
+				<!--<li ng-repeat="purc in purcData" ng-class="{active: isSelecteds(purc.id)}">
+					<input type="checkbox" id={{purc.id}} name="{{purc.name}}" ng-checked="isSelecteds(purc.id)" ng-click="updateSelections($event,purc.id)">
+					<em>{{ purc.name }}</em>
+				</li>-->
+				<div class="dsjia" ng-click="prod()">+</div>
+			</ul>
+		</div>
+		<div class="address clearfix">
+			<p><span>*</span>经营地址：</p>
+			<select name="province" ng-model="province" ng-change="provinceSelect($index, province)" ng-options="province.code as province.name for province in provinceData.baseCode">
+				<option value="">请选择</option>
+			</select>
+			<select name="city" ng-model="city" ng-change="citySelect($index, city)" ng-options="city.code as city.name for city in cityData.baseCode">
+				<option value="">请选择</option>
+			</select>
+			<select name="county" ng-show="countyData.baseCode!=''" ng-model="county" ng-change="county3(county)" ng-options="county.code as county.name for county in countyData.baseCode">
+				<option value="">请选择</option>
+			</select>
+		</div>
+		<div class="intro clearfix">
+			<p><span>*</span>公司介绍：</p>
+			<textarea name="qyintro" ng-model="qyintro" maxlength="500"  placeholder="请输入您对公司做简单的介绍，字数不超过500字。" required ng-focus="introFocus = true"></textarea>
+			<span class="error-hint" ng-show="cyForm.qyintro.$error.required && introFocus">请对您的公司做一介绍</span>
+		</div>
+		<div class="zb clearfix">
+			<p>注册资本：</p>
+			<input type="text" maxlength="20" ng-keyup="uop(zb)"  name="zb" ng-model="zb"/><span style="display: inline-block; margin-left: 5px; line-height: 30px; color: #000000;">万</span>
+		</div>
+		<div class="establish clearfix">
+			<p><span>*</span>注册时间：</p>
+			<input def-calendata type="text" style="width:360px;" datw="30" id="start" name="establish" ng-model="establish" required ng-focus="establishFocus = true" class="laydate-icon" readonly/>
+		
+			<span class="error-hint" ng-show="cyForm.establish.$error.required && establishFocus">请输入公司的注册时间</span>
+		</div>
+		<div class="regist clearfix"  style="display: none; opacity: 0;">
+			<p><span>*</span>注册时间：</p>
+			<input def-calendata type="text" style="width:360px;" id="end" name="regist" ng-model="regist" required ng-focus="registFocus = true" class="laydate-icon" readonly/>
+			<span class="error-hint" ng-show="cyForm.regist.$error.required && registFocus">请输入公司的注册时间</span>
+		</div>
+		<div class="registAddress clearfix">
+			<p><span>*</span>注册地址：</p>
+			<input type="text" name="registAddress" maxlength="100" ng-model="registAddress" required ng-focus="addressFocus = true"/>
+			<span class="error-hint" ng-show="cyForm.registAddress.$error.required && addressFocus">请输入公司的注册地址</span>
+		</div>
+		<div class="person clearfix">
+			<p><span>*</span>联系人：</p>
+			<input type="text" name="person" ng-model="person" required ng-focus="personFocus = true" ng-pattern="/[\u4E00-\u9FA5]/" ng-minlength="1" />
+			<span ng-show="cyForm.person.$invalid && personFocus">
+				<span class="error-hint" ng-show="cyForm.person.$error.required">请输入公司联系人姓名</span>
+				<span class="error-hint" ng-show="cyForm.person.$error.pattern">请输入正确的联系人姓名</span>
+			</span>
+		</div>
+		<div class="mobile clearfix">
+			<p><span>*</span>联系方式：</p>
+			<input type="text" name="mobile" ng-model="mobile" autocomplete="off" required ng-focus="mobileFocus = true" ng-minlength="11" ng-maxlength="11" ng-pattern="/^1[3|5|7|8][0-9]\d{8}$/"/>
+			<span ng-show="cyForm.mobile.$invalid && mobileFocus">
+				<span class="error-hint" ng-show="cyForm.mobile.$error.required">请输入公司的联系方式</span>
+				<span class="error-hint" ng-show="cyForm.mobile.$error.pattern">请输入合法的手机号码</span>
+			</span>
+		</div>
+		<div class="tijiao clearfix" ng-if="infoData.company.status==0||infoData.company.status==3">
+			<button>提交</button>
+		</div>
+		</form>
+	</div>
+
+</div>

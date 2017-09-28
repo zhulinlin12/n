@@ -1,0 +1,87 @@
+<div id="spfb" style="padding-left: 0px; margin-top: 0px;">
+
+    <div class="tit_box01">
+        <h2 class="tit">商品发布</h2>
+    </div>
+    <div class="m_top">
+        <img src="images/glfl_pic_03.jpg" alt="" class="jindu_pic" />
+        <!--<form class="search_box">
+            <span class="s1">查找商品分类：</span>
+            <input type="text" class="search_txt" />
+            <button type="button" class="search_btn">搜索</button>
+
+        </form>-->
+    </div>
+    <div class="m_btm">
+        <ul class="tab_nav clear">
+            <li class="list" ng-class="{'ac':tp==0}" ng-click="tab(0)">选择商品分类</li>
+            <li class="list" ng-class="{'ac':tp==1}" ng-click="tab(1)">您常使用的分类</li>
+            <!--<li class="list"><a href="javascript:;">导入已发布的商品</a></li>-->
+        </ul>
+        <ul class="tab_con" ng-if="tp==0">
+            <li class="tab_list clear">
+                <div class="item">
+               <div class="item-l">  <input type="text" class="wb_3" placeholder="输入分类" ng-model="search_1" /></div>   
+                     <div class="iten-z">
+                    <div class="content" ng-class="{'acert':sutr==$index}" ng-repeat="item in data.category.categories | filter:{name:search_1}">
+                        <span  class="a1" data="{{item.code}}" title="{{item.name}}" ng-click="getCode(item,$index)">{{item.name}}<span>></span></span>
+                    </div>
+                    </div>
+                </div>
+
+                <!--<div class="item">-->
+                    <!--<input type="text" class="wb_3" placeholder="输入分类或首字母" />-->
+                    <!--<div class="warp" ng-repeat="item_warp in data2.category.categories">-->
+                        <!--<div class="content" ng-repeat="item in item_warp.subMenuList">-->
+                            <!--<a href="javascript:;" class="a1" data="{{item.code}}" ng-click="getCode2($event.target)">{{item.name}}</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+                <div class="item" ng-if="data2">
+                   <div class="item-l">  <input type="text" class="wb_3" placeholder="输入分类" ng-model="search_2" /></div>
+                    <div class="iten-z">
+                    <div class="content" ng-class="{'acert':sutr2==$index}" ng-repeat="item in data2.category.categories | filter:{name:search_2}">
+                        <span  class="a1" data="{{item.code}}" title="{{item.name}}" ng-click="getCode2(item,$index)">{{item.name}}<span>></span></span>
+                    </div>
+                 </div>
+                </div>
+
+                <div class="item" ng-if="data3" >
+                    <div class="item-l"> <input type="text" class="wb_3" placeholder="输入分类" ng-model="search_3" /></div>
+                     <div class="iten-z">
+                    <div class="content" ng-class="{'acert':sutr3==$index}" ng-repeat="item in data3.category.categories | filter:{name:search_3}">
+                        <span class="a1" data="{{item.code}}" title="{{item.name}}" ng-click="getCode3(item,$index)">{{item.name}}</span>
+                    </div>
+                    </div>
+                </div>
+
+            </li>
+      
+
+        <div class="type_jg">
+            <div class="warp">
+                您当前选择的商品分类为：  <span>{{type1}}</span> > <span>{{type2}}</span> > <span>{{type3}}</span>
+            </div>
+        </div>
+  </ul>
+   <ul class="tab_con" style="height: 300px; overflow-y: auto;" ng-if="tp==1">
+   	<div class="tab-z">您暂无常使用的分类，您可自行<a class="J_gobackCsBox" href="javascript:;" ng-click="tab(0)">选择分类</a></div>
+   	</ul>
+    </div>
+    <a href="javascript:;" class="send" ng-click="next()" ng-show=btn_show>下一步，填写商品信息</a>
+    <a href="javascript:;" class="send"  style="background: #eee;color:#666;" ng-show=!btn_show>下一步，填写商品信息</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

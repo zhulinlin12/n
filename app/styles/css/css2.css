@@ -1,0 +1,322 @@
+/*全局样式*/
+*{
+	margin: 0;
+	padding:0;
+}
+body{
+	font-size:14px;
+	font-family: "微软雅黑";
+}
+
+a{
+	text-decoration: none;
+	color: #FFFFFF;
+	
+}
+.c-tr{
+	width:100%;
+	height: auto;
+background: #fff;
+padding-bottom: 70px;
+}
+.c-tr li{
+	list-style: none;
+}
+.logo{
+	display: inline-block;
+	float:left;
+	top:-20px;
+	
+}
+.icon-xiala{
+	font-weight:normal;
+	margin: 20px;
+	font-size:5px;
+	position: relative;
+	top:-6px;
+	display: inline-block;
+	transform:rotate(180deg);
+}
+.clear{
+	clear:both;
+}
+/*流程图*/
+.header-one{
+	height: 128px;
+	overflow: hidden;
+}
+#bb{
+	position: relative;
+	top:50px;
+	left:20px;
+	
+}
+h4>a{
+	height: 100%;
+}
+.lct{
+	width:auto;
+	border-radius: 6px;
+	height: 6px;
+	background:#bebebe;
+	margin-right: 60px;
+	
+}
+.lct>li{
+	width: 120px;
+	height: 6px;
+	border-radius: 6px;
+	float:left;
+	position:relative;
+	
+	
+}
+
+.lct>li>span{
+	display: inline-block;
+	width:20px;
+	height:20px;
+	border-radius: 50%;;
+	position: absolute;
+	left: 40%;
+	top: -156%;
+	border:1px solid #bebebe;
+	text-align: center;
+	color: #fff;
+	background:#bebebe;
+}
+.bla{
+	background: #bedaff;
+}
+.lct .bla>span{
+	border:1px solid  #bedaff;
+	background: #bedaff;
+}
+.bsl{
+	background: #006cff;
+	border:1px solid #006cff;
+}
+.lct>.bsl>span{
+	border:1px solid #006cff;
+	background: #006cff;
+	width: 30px;
+	height: 30px;
+	line-height: 28px;
+	top:-15px;
+	
+}
+.lct-x{
+	margin-right: 60px;
+	
+}
+.lct-x>li{
+	width: 120px;
+	float:left;
+	color:#bebebe;
+	font-size:14px;
+	text-align: center;
+}
+.lct-x .lct-x-1{
+	color:#bedaff;
+}
+.lct-x .lct-x-2{
+	color:#006cff;
+}
+.zhifu{
+	position:relative;
+}
+#zhifuff{
+	position: absolute;
+	right: 10px;
+	top: 18px;
+}
+/*手风琴*/
+/*单选框样式*/
+#panel1{
+	border-radius: 0;
+	margin-bottom: 0;
+	
+}
+#headingOne{
+	height: 60px;
+	position: relative;
+	margin-bottom: 0;
+}
+#headingOne h4{
+	position: absolute;
+	top:0;
+	left: 0;
+	padding-left:20px ;
+	width: 100%;
+	margin:0 auto ;
+	line-height: 40px;
+	
+}
+#headingOne h4>span:nth-child(2){
+	height: 60px;
+	display: inline-block;
+	margin-left: 80px;
+	line-height: 60px;
+	
+	
+}
+#pull1{
+	padding-right: 20px;
+	line-height: 54px;
+}
+#headingOne h4>a>span:nth-child(1){
+	font-size: 18px;
+	
+}
+#pane2{
+	border-radius: 0;
+	margin-top: 0;
+	height: 60px;
+	position: relative;
+	border-bottom: 1px solid #EBEBEB;
+	border-top: none;
+	/*overflow: hidden;*/
+}
+#headingTwo{
+	height: 60px;
+}
+#headingTwo h4>span:nth-child(2){
+	display: inline-block;
+	margin-left: 90px;
+	
+}
+#headingTwo h4{
+	position: absolute;
+	top:0;
+	left: 0;
+	padding-left:20px ;
+	width: 100%;
+	margin:0 auto ;
+	line-height: 40px;
+	height: 60px;
+	
+}
+.dxk{
+	width:14px;
+	height:15px;
+	position: relative;
+	top:9px;
+}
+
+
+/*第三个*/
+#pane3{
+	border-radius: 0;
+	margin-top:0px;
+}	
+#pane3 input{
+	position: relative;
+	top: 2px;
+    left: 6px;
+}
+/*第四个*/
+#pane4,#pane5{
+	border-radius: 0;
+	margin-top:0px;
+}
+#pane4 input{
+	position: relative;
+	top: 2px;
+    left: 6px;
+    
+}
+#pane5 input{
+	position: relative;
+	top: 2px;
+    left: 6px;
+}
+#sj-up{
+	font-weight: 100;
+}
+.pay2{
+	width: 100%;
+}
+
+.pay2>ul{
+	width:100%;
+	border-bottom: 1px solid #EBEBEB;
+	height: 48px;
+	
+	
+	
+}
+.pay2>ul>li{
+	width:130px;
+	color: #666666;
+	float:left;
+	text-align: center;
+	line-height:57px;
+}
+.pay2>ul:first-child>li{
+	width:130px;
+	color: #666666;
+	float:left;
+	text-align: center;
+	height: 48px;
+	
+	
+}
+.pay2>ul .payon{
+	border-bottom: 1px solid #006CFF;
+}
+.pay2>ul:nth-child(2){
+	border:none;
+	margin-left: 20px;
+}
+.pay2>ul:nth-child(2)>li{
+	width:220px;
+	height: 60px;
+	color:#EBEBEB;
+	border:1px solid #EBEBEB;
+	float:left;
+	background: #FFFFFF;
+	margin-right:30px;
+	margin-top:20px;
+}
+
+#paytwo{
+	color:#000000;
+	border:1px  solid #000000;
+}
+#qrfk{
+	background: #006CFF;
+	color: #FFFFFF;
+	font-size: 16px;
+	cursor: pointer;
+}
+/*支付的展开*/
+.pay2-pp>ul:nth-child(1)>li{
+	height: 160px;
+	width:265px;
+	text-align: center;
+	line-height: 160px;
+	border:1px solid  #EBEBEB;
+	color:#BEBEBE;
+	display: inline-block;
+	margin-right:30px ;
+	
+}
+.pay2-pp>ul:nth-child(1){
+	margin-top:75px;
+}
+.qrfk{
+	display: inline-block;
+	background: #006CFF;
+	color: #FFFFFF;
+	font-size: 16px;
+	cursor: pointer;
+	width: 265px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	margin-top: 75px;
+}
+#zxmr{
+	border: 1px solid #000000;
+	color: #000000;
+}

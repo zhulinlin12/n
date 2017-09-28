@@ -1,0 +1,150 @@
+<div class="c-jh" >
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>管理联合开标>>采购商报名</h4>
+		</div>
+		<div class="lh-xx">
+			<form name="myForm" novalidate>
+             <div class="c-wr font" style=" position: relative; margin-bottom: 0px;" >
+				<span><b >招募活动:</b></span>
+				<f><b>{{data.title}}</b></f>
+			 	<!--<button class="unselected"  style="display: inline-block; width:100px; height: 30px; position: absolute; border-radius: 4px; top:-8px; margin-left: 30px; color: #fff;">添加</button>-->
+			 	<input type="hidden" ng-model="data" />
+			</div>
+			<div style="color: red;margin-bottom: 10px;" ng-show="chide">*请填写完整</div>
+			<div class="tabla">
+				<table class="tabcon" width="100%" border="1" bordercolor="#bebebe" cellspacing="0" style="text-align: center;">
+					<tbody>
+						<tr style="background: #EBEBEB">
+							<td >分类</td>
+							<td >物资名</td>
+							<td>是否分批到货</td>
+							<td>单位</td>
+							<td>数量</td>
+							<td>到货地点</td>
+							<td>到货日期</td>
+							
+						</tr>
+					</tbody>
+					<tbody>
+						<tr  ng-repeat="goods in arr track by $index">
+							<td style="width:100px;">{{goods.materialType}}</td>
+							<td style="width:101px;">{{goods.materialName}}</td>
+							<td><!--<input type="radio" class="ri1" name="kk{{$index}}" value="0" />是<input type="radio" name="kk{{$index}}" value="1" />否-->是</td>
+							<!--<script>
+								$(".ri1").click(function(){
+									$(".ri1").attr('checked',true)
+								})
+								$("input[name='approve']:checked").val()
+							</script>-->
+							<td>{{goods.materialUnit}}</td>
+							<td><input type="text" ng-blur="lhnum($event.target)"   ng-model="goods.materialNumber" name="quantity" min='0'   /></td>
+							<td><input type="text" ng-model="goods.arrivalAddress" placeholder="例:xx省xx市xx区"/></td>
+							<!--<td><input type="text" ng-blur="lhnum($event.target)" style="width:110px; float: left;"   ng-model="goods.arrivalTime" name="quantity" min='0'   /><spa style="float: right; line-height: 40px;">天</spa></td>-->
+							<td style="min-width: 170px;">{{goods.arrivalTime}}</td>
+							<!--<script>
+								$('.datetimepicker0').datetimepicker({
+dayOfWeekStart : 1,
+lang:'en',
+disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+startDate:	'1986/01/05'
+});
+							</script>
+							<input type="text" value="" class="datetimepicker{{$index}}"/>-->
+						<style>
+							::-webkit-calendar-picker-indicator {
+
+    opacity: 0;  /*<input def-laydate type="text" readonly style="width:300px;" ng-blur="riqi4()" id="start" ng-model="startTime" class="laydate-icon" />*/
+    color: #666;
+}
+
+/*<input def-laydate type="text" readonly ng-model="goods.arrivalTime" min="{{mk}}" name="bday"id="start" class="laydate-icon" /><input def-laydate type="text" readonly style="width:300px; display: none;" value="ppp"  id="end" ng-model="endTime" class="laydate-icon" />*/
+						</style>
+							
+						</tr>
+						<!--<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>是</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text" cor readonly id="hello4" class="laydate-icon"/></td>
+						
+						</tr>
+						<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>是</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text" cor readonly id="hello5" class="laydate-icon"/></td>
+							
+						</tr>
+						<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>是</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							
+						</tr>
+						<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>是</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+						
+						</tr>
+					-->
+						
+					</tbody>
+				</table>
+			</div>
+			<div class="c-wr" style="margin-top: 40px;" >
+				<span>联系人:</span>
+				<input type="text" ng-model="name" placeholder="请填写收货人" name="name" ng-pattern="/[\u4e00-\u9fa5]/" ng-minlength="2" ng-maxlength="4" required ng-focus="wr2=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wr2 && myForm.name.$invalid">
+							<saw ng-show="myForm.name.$error.required">用户名是必须的。</saw>
+							<saw ng-show="myForm.name.$error.pattern||myForm.name.$error.maxlength||myForm.name.$error.minlength">请输入您真实得姓名</saw>
+						</div>
+			</div>
+			<div class="c-wr" >
+				<span>联系电话:</span>
+				<input type="tel" ng-model="contact" name="tel" placeholder="请填写您联系方式" ng-pattern="/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/"   required ng-focus="wr=true" />
+				<div style="color:red; display: inline-block;" ng-show="wr && myForm.tel.$invalid">
+							<saw ng-show="myForm.tel.$error.required">请输入您联系方式</saw>
+							<saw ng-show="myForm.tel.$error.pattern">输入正确得联系方式</saw>
+						</div>
+			</div>
+			<div class="c-wr" style="margin-bottom: 0px;" >
+				<span>特殊要求:</span>
+				<textarea style="width:500px" placeholder="请填写您对物资的要求" ng-model="other" ></textarea>
+			</div>
+			<div class="c-wr" style="margin-top: 5px;" >
+				<span></span>
+						<input type="checkbox" name="ww" disabled="false" style="cursor:pointer;" checked="checked" />
+					<k >您已同意采购商要求</k>
+			</div>
+			<div class="c-wr" >
+				<span></span>
+				<button class="qww unselected" ng-click="bj()" >报名</button><!--<teme style="color: #FF0000;" ng-if="lhif">您对这条招募报过名，不可报名哦</teme>-->
+			</div>
+			</form>
+		</div>
+
+			
+
+			</div>
+	</div>
+</div>
+<wo></wo>
+<script>
+//document.write("outerWidth: " + window.outerWidth + " outerHeight: " + window.outerHeight); // 显示：outerWidth: 1366 outerHeight: 768
+</script>

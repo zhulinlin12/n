@@ -1,0 +1,103 @@
+<div class="c-jh" >
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>我的报价信息>>查看信息>>报价</h4>
+		</div>
+		<div class="lh-xx">
+<input type="hidden" ng-model="data" />
+<div style="color: red;margin-bottom: 10px;" ng-show="chide">*请填写完整</div>
+<div style="color: red;margin-bottom: 10px;" ng-show="chide2">*数量价钱请填写数字</div>
+			<div class="tabla">
+				<table class="tabcon" width="100%" border="1" bordercolor="#bebebe" cellspacing="0" style="text-align: center;">
+					<tbody>
+						<tr style="background: #EBEBEB">
+							<td style="width:100px;">分类</td>
+							<td style="width:101px;">物资名</td>
+							<td>地区</td>
+							<td>单位</td>
+							<td>数量</td>
+							<td>出厂单价(免税)</td>
+							<td>运费价(免税)</td>
+							<td>总单价(免税)</td>
+							<td>总金额(免税)</td>
+							<td style="width:180px;">其他说明</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr ng-repeat="naem in arr track by $index">
+							<td>{{naem.materialType}}</td>
+							<td style="width:101px;">{{naem.materialName}}</td>
+							<td>{{naem.deliveryAddre}}</td>
+							<td>{{naem.materialUnit}}</td>
+							<td><input type="text" class="pp" ng-model="naem.materialNumber"   /></td>
+							<td ><input type="text" class="pp" ng-model="naem.materialPrice"   /></td>
+							<td ><input type="text" class="pp" min='0.00' ng-model="naem.transportPrice"  /></td>
+							<td>{{1*naem.materialPrice+$eval(naem.transportPrice)}}</td>
+						    <td>{{(1*naem.materialPrice+$eval(naem.transportPrice))*naem.materialNumber}}</td>
+							<td><input type="text" ng-model="naem.description"/></td>
+						</tr>
+						<!--<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>湖北武汉</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+						    <td><input type="text"/></td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>湖北武汉</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+						    <td><input type="text"/></td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>湖北武汉</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+						    <td><input type="text"/></td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr >
+							<td style="width:100px;">大类</td>
+							<td style="width:101px;">水管1</td>
+							<td>湖北武汉</td>
+							<td>根</td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+							<td><input type="text"/></td>
+						    <td><input type="text"/></td>
+							<td><input type="text"/></td>
+						</tr>-->
+					
+						
+					</tbody>
+				</table>
+			</div>
+			<button class="qww unselected" ng-click="lhbj()">报价</button><teme style="color: #FF0000;" ng-if="lhif">您对这条招募报过名，不可报名哦</teme>
+		</div>
+
+			
+
+			</div>
+	</div>
+</div>
+<wo></wo>
+<script>
+//document.write("outerWidth: " + window.outerWidth + " outerHeight: " + window.outerHeight); // 显示：outerWidth: 1366 outerHeight: 768
+</script>

@@ -1,0 +1,31 @@
+		<!--页面主体-->
+			<div class="container clearfix" style="padding-bottom: 50px;" ng-controller="resetPassword">
+				<div class="clear"></div>
+				<div class="body-box2" style="margin-top: 30px;height:350px;">
+					<div style="margin-bottom: 30px; width:390px;">
+						您正在为账户<span style="color: #fcb07d;">{{phoneNum | to_faleNum}}</span>重置登录密码，请选择重置方式
+					</div>
+					<div class="body-box3" style="margin-top: 30px;">
+						<div class="resat1" style="background: #eef5ff;">
+							<i></i>
+							<span style="margin-left: 30px; color: #666666;">经过检测，你在不常用的情况下操作，需要进行检验</span>
+						</div>
+						<div class="clearfix clear-by">
+							<i></i>
+							<ul class="pull-left rest-clear">
+								<li>通过验证短信</li>
+								<li>如果你的手机{{phoneNum | to_faleNum}}正在使用，请选择此方式</li>
+							</ul>
+							<button class="clear-btn" ui-sref="logintou.ver">立即重置</button>
+						</div>
+					<!-- 	<div class="clearfix clear-by">
+								<i ></i>
+							<ul class="pull-left rest-clear">
+								<li>通过银行卡验证</li>
+								<li><i class="yinghangka(1)"></i>可使用的任意一张银行卡进行验证</li>
+							</ul>
+							<button class="clear-btn" ui-sref="logintou.cyhk">立即重置</button>
+						</div> -->
+					</div>
+				</div>
+			</div>

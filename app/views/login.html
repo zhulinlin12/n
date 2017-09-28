@@ -1,0 +1,66 @@
+<model></model>
+<div class="con">
+    <div class="cty">
+        <div class="boende">
+            <img src="images/xc-logo.png"  ui-sref="index.op" alt="" style="display: inline-block; float: left; margin-top: 10px; width:60px; height: 75px;" />
+            <div class="div">欢迎登录</div>
+            <div class="mer">
+                <p>客服热线
+                    <samp>400-8228-321</samp>
+                </p>
+                <span>工作时间 8:00-19:00</span>
+            </div>
+        </div>
+        <div class="ban">
+            <img src="images/loginbanner.png"  />
+            <div class="login">
+                <h3>慧筑云会员登录</h3>
+                <div class="form-group">
+                    <p><span id="user_prompt" style=" display: block; height: 20px;">&nbsp;&nbsp;</span></p>
+                    <form class="form-signin">
+                        <div class="inpt">
+                            <i class="kop glyphicon glyphicon-user"></i>
+                            <input name="user_name" type="text" class="control" autocomplete="off" placeholder="请输入您的账号">
+                        </div>
+                        <div class="inpt ypl">
+                            <i class="kop glyphicon glyphicon-lock"></i>
+                            <input name="user_pass" type="password" class="control" autocomplete="off" placeholder="请输入您的密码">
+                            <i class="glyphicon glyphicon-eye-close hj" ng-if="!eye" ng-click="passwdChange($event)" style="float: right;"></i>
+                            <i class="glyphicon glyphicon-eye-open hj" ng-if="eye" ng-click="passwdChange($event)"  style="float: right;"></i>
+                        </div>
+                        <div class="box">
+                            <span ui-sref="logint.find">忘记密码</span>
+                            <span class="text-right" ui-sref="register.rigc">立即注册</span>
+                        </div>
+                        <button ng-click="login()" class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="fon">
+            <center>
+                <div class="as-d">
+                    <li>关于我们 | </li>
+                    <li>&nbsp;联系我们 | </li>
+                    <li>&nbsp;联系客服 |</li>
+                    <li>&nbsp;合作招商 |</li>
+                    <li>&nbsp;商家帮助 |</li>
+                    <li>&nbsp;营销中心|</li>
+                    <li>&nbsp;友情链接 |</li>
+                    <li>&nbsp;销售联盟 |</li>
+                    <li>&nbsp;慧筑云社区 |</li>
+                    <li>&nbsp;风险检测 |</li>
+                    <li>&nbsp;隐私政策 </li>
+                </div>
+                <div class="z-b">
+                    客服咨询热线： 400-8228-321号(免长途费)｜&nbsp;投诉热线: 400-8228-321(工作时间：8:00-19:00) </div>
+                <div class="z-b">
+                    版权所有 慧筑云  京ICP证070359号 
+                </div>
+                <div class="z-b">
+                  Copring@2017-2017 慧筑云 huizhuyun.com ｜消费者维权热线：010201020 &nbsp;&nbsp;经营证照
+                </div>
+            </center>
+        </div>
+    </div>
+</div>

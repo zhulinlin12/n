@@ -1,0 +1,39 @@
+<div class="c-tr" ng-controller="synr" style="padding-bottom: 0px; width:100%">
+    <div class="container">
+        <div class="na-l">
+            <img class="img2" src="images/sc-logo.png" />
+            <div class="ss-k" id="myDropdown">
+                <div class="sak dropdown" id="ssk" is-show>
+                    <span id="sl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <l id="lkk">{{SearchData.business}}</l><b></b>
+                            </span>
+                    <div class="sskx" aria-labelledby="sl" id="skx">
+                        <l id="ll" ng-click="changeInfo($event)">{{SearchData.buy}}</l>
+                        <l id="lk" ng-click="changeInfo($event)">{{SearchData.company}}</l>
+                    </div>
+                </div>
+                <form id="fm" ng-submit="searchList()">
+                    <input id="inp" type="text" ng-model="vm.searchContent.content" placeholder="{{placeholde}}" value="vm.searchContent.content" />
+                </form>
+            </div>
+            <div class="sc-an" ui-sref="index.search({page:1,Keyword:vm.searchContent.content})">
+                <button type="submit" form="fm" ng-click="searchList()"></button>
+            </div>
+            <div class="ks-cg">快速发布采购</div>
+            <div class="sp-lb" style="background: #fff;">
+                <div class="sp-aa"><span>全部商品分类</span><img src="images/fenlei.png"></div>
+                <div class="ol">
+                    <li style="margin-left: 0px;" ui-sref="buyt.buyer">招标采购</li>
+                    <li>直采商城</li>
+                    <li>易货平台</li>
+                    <li>租赁平台</li>
+                    <li>投融资</li>
+                    <li>项目分包</li>
+                    <li>知识库</li>
+                    <li>OA</li>
+                    <li>积分</li>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

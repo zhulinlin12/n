@@ -1,0 +1,146 @@
+<div class="c-jh">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>申请联合采购</h4>
+			<span>查看发布联合采购信息>></span>
+		</div>
+		<form name="myForm" novalidate>
+			<div class="c-qw">
+				<div class="c-wr">
+					<span>日期:</span>
+					<f>{{time}}</f>
+				</div>
+				
+				<div class="c-wr2" ng-controller="fenl" ng-repeat="shu in sarr track by $index" >
+					<span ><xx class="z-xx">*</xx>采购产品:</span>
+					<div class="ysa" >
+						<div class="tex" id="shoip" style="width:860px;">
+						 <label  ng-class="{error: error.city1{{$index}}}">
+						<select ng-model="shu.materialType1" ng-change="xz($index,shu.materialType1)"  ng-options="o.code as o.name for o in dataw.category.categories">
+							<option value="">采购类型</option>
+						</select>
+						</label>
+						 <label ng-show="shu.materialType1"  ng-class="{error: error.city1{{$index}}}">
+						<select ng-model="shu.materialType2" ng-change="ej($index,shu.materialType2)" ng-click="mms()"  ng-options="o.code as o.name for o in res{{$index}}.category.categories" >
+						</select>
+						</label>
+						 <label ng-show="shu.materialType2!=''"  ng-class="{error: error.city1{{$index}}}">
+						<select ng-model="shu.materialType"  ng-options="o.code as o.name for o in rew{{$index}}.category.categories" ng-change="guige($index,shu.materialType)">
+					<!--		<option value="">物资分类</option>-->
+						</select>
+						</label>
+						 <label  ng-class="{error: error.city2{{$index}}}">
+			<input type="text" ng-model="shu.materialName" placeholder="请输入物资名称" ng-blur="material($index)"  style="width:170px;margin-right: 15px;" />
+			</label>
+			 <label  ng-class="{error: error.city5{{$index}}}" ng-show="arr2{{$index}}">
+						<select ng-model="shu.materialModel" class="gu" ng-change="etalon($index,shu.materialModel)" ng-options="o.code as o.name for o in arr2{{$index}}" >
+						<option value="">规格型号</option>
+						</select>
+						</label>
+						 <label  ng-class="{error: error.city4{{$index}}}">
+						<input type="text" ng-model="shu.biddingNumber" placeholder="请输入数量"  style="width:170px; font-weight:normal;margin-right: 15px;" ng-blur="number($index)" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" style="ime-mode:Disabled" />
+						</label>
+						 <label  ng-class="{error: error.city3{{$index}}}">
+<select ng-model="shu.materialUnit" ng-change="units($index,shu.materialUnit)"  ng-options="o.code as o.name for o in arr3{{$index}}">
+							<option value="">单位</option>
+						</select>
+						</label>
+						<div class="c-yq" ng-click="sdx($index)" ng-show="$index==p">+</div>
+						<div class="c-yq" ng-click="sts_shch($index)" ng-show="sarr.length!=1">x</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="c-wr2">
+					<span><xx class="z-xx">*</xx>技术质量要求:</span>
+					<div class="ysa">
+						<div class="tex">
+							<textarea class="zhil" ng-model="requirements" id="feed" placeholder="请您尽量填写"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2">
+					<span>其它要求:</span>
+					<div class="ysa">
+						<div class="tex">
+							<textarea id="feed" ng-model="other2" placeholder="请您尽量填写"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2 gd" style="margin-bottom: 20px;">
+					<span><xx class="z-xx">*</xx>送货地点范围:</span>
+					<div class="ysa" style="background: none;">
+						<div class="tex dropdown">
+							<select>
+            <option value="">全国</option>
+        </select>
+							 <label ng-class="{error: error.province}" >
+ 
+        <select ng-model="selected" id="op" ng-options="o.code as o.name for o in list" ng-change="c(selected)" >
+            <option value="">--请选择--</option>
+        </select>
+    </label>
+    <label  ng-class="{error: error.city}">
+
+        <select ng-model="selected2" id="op2" ng-options="o.code as o.name for o in list1" ng-change="c2()" >
+        	<option value="">--请选择--</option>
+        </select>
+    </label>
+				<div class="bwe2" ng-click="submit()">添加</div>
+				<div style="margin-top: 5px;">
+						<button class="qwd col" ng-repeat="k in str track by $index">
+								{{k.province}}{{k.city}}
+								<span ng-click="scc($index)">x</span>
+							</button>	
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="c-wr2">
+					<span><xx class="z-xx">*</xx>到货日期范围:</span>
+					<div class="ysa">
+
+						<input def-laydate type="text" readonly style="width:300px;" ng-blur="riqi4()" id="start" ng-model="startTime" class="laydate-icon" />
+						<input def-laydate type="text" readonly style="width:300px;"  id="end" ng-model="endTime" class="laydate-icon" />
+	
+							<saw ng-show="show" style="color: red;">请选择日期(正确格式为：2014-01-01)</saw>
+							
+					</div>
+				</div>
+					<div class="c-wr dgd" style="margin-top: 20px;">
+				<span><xx class="z-xx">*</xx>联系人:</span>
+				 <div class="ysa">
+				<input type="text" ng-model="name" placeholder="请填写收货人" name="name" ng-pattern="/[\u4e00-\u9fa5]/" ng-minlength="2" ng-maxlength="4" required ng-focus="wr2=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wr2 && myForm.name.$invalid">
+							<saw ng-show="myForm.name.$error.required">用户名是必须的。</saw>
+							<saw ng-show="myForm.name.$error.pattern||myForm.name.$error.maxlength||myForm.name.$error.minlength">请输入您真实得姓名</saw>
+						</div>
+				</div>
+			</div>
+				<div class="c-wr">
+				<span><xx class="z-xx">*</xx>联系方式:</span>
+				 <div class="ysa">
+				<input type="tel" ng-model="contact" name="tel" placeholder="请填写您联系方式" ng-pattern="/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/"   required ng-focus="wr=true" />
+				<div style="color:red; display: inline-block;" ng-show="wr && myForm.tel.$invalid">
+							<saw ng-show="myForm.tel.$error.required">请输入您联系方式</saw>
+							<saw ng-show="myForm.tel.$error.pattern">输入正确得联系方式</saw>
+						</div>
+				</div>
+			</div>
+				
+				
+				<div class="c-wr2 gd" style="padding-bottom: 40px;">
+					<span></span>
+					<div class="ysa">
+						<div class="tex">
+							<button class="qww" ng-disabled="myForm.name.$dirty && myForm.name.$invalid&&myForm.tel.$dirty && myForm.tel.$invalid"  ng-click="fb('INSERT')" style="background: #006CFF;">提交</button>
+							<button class="qww gtj" ng-click="fb('ADD')">保存草稿</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>

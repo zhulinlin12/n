@@ -1,0 +1,81 @@
+	<div class="c-rigth a" >
+		<ul class="rg-mu1" >
+			<li ui-sref="buyt.mjds01-home">
+				<div class="tit_box">
+					<i class="icon-suoye"></i>
+					<span>首页</span>
+				</div>
+			</li>
+			<!--<li sdown>-->
+				<!--<i class="icon-chaigou"></i>-->
+				<!--<span>采购管理</span>-->
+				<!--<ul style="display: none;">-->
+					<!--<li ui-sref="buyt.cgs01-cgdd">采购订单</li>-->
+					<!--<li>询比价订单</li>-->
+					<!--<li>联合采购订单</li>-->
+				<!--</ul>-->
+			<!--</li>-->
+			<li   sint='1'>
+				<div class="tit_box"  >
+					<i class="icon-checkmark"></i>
+					<span>商品管理</span>
+				<span class="pist"><i class="glyphicon glyphicon-menu-down"></i></span>
+				</div>
+				<ul style=" background: #F5F5F5;" ng-click="deleteT(ele);$event.stopPropagation()">
+					<li class="active3" ui-sref="index.mjds01-spfb">商品发布</li>
+					<li ui-sref="index.mjds01-zssp" ui-sref-active="active3">在售/未上架商品</li>
+				<!-- 	<li>批量管理商品</li> -->
+				</ul>
+			</li>
+			<!--<li>-->
+				<!--<i class="icon-dingdan"></i>-->
+				<!--<span>交易管理</span>-->
+			<!--</li>-->
+			<li >
+				<div class="tit_box">
+					<i class="icon-dingdan"></i>
+					<span>交易管理</span>
+					<span class="pist"><i class="glyphicon glyphicon-menu-down"></i></span>
+				</div>
+				<ul style=" background: #F5F5F5;" ng-click="deleteT(ele);$event.stopPropagation()">
+					<li ui-sref="buyt.mjds01-yimaichu" ui-sref-active="active3">已卖出商品</li>
+					<li ui-sref="buyt.mjds01-jiaoyipingjia" ui-sref-active="active3">交易评价管理</li>
+					<li ui-sref="buyt.mjds01-shouhoudingdan" ui-sref-active="active3">售后订单处理</li>
+					<li ui-sref="buyt.mjds01-tousuguanli" ui-sref-active="active3">投诉管理</li>
+				</ul>
+			</li>
+
+			<li >
+				<div class="tit_box">
+					<i class="icon-suoye"></i>
+					<span>我的店铺</span>
+	               <span class="pist"><i class="glyphicon glyphicon-menu-down"></i></span>
+				</div>
+				<ul style=" background: #F5F5F5;" ng-click="deleteT(ele);$event.stopPropagation()">
+					<li>商铺模板</li>
+					<li>图片中心</li>
+					<li ui-sref="buyt.mjds01-shangpinfenlei" ui-sref-active="active3">商品分类设置</li>
+
+				</ul>
+			</li>
+
+
+		</ul>
+		
+	</div>
+	<style>
+		.tit_box{
+			font-weight: bold;
+			height: 50px;
+		}
+		.pist{
+			height: 20px;
+			float: right;
+			 margin-right: 10px;
+			 font-weight: normal;
+			 font-size: 14px;
+		}
+		.pist i{
+			font-size: 13px;
+		}
+	</style>

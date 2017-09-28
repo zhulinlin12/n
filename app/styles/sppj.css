@@ -1,0 +1,227 @@
+.bangzhu {
+  width: 100%;
+  padding-bottom: 80px;
+  background: #fff;
+}
+.bangzhu .c-tr {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+}
+.bangzhu .c-tr .clearfloat:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+.bangzhu .c-tr .clearfloat {
+  zoom: 1;
+}
+.bangzhu .c-tr .na-l {
+  height: 130px;
+}
+.bangzhu .c-tr .na-l .img2 {
+  width: 170px;
+  height: 99px;
+  float: left;
+  margin-left: 26px;
+  margin-top: 20px;
+}
+.bangzhu .c-tr .na-l .mh {
+  width: 720px;
+  height: 6px;
+  float: right;
+  margin-top: 60px;
+  line-height: 30px;
+  background: gray;
+  border-radius: 3px;
+}
+.bangzhu .c-tr .na-l .mh .sp-t {
+  width: 120px;
+  height: 6px;
+  background: #bedaff;
+  float: left;
+  position: relative;
+  border-radius: 4px;
+}
+.bangzhu .c-tr .na-l .mh .sp-t .sp-yy {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  font-size: 16px;
+  background: #bedaff;
+  position: absolute;
+  border-radius: 50%;
+  left: 40%;
+  top: -190%;
+}
+.bangzhu .c-tr .na-l .mh .yt {
+  background: #006cff;
+}
+.bangzhu .c-tr .na-l .mh .yt .sp-yy {
+  background: #006CFF;
+}
+.bangzhu .c-tr .type-fail {
+  width: 100%;
+  background: #fcf2f2;
+  border: 1px solid #e88c8c;
+  padding: 25px 25px 25px 60px;
+  margin-top: 20px;
+}
+.bangzhu .c-tr .type-fail ol {
+  margin-left: 30px;
+}
+.bangzhu .c-tr .type-fail ol li {
+  list-style: decimal outside;
+  color: #999;
+}
+.bangzhu .c-tr .sp-k {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border: 1px solid #DEDEDE;
+  padding-bottom: 30px;
+}
+.bangzhu .c-tr .sp-k .sp-r {
+  width: 100%;
+  background: #f9f9f9;
+  height: 60px;
+  margin: auto;
+  line-height: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1px solid #DEDEDE;
+}
+.bangzhu .c-tr .sp-k .sp-r .pj {
+  float: left;
+  font-size: 16px;
+  color: #000000;
+  margin-right: 100px;
+}
+.bangzhu .c-tr .sp-k .sp-r .sz {
+  float: left;
+  font-size: 14px;
+  color: #666666;
+  margin-left: 300px;
+}
+.bangzhu .c-tr .sp-k .sp-r .sz span {
+  margin-left: 5px;
+}
+.bangzhu .c-tr .sp-k .imkp {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.bangzhu .c-tr .sp-k .sp-pq {
+  width: 100%;
+  height: 160px;
+  float: left;
+  border-bottom: 1px solid #DEDEDE;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-x {
+  float: left;
+  width: 230px;
+  height: auto;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #666666;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-x h4 {
+  font-size: 18px;
+  color: #000000;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-x p span {
+  margin-left: 10px;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh {
+  width: 680px;
+  height: auto;
+  float: left;
+  margin-top: 46px;
+  font-size: 14px;
+  color: #666666;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p {
+  float: left;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p zi {
+  float: left;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p textarea {
+  display: block;
+  float: left;
+  width: 80%;
+  margin-left: 10px;
+  resize: none;
+  outline: none;
+  height: 120px;
+  padding: 5px;
+  border: 1px solid #DEDEDE;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p qw {
+  display: inline-block;
+  height: 30px;
+  float: left;
+  margin-top: -5px;
+  margin-left: 10px;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p qw span {
+  display: block;
+  font-size: 28px;
+  color: #E1E7EB;
+  float: left;
+  cursor: pointer;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p qw .yewoll {
+  color: yellow;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p .rating li {
+  width: 30px;
+  height: 30px;
+  list-style-type: none;
+  display: inline-block;
+  float: left;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p .filled {
+  color: #ffee33;
+}
+.bangzhu .c-tr .sp-k .sp-pq .sp-gh p samp {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  font-size: 14px;
+  color: #666666;
+  margin-left: 10px;
+}
+.bangzhu .c-tr .sp-k .bnt {
+  margin: auto;
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin-top: 20px;
+  position: relative;
+}
+.bangzhu .c-tr .sp-k .bnt .sp-kw {
+  text-align: center;
+  line-height: 40px;
+  width: 140px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  margin-left: -70px;
+  cursor: pointer;
+  color: #fff;
+  background: #006CFF;
+}
+/*# sourceMappingURL=sppj.css.map */

@@ -1,0 +1,39 @@
+<!--常见问题-->
+<div class="z-cj">
+    <div class="c-tr">
+        <div class="container">
+            <div class="na-l">
+                <img class="img2" src="images/logo2_03.jpg" class="img-responsive" ui-sref="index.op" style="display: inline-block; float: left; margin-top: 10px;  height: 99px; margin-left: 66px; width: auto;" />
+                <div class="mh">
+                    <div class="ss-k">
+                        <input type="text" placeholder="请简单描述您的问题或问题关键词" />
+                    </div>
+                    <div class="sc-an" ui-sref="index.lb"><img src="images/ss-an.png" alt="" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hide_site">
+</div>
+<div class="container">
+    <div class="kp clearfix">
+        <div class="lef-b">
+            <h4>常见问题</h4>
+            <div class="mad" id="accordion" ng-repeat="namefir in menuLists">
+                <li class="panel">
+                    <span class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{namefir.id}}">{{namefir.name}}</span>
+                    <div id="{{namefir.id}}" class="panel-collapse wr  collapse in">
+                        <pa ng-repeat="namesecod in namefir.children" ng-click="getCont(namesecod.id,namesecod.name)" ng-class="{'active':namesecod.name == menu_name}">{{namesecod.name}}</pa>
+                    </div>
+                </li>
+            </div>
+        </div>
+        <div class="ri-f" id="accordion4">
+            <h4>{{menu_name}}</h4>
+            <li  ng-repeat="contit in contentLists"><span class="collapsed" data-toggle="collapse" data-parent="#accordion4" href="#{{contit.id}}">▪ &nbsp;{{contit.articleTitle}}</span>
+                <p id="{{contit.id}}" class="powy panel-collapse wr  collapse in">{{contit.articleContent}}</p>
+            </li>
+        </div>
+    </div>
+</div>

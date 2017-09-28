@@ -1,0 +1,107 @@
+.recruit {
+  width: 1080px;
+  height: 1440px;
+  background: url(../images/zhaomu-bg.png) no-repeat center;
+  margin: 0 auto;
+  overflow: hidden;
+  font-size: Microsoft YaHei;
+}
+.recruit .main {
+  width: 520px;
+  margin-top: 628px;
+  margin-left: 86px;
+  height: auto;
+  overflow: hidden;
+}
+.recruit .main h1 {
+  font-size: 20px;
+  padding-bottom: 14px;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.6);
+  width: 186px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-weight: 900;
+}
+.recruit .main .supplier {
+  width: 520px;
+  height: 230px;
+  margin-top: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  padding-bottom: 22px;
+}
+.recruit .main .supplier h3 {
+  color: #ffad01;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.recruit .main .supplier .sup {
+  font-size: 14px;
+  padding-bottom: 22px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  width: 416px;
+}
+.recruit .main .supplier .Contract {
+  padding-top: 24px;
+  padding-bottom: 22px;
+}
+.recruit .main .supplier .Contract p {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+.recruit .main .supplier .Contract p:last-child {
+  padding-left: 72px;
+}
+.recruit .main .supplier .Contract p:nth-child(3) {
+  padding-left: 72px;
+}
+.recruit .main .building {
+  width: 520px;
+  height: 268px;
+  padding-top: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  padding-bottom: 22px;
+}
+.recruit .main .building h3 {
+  font-size: 16px;
+  color: #ffad01;
+  margin-bottom: 14px;
+}
+.recruit .main .building .bud {
+  color: #ffffff;
+  margin-bottom: 9px;
+  font-size: 14px;
+}
+.recruit .main .building p {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 25px;
+}
+.recruit .main .building .ys p:nth-child(2) {
+  padding-left: 72px;
+}
+.recruit .main .building .ys p:nth-child(3) {
+  padding-left: 72px;
+}
+.recruit .main .building .ys p:nth-child(4) {
+  padding-left: 72px;
+}
+.recruit .main .building .ys p:nth-child(5) {
+  padding-left: 72px;
+}
+.recruit .main .joinus {
+  margin-top: 60px;
+  margin-left: 242px;
+}
+.recruit .main .joinus button {
+  color: #ffffff;
+  background-color: #ffad01;
+  outline: none;
+  border: none;
+  width: 200px;
+  font-size: 14px;
+  font-weight: 700;
+  height: 50px;
+}

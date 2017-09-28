@@ -1,0 +1,93 @@
+<!--查看采购计划-->
+<div class="c-jh">
+	<div class="c-k">
+	<div class="hea clearfloat">
+		<h4>查看采购计划</h4>
+		<span>查看我的采购信息>></span>
+	</div>
+	<div class="c-qw">
+		<div class="c-wr">
+			<span>日期:</span>
+			<f>{{data.biddingDetail.biddingList[0].createTime.split('T')[0]}}</f>
+		</div>
+			<div class="c-wr" ng-repeat="name in data.biddingDetail.biddingList">
+			<span>采购产品:</span>
+			<div class="ysa hs">
+			<samp>{{name.materialName}}</samp>
+			<samp>{{name.materialType}}</samp>
+			<samp>{{name.materialModel}}</samp>
+			<samp>{{name.biddingNumber}}/{{name.materialUnit}}</samp>
+			</div>
+		</div>
+		
+		<div class="c-wr" >
+			<span></span>
+			<div class="ysa">
+			<div class="wer wbk" ng-repeat="name in data.biddingDetail.biddingList"><img ng-src="{{name.imageUrl}}"/></div>
+			</div>
+		</div>
+		<div class="c-wr">
+			<span>报价截止日期:</span>
+			<div class="ysa hs">
+              <samp class="sap">{{sarttime}}</samp>
+			</div>
+		</div>
+		<div class="c-wr">
+			<span>到货日期:</span>
+			<div class="ysa hs">
+			  <samp class="sap">{{endtime}}</samp>
+			</div>
+		</div>
+		<div class="c-wr">
+			<span>总金额:</span>
+			<div class="ysa hs" >
+			  <samp class="sap">{{zje}}元</samp>
+			</div>
+		</div>
+		<div class="c-wr">
+			<span>送货地址:</span>
+			<div class="ysa hs">
+			  <samp>{{data.biddingDetail.biddingList[0].deliveryAddre}}</samp>
+			</div>
+		</div>
+		<div class="c-wr">
+			<span>运输方式:</span>
+			<div class="ysa hs">
+			  <samp>{{data.biddingDetail.biddingList[0].typeShipping}}</samp>
+			</div>
+		</div>
+				<div class="c-wr2">
+				<span>其它要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.biddingDetail.biddingList[0].otherRequire}}</samp>
+					</div>
+				</div>
+			</div>
+			<div class="c-wr">
+			<span>备注:</span>
+			<div class="ysa hs">
+			<div class="tex">
+			<samp>{{data.biddingDetail.biddingList[0].description}}</samp>
+				</div>
+			</div>
+		</div>
+		<div class="c-wr2" style="padding-bottom: 40px;">
+			<span>邀请供应商:</span>
+			<div class="ysa hs">
+			<div class="tex">
+				<button class="qwd gtj" ng-repeat="gname in data.biddingDetail.supplierList">{{gname. description}}</button>
+			
+				</div>
+			</div>
+		</div>
+	
+		
+	</div>
+	</div>
+	
+	
+	
+</div>
+	
+

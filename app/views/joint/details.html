@@ -1,0 +1,85 @@
+<div class="c-jh">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>查看联合申请</h4>
+			<span ui-sref="buyt.glcglh({staur:2})">查看发布联合采购信息>></span>
+		</div>
+		<form name="myForm" novalidate>
+			<div class="c-qw">
+				<div class="c-wr">
+					<span>日期:</span>
+					<f>{{time}}</f>
+				</div>
+				
+				<div class="c-wr2" ng-repeat="name in data.bindingItemList">
+					<span ><xx class="z-xx">*</xx>采购产品:</span>
+					<div class="ysa" >
+						<div class="tex" id="shoip" style="width:860px;">
+		<samp>{{name.materialType2}}</samp>
+			<samp>{{name.materialType}}</samp>
+			<samp>{{name.materialName}}</samp>
+			<samp>{{name.materialModel}}</samp>
+			<samp>{{name.biddingNumber}}/{{name.materialUnit}}</samp>
+			
+						</div>
+					</div>
+					
+				</div>
+					<div class="c-wr2">
+				<span>技术质量要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.qualityAssurance}}</samp>
+					</div>
+				</div>
+			</div>
+				<div class="c-wr2">
+				<span>其它要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.otherRequire}}</samp>
+					</div>
+				</div>
+			</div>
+				<div class="c-wr2" style="margin-bottom: 20px;">
+					<span><xx class="z-xx">*</xx>送货地点范围:</span>
+					<div class="ysa" style="background: none;">
+						<div class="tex">
+					<samp ng-repeat="shu in data.deliverAddreList">{{shu.province}}{{shu.city}}{{shu.county}}</samp>
+					</div>
+					</div>
+				</div>
+				
+				<div class="c-wr2">
+					<span><xx class="z-xx">*</xx>到货日期范围:</span>
+					<div class="ysa">
+<div class="tex">
+						<samp>{{data.arrivalCreateTime.split(' ')[0]}}至{{data.arrivalEndTime.split(' ')[0]}}</samp>
+						
+						</div>	
+					</div>
+				</div>
+					<div class="c-wr dgd" style="margin-top: 20px;">
+				<span><xx class="z-xx">*</xx>联系人:</span>
+				 <div class="ysa">
+			<div class="tex">
+						<samp>{{data.contactPerson}}</samp>
+						
+						</div>	
+				</div>
+			</div>
+				<div class="c-wr">
+				<span><xx class="z-xx">*</xx>联系方式:</span>
+				 <div class="ysa">
+					<div class="tex">
+						<samp>{{data.contactTel}}</samp>
+						
+						</div>	
+				</div>
+			</div>
+				
+			</div>
+		</form>
+	</div>
+
+</div>

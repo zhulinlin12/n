@@ -1,0 +1,385 @@
+<div class="patt">
+	<div class="container2">
+			<div class="try">
+			<div class="container toe">
+				<div class="img"><img src="images/logo.png" class="img-responsive"> </div>
+					<div id="navbar" class="navbar-collapse banwy">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a ui-sref="buyt.buyer">招标采购</a>
+						</li>
+						<li>
+							<a ui-sref="index.op">直采商城</a>
+						</li>
+						<li>
+							<a href="#">易货平台</a>
+						</li>
+						<li>
+							<a href="#">租赁平台</a>
+						</li>
+						<li>
+							<a href="#">投融资</a>
+						</li>
+						<li>
+							<a href="#">项目分包</a>
+						</li>
+						<li>
+							<a href="#">信息中心</a>
+						</li>
+						
+					</ul>
+				</div>
+				<div id="navbar" class="navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li ng-class="{active:isActive === $index}"  ng-click="changeGood($index)" ng-repeat="nav in data.platIndex.platFormFuncList">
+							<a data-url="{{nav.picUrl}}" ui-sref="buyt.credit" >{{nav.name}}</a>
+						</li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			</div>
+			<!--
+      	banner
+      -->
+      <!--<div class="web banwy" style="background: #fff;">
+				<div class="cotn">
+					<ul>
+						<li style="display: block;">
+							<div class="mb"><div class="span">wwewew<br/><span>wewew</span></div></div>
+							<img src="images/banner big.png" />
+							
+						</li>
+						<li>
+							<div class="mb"><div class="span">wwewew<br/><span>wewew</span></div></div>
+							<img src="images/banner2.png" />
+							
+						</li>
+						<li>
+							<div class="mb"><div class="span">wwewew<br/><span>wewew</span></div></div><img src="images/banner3.png" /></li>
+						<li>
+							<div class="mb"><div class="span">wwewew<br/><span>wewew</span></div></div><img src="images/banner4.png" /></li>
+						<li>
+							<div class="mb"><div class="span">wwewew<br/><span>wewew</span></div></div><img src="images/banner5.png" /></li>
+						<li>
+							<div class="mb"><div class="span">wwewew<br/><span>wewew</span></div></div><img src="images/banner6.png" /></li>
+
+					</ul>
+					<div id='kk'>
+						<div class="sx"><img src="images/shangyiye.png" /></div><span>1/6</span>
+						<div class="sx2"><img src="images/xiayiye.png" /></div>
+					</div>
+				</div>
+				<div class="container toe">
+					<div class="btk">
+						<ul>
+							<li><img src="images/banner1.png" /> <span class="bor"></span></li>
+							<li><img src="images/banner2.png" /><span></span></li>
+							<li><img src="images/banner3.png" /><span></span></li>
+							<li><img src="images/banner4.png" /> <span></span></li>
+							<li><img src="images/banner5.png" /><span></span></li>
+							<li><img src="images/banner6.png" /><span></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>-->
+			<div class="web" style="background: #fff;">
+				<div class="cotn">
+					<ul>
+						<li ng-class="{shot:isActive === $index}" ng-repeat="ban in data.platIndex.bannerList">
+							<div data-url="{{ban.bannerUrl}}">
+							<div class="mb"><div class="span">{{ban.bannerParam1}}<br/><span>{{ban.bannerParam2}}</span></div></div>
+							<img ng-src="{{ban.bannerImgBUrl}}" />
+							
+							</div>
+						</li>
+
+					</ul>
+					<div id='kk'>
+						<div class="sx"><img src="images/shangyiye.png" /></div><span>1/{{data.platIndex.bannerList.length}}</span>
+						<div class="sx2"><img src="images/xiayiye.png" /></div>
+					</div>
+				</div>
+				<div class="container toe">
+					<div class="btk">
+						<ul>
+							<li  ng-repeat="ban in data.platIndex.bannerList" ng-mouseenter="lun($index)"><img ng-src="{{ban.bannerImgUrl}}" /> <span  ng-class="{bor:isActive === $index}"></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--关于我们-->
+			<div class="top wet">
+			<div class="container toe">
+				
+				<div class="t-b"><span></span><span>关于我们</span><span></span></div>
+				<ul class="gy-gn">
+						<li ng-repeat="ruk in data.platIndex.iconList" data-url="{{ruk.picUrl}}">
+							<img ng-src="{{ruk.picUrl}}" />
+						<h4>{{ruk.name}}</h4>
+						<p>{{ruk.remark}}</p>
+					</li>
+				</ul>
+			</div>
+			</div>
+			<!--五大功能模块-->
+			<div class="c-nr">
+
+				<div class="container top toe" style=" width:1050px; padding-top: 100px; height: auto; padding-bottom:60px; margin: auto; ">
+					<div class="t-b" style=""><span style="width:65px;"></span><span>同鑫五大功能块</span><span style="width:65px;"></span></div>
+					<div class="center">
+						<div class="z-left">
+							<div class="l-her">
+								<span>采购信息</span>
+								<samp>更多采购信息>></samp>
+							</div>
+							<div class="l-lb">
+								<ul class="list">
+									<li ng-class="{mag:0 === $index}" ng-repeat="fica in data.platIndex.businessDataList[0].dataTileList">{{fica.value}}</li>
+								</ul>
+								<div class="mo-l" tim>
+									<ol class="list1">
+										<li ng-repeat="vau in data.platIndex.businessDataList[0].dataList">
+										<span style="margin-left: 0px;">{{vau.custom[0].value.materialName}}</span>
+										<span>{{vau.custom[0].value.materialModel}}</span>
+										<span>{{vau.custom[0].value.biddingNumber}}</span>
+										<span>{{vau.custom[0].value.createTime}}</span>
+										<span data-id="{{vau.custom[0].value.biddingId}}">查看</span>
+										</li>
+										
+										
+									
+									</ol>
+								</div>
+
+							</div>
+						</div>
+						<div class="z-r">
+							<img ng-src="data.platIndex.businessDataList[0].dataList[0].custom[0].img" />
+							<div class="span">
+								<h1>{{data.platIndex.businessDataList[0].dataList[0].custom[0].value.materialName}}</h1>
+								<hr />
+								<h4>{{data.platIndex.businessDataList[0].dataList[0].custom[0].value.materialModel}}<br/>地址:北京市通州区万达<br/>联系人:陈先生</h4>
+							</div>
+						</div>
+					</div>
+					<!--2-->
+					<div class="center" style="height: 345px;">
+						<div class="z-left">
+							<div class="l-her">
+								<span>易货信息</span>
+								<samp>更多易货信息>></samp>
+							</div>
+							<div class="l-lb">
+								<ul class="list">
+									<li ng-class="{mag:0 === $index}" ng-repeat="fica in data.platIndex.businessDataList[2].dataTileList">{{fica.value}}</li>
+								</ul>
+								<div class="mo-l" tim >
+									<ol class="list1">
+										<li ng-repeat="vau in data.platIndex.businessDataList[2].dataList">
+										<span style="margin-left: 0px;">{{vau.custom[0].value.materialName}}</span>
+										<span>{{vau.custom[0].value.materialModel}}</span>
+										<span>{{vau.custom[0].value.biddingNumber}}</span>
+										<span>{{vau.custom[0].value.createTime}}</span>
+										<span data-id="{{vau.custom[0].value.biddingId}}">查看</span>
+												
+											
+											
+											
+										</li>
+										
+									</ol>
+								</div>
+							</div>
+						</div>
+						<div class="z-r">
+							<img src="images/yuhuo.png" />
+							<div class="span">
+								<h1>龙工  Z150C<br/>装载机</h1>
+								<hr />
+								<h4>进口大型装载机、桥梁衍架出租<br/>地址:北京市通州区万达<br/>联系人:陈先生</h4>
+							</div>
+						</div>
+					</div>
+
+					<!--3-->
+					<div class="center" style="height: 345px;">
+						<div class="z-r" style="float: left; width:310px;">
+							<img src="images/rongzhi.png" />
+							<div class="span">
+								<h1>龙工  Z150C<br/>装载机</h1>
+								<hr  />
+								<h4>进口大型装载机、桥梁衍架出租<br/>地址:北京市通州区万达<br/>联系人:陈先生</h4>
+							</div>
+						</div>
+
+						<div class="z-left" style="float:right; width:720px;">
+							<div class="l-her" style="width:693px">
+								<span>融资投资</span>
+								<button style="background: #dfedff; color: #666666;">投资信息</button>
+								<button>融资信息</button>
+							</div>
+							<div class="l-lb" style="width:693px">
+								<ul class="list2 " style="width:693px; text-align: center; ">
+									<li style="margin-left: 0px; ">城市</li>
+									<li style="text-align: center;">融资公司</li>
+									<li>融资项目</li>
+									<li>工程阶段</li>
+									<li>需求资金</li>
+									<li>发布时间</li>
+								</ul>
+								<div class="mo-l" tim>
+									<ol class="list3">
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+										<li>
+											<span style="margin-left: 0px;">沈阳</span>
+											<span>辽宁同鑫建投..</span>
+											<span>政府项目</span>
+											<span>正在施工</span>
+											<span>300w</span>
+											<span>2017.01.20</span>
+										</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+					
+				</div>
+				<div class="gd-t">
+					<div class="jt" go-top><img src="images/jiantou.png" /></div>
+					<div class="qq"><img src="images/QQ.png" /></div>
+					<div class="fk" ui-sref="fank.dibu">反馈</div>
+				</div>
+			</div>
+			<!--foot-->
+			<div class="foot">
+				<div class="container f-t">
+					<ul class="ms">
+						<li>友情链接:</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+						<li>物联网资讯</li>
+					</ul>
+					<div class="f-zy">
+						<span>同鑫建投网络科技有限公司</span>
+						<ul>
+							<li><img src="images/dizhi.png" /><samp>北京市通州区万达广场B座2401室</samp></li>
+							<li><img src="images/dianhua.png" style="width:18px; height: 16px;" /><samp>010 5324 688</samp></li>
+							<li><img src="images/youjian.png" style="width:18px; height: 18px;" /><samp>email@tongxinbui.com</samp></li>
+						</ul>
+					</div>
+					<div class="bg">
+						<span>网站地图</span>
+						<ul>
+							<li>首页</li>
+							<li>招标采购</li>
+							<li>直采商城</li>
+							<li>租赁平台</li>
+							<li>运货通</li>
+						</ul>
+						<ul style="float: left; margin-left: 50px;">
+							<li>投融资</li>
+							<li>项目分包</li>
+							<li>知识库</li>
+							<li>OA</li>
+							<li>积分</li>
+						</ul>
+					</div>
+
+					<div class="bg-z">
+						<span>关注链接</span>
+						<ul>
+							<li style="margin-left: 0px;"><img src="images/qq-fenxiang.png" /></li>
+							<li><img src="images/weibo.png" /></li>
+							<li><img src="images/weixing.png" /></li>
+						</ul>
+						<h5>Copring@aksaskaasanns.All<br/>Ringth Reeko</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		

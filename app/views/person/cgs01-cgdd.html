@@ -1,0 +1,301 @@
+	<div id="tank" ng-if="tank">
+		<div class="mod-bg"></div>
+		<div class="mod-dialog" style="left: 591.5px; top: 140.5px; display: block;">
+			<div class="dialog-nav"><span class="dialog-title">{{hint}}</span>
+				<a ng-click="qx()" class="dialog-close">&#10006</a>
+			</div>
+			<div class="dialog-main">
+				<div class="dialog-content">
+					<p>是否要{{hint}}？</p>
+				</div>
+				<div class="dialog-console clearfix_new">
+					<a class="console-btn-cancel" ng-click="qx()">取消</a>
+					<a class="console-btn-confirm" ng-click="del()">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+<div class="r_warp">
+    <div class="tit_box01">
+        <h2 class="tit">采购订单</h2>
+      <!--  <a href="javascript:;" class="a1">去首页挑选感兴趣的商品>></a>-->
+    </div>
+    <form class="m_top">
+        <div class="row_box">
+            <input type="text" class="wb_1 ddhm" placeholder="订单号码" />
+            <input type="text" class="wb_1 cpmc" placeholder="产品名称" />
+        </div>
+        <div class="row_box">
+            <span class="s1">下单时间：从</span>
+      	<input def-calendata type="text" style="width:168px;" datw="-1" id="start" name="establish" ng-model="establish" required ng-focus="establishFocus = true" class="laydate-icon" readonly/>
+            <span class="s1"> 到 </span>
+          	<input def-calendata type="text" style="width:168px;" datw="-1" id="end" name="regist" ng-model="regist" required ng-focus="registFocus = true" class="laydate-icon" readonly/>
+            <!--    <a href="javascript:;" class="date-btn1" ng-click="flagFn1()">最近3天</a>
+            <a href="javascript:;" class="date-btn1" ng-click="flagFn2()">最近一周</a>
+            <a href="javascript:;" class="date-btn1" ng-click="flagFn3()">最近一月</a> -->
+            <button type="button" class="search_btn" ng-click="searchFn()">搜索</button>
+        </div>
+    </form>
+    <div class="content" id="cgdd">
+        <ul class="tab_box clear">
+            <!-- <li class="list ac"><a href="javascript:;" ng-click="fkzt0()">全部 (-)</a></li> -->
+            <li class="list"><a href="javascript:;" ng-class="{klq: fkztNum==''}" ng-click="fkzt('')">全部 ({{data.order.allCount}})</a></li>
+            <li class="list"><a href="javascript:;" ng-class="{klq: fkztNum==84}" ng-click="fkzt(84)">待确认 ({{data.order.confirmCount}})</a></li>
+            <li class="list"><a href="javascript:;" ng-class="{klq: fkztNum==82}" ng-click="fkzt(82)">待付款 ({{data.order.fukuancount}})</a></li>
+             <li class="list"><a href="javascript:;" ng-class="{klq: fkztNum==86}" ng-click="fkzt(86)">付款待确认 ({{data.order.toPayCount}})</a></li>
+            <li class="list"><a href="javascript:;" ng-class="{klq: fkztNum==83}" ng-click="fkzt(83)">待发货 ({{data.order.fahuocount}})</a></li>
+            <li class="list"><a href="javascript:;" ng-class="{klq: fkztNum==85}" ng-click="fkzt(85)">待收货 ({{data.order.shouhuocount}})</a></li>
+            <li class="list"><a href="javascript:;" ng-class="{klq: fkztNum==87}" ng-click="fkzt(87)">待评价({{data.order.pingjiacount}})</a></li>
+        </ul>
+        <style>
+        #cgdd .tab_box .klq {
+            color: #006CFF;
+        }
+        </style>
+    </div>
+    <div class="f-sp">
+        <div class="f-spf">
+            <span class="f-y10">商品信息</span>
+            <span class="f-y8">单价（元）</span>
+            <span class="f-y8">数量</span>
+            <span class="f-y8">商品金额（元）</span>
+            <span class="f-y8">订单金额（元）</span>
+            <span class="f-y8">订单状态</span>
+            <span class="f-y9" style="width: 170px;">交易操作</span>
+        </div>
+        <!--全部投标信息-->
+        <div class="z-spf">
+            <div class="f-wq clearfix" ng-repeat="item in data.order.orderList">
+                <div class="f-w">
+                    <span>单号：<lp>{{item.orderCode}}</lp></span>
+                    <span>下单时间：<lp>{{item.createTime}}</lp></span>
+                    <span>供应商：<lp>{{item.shopName}}</lp></span>
+              <!--      <span>联系人：<lp>{{item.consignee}}</lp></span>-->
+                    <span>电话：<lp>{{item.consigneeMoblie}}</lp></span>
+                </div>
+                <div style=" width: 807px; height: auto; overflow: hidden;  float: left;" >
+                    <div class="f-wp" style=" float: left;"ng-class="{'bn-bl':$index==item.productList.length-1}" ng-repeat="iter in item.productList">
+                        <div class="f-y10">
+                            <img class="f-img" ng-src="{{iter.imageUrl}}" ui-sref="index.xq({id:iter.productId})"/>
+                            <div class="f-wz">
+                                <span style="width: 144px">{{iter.productName}}</span>
+                                <!--<samp>型号</samp>-->
+                            </div>
+                        </div>
+                        <div class="f-y8">{{iter.unitPrice}}</div>
+                        <div class="f-y8">{{iter.purQty}}</div>
+                        <div class="f-y8">{{iter.sumTotal}}</div>
+                        <div class="f-y8">
+                            <p class="p1">{{item.payTotal}}</p>
+                            <p class="p2">含运费{{item.freight}}</p>
+                        </div>
+                        <div class="f-y8">
+                        	 <p class="p4" ng-if="item.status==80">交易失败</p>
+                            <p class="p4" ng-if="item.status==82">等待付款</p>
+                            <p class="p4" ng-if="item.status==83">未发货</p>
+                            <p class="p4" ng-if="item.status==84">待卖家确认</p>
+                            <p class="p4" ng-if="item.status==85">待收货</p>
+                              <p class="p4" ng-if="item.status==86">付款待确认</p>
+                            <p class="p4" ng-if="item.status==87">已收货</p>
+                            <p class="p4" ng-if="item.status==88">交易成功</p>
+                             <p class="p4" ng-if="item.status==89">交易过期</p>
+                              <p class="p4" ng-if="item.status==90">退款中</p>
+                               <p class="p4" ng-if="item.status==91">退款成功</p>
+                                <p class="p4" ng-if="item.status==92">交易已取消</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                 <div class="kka" style="width:176px; height:{{100*item.productList.length}}px;  float: right; position: relative;">
+                 
+                        <div class="f-y11 f-pq owqn" ng-if="item.status == 82">
+                        	 <div class="f-rt btn1 uiwo" ui-sref="index.buyse({id:item.orderId})">查看订单</div>
+                            <div class="f-rt btn1" ui-sref="index.paymot({id:item.orderId})" >付款</div>
+                        <!--     <div class="f-rt btn1" ng-if="item.status==89">删除订单</div>-->
+                            <div class="f-rt btn2"  ng-click="cancel(item.orderId,'92')">取消订单</div>
+                        </div>
+                         <div class="f-y11 f-pq owqn" ng-if="item.status == 84">
+                         	 <div class="f-rt btn1 uiwo"  ui-sref="index.buyse({id:item.orderId})">查看订单</div>
+                            <div class="f-rt btn1" >联系卖家</div>
+                            <div class="f-rt btn2" ng-click="cancel(item.orderId,'92')">取消订单</div>
+                        </div>
+                        <div class="f-y11 f-pq" ng-if="item.status == 83">
+                        	 <div class="f-rt btn1 uiwo" ui-sref="index.buyse({id:item.orderId})">查看订单</div>
+                            <div class="f-rt btn2">提醒发货</div>
+                        </div>
+                        <div class="f-y11 f-pq" ng-if="item.status == 85">
+                       	 <div class="f-rt btn1 uiwo" di-href ui-sref="index.buyse({id:item.orderId})">查看订单</div>
+                            <div class="f-rt btn2" ng-click="cancel(item.orderId,'87')">确认收货</div>
+                        </div>
+                        <div class="f-y11 f-pq" ng-if="item.status == 87">
+                    	 <div class="f-rt btn1 uiwo" ui-sref="index.buyse({id:item.orderId})">查看订单</div>
+                            <div class="f-rt btn2" ui-sref="index.pj({id:item.orderId})" >去评价</div>
+                        </div>
+                         <div class="f-y11 f-pq owr" ng-if="item.status == 88||item.status == 89||item.status == 92||item.status == 90||item.status == 91||item.status == 86">
+             	 <div class="f-rt btn1 uiwo" ui-sref="index.buyse({id:item.orderId})">查看订单</div>
+                            
+                        </div>
+
+                    </div>
+            </div>
+           
+            <div>
+            	
+            </div>
+            <style>
+            	.f-y11{
+position: absolute;
+top:50%;
+left:50%;
+margin-left: -50px;
+right: 50%;
+bottom: 50%;
+margin-top: -50px;
+            	}
+            	.r_warp .f-sp .f-wq .bn-bl{
+            		border-bottom: none;
+            	}
+            	.owr{
+            		margin-top: -30px;
+            	}
+            	.owqn{
+            		margin-top: -50px;
+            		padding-top: 10px !important;
+            	}
+          .r_warp .f-sp .f-wq .kka .f-y11 .uiwo{
+            		background: orange !important;
+            	}
+            </style>
+            <!--<div class="f-wq clearfix" >-->
+            <!--<div class="f-w">-->
+            <!--<span>单号：<lp>100002323</lp></span>-->
+            <!--<span>下单时间：<lp>2017-1-30</lp></span>-->
+            <!--<span>供应商：<lp>皮皮虾建设有限公司</lp></span>-->
+            <!--<span>联系人：<lp>皮皮虾</lp></span>-->
+            <!--<span>电话：<lp>1823371289</lp></span>-->
+            <!--</div>-->
+            <!--<div style="width:100%; height: auto; overflow: hidden; position: relative;">-->
+            <!--<div class="f-wp" style="width:885px; float: left; ">-->
+            <!--<div class="f-y10">-->
+            <!--<div class="f-img"></div>-->
+            <!--<div class="f-wz">-->
+            <!--<span>商品名称商品名称</span>-->
+            <!--<samp>型号</samp>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8"><p class="p1">520.00</p><p class="p2">含运费20.00</p></div>-->
+            <!--<div class="f-y8">等待买家付款</div>-->
+            <!--</div>-->
+            <!--<div class="kka" style="width:130px; height:100px; position: absolute; top:50%; right:0px; margin-top: -50px; float: right;">-->
+            <!--<div class="f-y11 f-pq">-->
+            <!--<div class="f-rt btn1">付款</div>-->
+            <!--<div class="f-rt btn2">取消订单</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="f-wq clearfix" >-->
+            <!--<div class="f-w">-->
+            <!--<span>单号：<lp>100002323</lp></span>-->
+            <!--<span>下单时间：<lp>2017-1-30</lp></span>-->
+            <!--<span>供应商：<lp>皮皮虾建设有限公司</lp></span>-->
+            <!--<span>联系人：<lp>皮皮虾</lp></span>-->
+            <!--<span>电话：<lp>1823371289</lp></span>-->
+            <!--</div>-->
+            <!--<div style="width:100%; height: auto; overflow: hidden; position: relative;">-->
+            <!--<div class="f-wp" style="width:885px; float: left; ">-->
+            <!--<div class="f-y10">-->
+            <!--<div class="f-img"></div>-->
+            <!--<div class="f-wz">-->
+            <!--<span>商品名称商品名称</span>-->
+            <!--<samp>型号</samp>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8"><p class="p1">520.00</p><p class="p2">含运费20.00</p></div>-->
+            <!--<div class="f-y8">等待买家付款</div>-->
+            <!--</div>-->
+            <!--<div class="kka" style="width:130px; height:100px; position: absolute; top:50%; right:0px; margin-top: -50px; float: right;">-->
+            <!--<div class="f-y11 f-pq">-->
+            <!--<div class="f-rt btn1">付款</div>-->
+            <!--<div class="f-rt btn2">取消订单</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="f-wq clearfix" >-->
+            <!--<div class="f-w">-->
+            <!--<span>单号：<lp>100002323</lp></span>-->
+            <!--<span>下单时间：<lp>2017-1-30</lp></span>-->
+            <!--<span>供应商：<lp>皮皮虾建设有限公司</lp></span>-->
+            <!--<span>联系人：<lp>皮皮虾</lp></span>-->
+            <!--<span>电话：<lp>1823371289</lp></span>-->
+            <!--</div>-->
+            <!--<div style="width:100%; height: auto; overflow: hidden; position: relative;">-->
+            <!--<div class="f-wp" style="width:885px; float: left; ">-->
+            <!--<div class="f-y10">-->
+            <!--<div class="f-img"></div>-->
+            <!--<div class="f-wz">-->
+            <!--<span>商品名称商品名称</span>-->
+            <!--<samp>型号</samp>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8">单位</div>-->
+            <!--<div class="f-y8"><p class="p1">520.00</p><p class="p2">含运费20.00</p></div>-->
+            <!--<div class="f-y8">等待买家付款</div>-->
+            <!--</div>-->
+            <!--<div class="kka" style="width:130px; height:100px; position: absolute; top:50%; right:0px; margin-top: -50px; float: right;">-->
+            <!--<div class="f-y11 f-pq">-->
+            <!--<div class="f-rt btn1">去评价</div>-->
+            <!--<div class="f-rt btn2">返修退换货</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="f-d">-->
+            <!--<span>显示第<iw>1</iw>页，共<w>36</w>条记录</span>-->
+            <!--<div class="f-r">-->
+            <!--<div class="f-sy">上一页</div>-->
+            <!--<div class="f-ui">-->
+            <!--<li>1</li>-->
+            <!--<li>2</li>-->
+            <!--<span>...</span>-->
+            <!--<li>6</li>-->
+            <!--</div>-->
+            <!--<input type="text" />-->
+            <!--<div class="f-xy">下一页</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <p ng-show="data.order.orderCount<1" style="text-align: center;line-height: 56px;font-size:15px;color:#999;">没有数据！</p>
+            <div class="page_box2 clear" style="padding-top: 20px;">
+                <!--<div class="page">-->
+                <!--<a href="javascript:;" class="item"><<</a>-->
+                <!--<a href="javascript:;" class="item ac">1</a>-->
+                <!--<a href="javascript:;" class="item">2</a>-->
+                <!--<a href="javascript:;" class="item">3</a>-->
+                <!--<a href="javascript:;" class="item">>></a>-->
+                <!--</div>-->
+                <div class="box">
+                    <div id="pagination2" class="page fl"></div>
+                    <div class="info fl">
+                    </div>
+                </div>
+                <p class="page_hint">一共{{data.order.orderCount}}条信息，共<span class="page_gong"></span>页</p>
+            </div>
+        </div>
+    </div>
+    <!--<span class="tit_4">日期：</span><input type="text" style="width: 100px;" class="laydate-icon duan" onclick="laydate()" />-->

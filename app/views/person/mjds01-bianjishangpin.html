@@ -1,0 +1,355 @@
+<div id="spfb">
+    <div class="tit_box01">
+        <h2 class="tit">商品发布</h2>
+    </div>
+    <div class="m_top">
+        <img src="images/fbsp_jdt2.jpg" alt="" class="jindu_pic" />
+    </div>
+    <div class="type_jg2">
+        您当前选择的商品分类为：  {{data.product.fistName}}
+        <!--<a href="javascript:;" class="xg_btn" ui-sref="buyt.mjds01-spfb">修改</a>-->
+    </div>
+    <form class="content">
+        <div class="floor jbxx_box">
+            <div class="row item" style="padding-top:42px;">
+                <div class="col-xs-2 tit">品名：</div>
+                <div class="col-xs-10">
+                    <input type="text" class="wb_1" ng-value="data.product.productName" />
+                </div>
+            </div>
+            <h2 class="tit_2">商品基本信息<span class="hint_1">(商品参数：填错商品属性将可能导致商品下架或搜索不到，请准确填写商品属性！)</span></h2>
+
+            <!--<div class="row item">-->
+                <!--<div class="col-xs-2 tit">材质：</div>-->
+                <!--<div class="col-xs-10">-->
+                    <!--<input type="text" class="wb_1" />-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="row item">-->
+                <!--<div class="col-xs-2 tit">适用范围：</div>-->
+                <!--<div class="col-xs-10">-->
+                    <!--<select class="wb_1">-->
+                        <!--<option>品牌1</option>-->
+                        <!--<option>品牌2</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row item">-->
+                <!--<div class="col-xs-2 tit">硬度：</div>-->
+                <!--<div class="col-xs-10">-->
+                    <!--<select class="wb_1">-->
+                        <!--<option>品牌1</option>-->
+                        <!--<option>品牌2</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row item">-->
+                <!--<div class="col-xs-2 tit">种类：</div>-->
+                <!--<div class="col-xs-10">-->
+                    <!--<select class="wb_1">-->
+                        <!--<option>品牌1</option>-->
+                        <!--<option>品牌2</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row item">-->
+                <!--<div class="col-xs-2 tit">{{data.skuProp.skuPropList[0].name}}：</div>-->
+                <!--<div class="col-xs-10">-->
+                    <!--<select class="wb_1">-->
+                        <!--<option ng-repeat="item in data.skuProp.skuPropList[0].propCodeList">{{item.name}}</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="row item" ng-repeat="item in dataq.skuProp.skuPropList">
+                <div class="col-xs-2 tit">{{item.name}}：</div>
+                <div class="col-xs-10">
+                    <select class="wb_1 skv_val">
+                        <option ng-repeat="item2 in item.propCodeList" data-type="{{item2.code}}" data-code="{{item2.typeCode}}">{{item2.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <!--<p>{{sl2}}</p>-->
+            <div class="row item">
+                <div class="col-xs-2 tit">添加自定义参数：</div>
+                <div class="col-xs-10">
+                    <a href="javascript:;" class="add_btn">+</a>
+                    <span class="s1">（如不能满足您的需求，可添加自定义参数）</span>
+                </div>
+            </div>
+        </div>
+        <div class="floor">
+            <h2 class="tit_2">商品交易信息</h2>
+            <!--<div class="row item">-->
+                <!--<div class="col-xs-2 tit">是否支付网上交易：</div>-->
+                <!--<div class="col-xs-10">-->
+                    <!--<label class="p1"><input type="radio" name="money_type"/> 支持</label>-->
+                    <!--<label class="p1"><input type="radio" name="money_type"/> 不支持</label>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <div class="row item">
+                <div class="col-xs-2 tit">报价方式：</div>
+                <div class="col-xs-10">
+                    <!--<label class="p1"><input type="radio" name="money_type"/> 电话报价</label>-->
+                    <label class="p1"><input type="radio" checked name="money_type"/> 区间报价</label>
+                </div>
+
+            </div>
+            <div class="row item">
+                <div class="col-xs-2 tit">价格区间：</div>
+                <div class="col-xs-10">
+                    <table class="tbox_1">
+                        <thead>
+                        <tr>
+                            <th>采购量</th>
+                            <th>商品单价</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in priceListArr">
+                            <td>起批量 <input type="number" class="wb_4 qp_count" value="{{item.count}}" ng-model="item.count" ng-keyup="getJson()">（单位）以上</td>
+                            <td><input type="number" class="wb_4" value="{{item.unitmoney}}" ng-model="item.unitmoney" ng-keydown="getJson()"> 元/（单位）</td>
+                        </tr>
+                        <tr><td colspan="2"><a href="javascript:;" class="add_btn2" ng-click="addItem()">+ 增加价格区间</a></td></tr>
+                        </tbody>
+
+                    </table>
+                    <table class="tbox_2">
+                        <tbody>
+                        <tr>
+                            <td rowspan="999" style="background: #f5f5f5;width:50px;font-weight: bolder;">价<br>格<br>预<br>览</td>
+                            <td>起订价</td>
+                            <td>单价</td>
+                        </tr>
+
+                        <tr ng-repeat="item in priceListArr" class="see_item">
+                            <td width="175px">
+                                <span class="s1"><span class="dayu">≥</span><span class="num1">{{item.count}}</span></span>
+                                <span class="s2">~ <span class="num2"></span></span>
+                            </td>
+                            <td width="170px">{{item.unitmoney}}元/单价</td>
+                        </tr>
+
+                        <!--<tr>-->
+                            <!--<td>≥200</td>-->
+                            <!--<td>80元/单价</td>-->
+                        <!--</tr>-->
+
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+            </div>
+            <div class="row item">
+                <div class="col-xs-2 tit">供应量：</div>
+                <div class="col-xs-10">
+                    <input type="text" class="wb_1" ng-model="stockSizeWb" style="width: 200px" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="floor">
+            <h2 class="tit_2">商品主图和详情</h2>
+            <div class="row item">
+                <div class="col-xs-2 tit">添加商品主图：</div>
+
+                <div class="col-xs-10">
+                    <form ng-submit="submit_form()">
+
+                        <div class="clear">
+                            <div class="pui" ng-repeat="item in thumb">
+                                <!-- 采用angular循环的方式，对存入thumb的图片进行展示 -->
+                                <label>
+                                    <img ng-src="{{item.imgSrc}}"/>
+                                </label>
+                                <span ng-if="item.imgSrc" ng-click="img_del($index)">X</span>
+                            </div>
+                            <div  >
+                                <!-- 这里之所以写个循环，是为了后期万一需要多个‘加号’框 -->
+                                <label>
+                                    <div class="wt">
+                                        <span>+</span>
+                                        <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files)"/>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <!--<input type="submit" name="" value="提 交" />-->
+                    </form>
+
+
+                    <p class="hint_2">建议上传至少3张以上，不小于500*500像素的真实图片，支持jpg,jpeg,gif,bmp格式</p>
+
+
+                </div>
+
+            </div>
+            <br/><br/><br/>
+            <div class="row item">
+                <div class="col-xs-2 tit">添加商品详情：</div>
+                <div class="col-xs-10">
+                    <form ng-submit="submit_form()">
+
+                        <div class="clear">
+                            <div class="pui" ng-repeat="item in thumb2">
+                                <!-- 采用angular循环的方式，对存入thumb的图片进行展示 -->
+                                <label>
+                                    <img ng-src="{{item.imgSrc}}"/>
+                                </label>
+                                <span ng-if="item.imgSrc" ng-click="img_del2($index)">X</span>
+                            </div>
+                            <div  >
+                                <!-- 这里之所以写个循环，是为了后期万一需要多个‘加号’框 -->
+                                <label>
+                                    <div class="wt">
+                                        <span>+</span>
+                                        <input type="file" id="one-input2" name="pic" title=" " onchange="angular.element(this).scope().img_upload2(this.files)"/>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <!--<input type="submit" name="" value="提 交" />-->
+                    </form>
+
+
+                    <p class="hint_2">建议上传至少3张以上，不小于500*500像素的真实图片，支持jpg,jpeg,gif,bmp格式</p>
+
+
+                </div>
+
+            </div>
+            <div class="row item">
+                <div class="col-xs-2 tit">商品描述：</div>
+                <div class="col-xs-10">
+                    <textarea class="wbk_1" ng-model="descriptionWb"></textarea>
+                    <p class="hint_2">建议上传至少3张以上，不小于500*500像素的真实图片，支持jpg,jpeg,gif,bmp格式</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="floor">
+            <h2 class="tit_2">物流运费信息</h2>
+
+            <div class="row item">
+                <div class="col-xs-2 tit">发货日期：</div>
+                <div class="col-xs-10">
+                    <!--<input type="text" class="wb_1">-->
+                    <select class="wb_1 fh_date">
+                        <option>1天</option>
+                        <option>1周</option>
+                        <option>10天</option>
+                        <option>15天</option>
+                        <option>1个月</option>
+                    </select>
+                    <span class="s1">自买家付款之日起</span>
+                </div>
+            </div>
+        </div>
+        <div class="btn_box">
+            <button type="button" class="send_btn" ng-click="addpic()">发布商品信息</button>
+            <button type="button" class="see_btn">预览商品信息</button>
+            <p style="color: red;padding:10px 0 0 53px;">{{data2.product.applyMsg}}</p>
+
+        </div>
+
+    </form>
+
+
+
+
+</div>
+
+
+
+
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .wt{
+        width:100px;
+        height: 100px;
+        background: #fff;
+        float: left;
+        position: relative;
+        border:1px solid #999;
+
+    }
+    .wt input{
+        width:100px;
+        height: 100px;
+        opacity: 0;
+        overflow:hidden;
+        cursor: pointer;
+    }
+    .wt span{
+        display: block;
+        width:100px;
+        height: 100px;
+        font-size: 30px;
+        text-align: center;
+        line-height: 100px;
+        position: absolute;
+        top:0px;
+        left:0px;
+        cursor: pointer;
+    }
+    .pui{
+        width:100px;
+        height: 100px;
+        position: relative;
+        float: left;
+        margin-right: 10px;
+    }
+    .pui img{
+        display: block;
+        width:100px;
+        height: 100px;
+        float: left;
+
+    }
+    .pui span{
+        display: block;
+        position: absolute;
+        top:0px;
+        right: 0px;
+        display: none;
+    }
+    .pui:before{
+        width:100px;
+        height: 100px;
+        background: red;
+        opacity: .4;
+    }
+    .pui:hover:before{
+        content:"";
+        display: block;
+        width:100px;
+        height: 100px;
+        background: red;
+        opacity: .4;
+        position: absolute;
+        top:0px;
+        cursor: pointer;
+        left:0px;
+    }
+    .pui:hover span{
+        display: block;
+    }
+</style>
+
+
+
+
+
+
+
+

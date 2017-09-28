@@ -1,0 +1,165 @@
+.fankui {
+  position: relative;
+}
+.fankui .alt {
+  position: fixed;
+  width: 200px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  background: #E2E2E2;
+  right: 50%;
+  left: 50%;
+  color: #006CFF;
+  margin-left: -100px;
+  top: 0px;
+  border: 1px solid #EBEBEB;
+  border-radius: 4px;
+  display: none;
+}
+.fankui .rigth {
+  float: right;
+}
+.fankui .head {
+  height: 128px;
+  margin: auto;
+  background: #fff;
+}
+.fankui .head .tulogo {
+  width: 130px;
+  height: 100px;
+  float: left;
+  margin-top: 12px;
+}
+.fankui .head .wiet {
+  width: 158px;
+  height: 40px;
+  margin-top: 50px;
+  font-size: 14px;
+  color: #999999;
+  text-align: center;
+  line-height: 40px;
+}
+.fankui .head .wiet span {
+  margin-left: 10px;
+}
+.fankui .zht {
+  height: auto;
+  background: #ebebeb;
+  margin: auto;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+.fankui .zht .cwe {
+  width: 835px;
+  height: auto;
+  margin: auto;
+}
+.fankui .zht .cwe h2 {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+.fankui .zht .cwe .lma {
+  margin-top: 30px;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+.fankui .zht .cwe .fa-z {
+  width: 835px;
+  height: auto;
+  background: #fff;
+  margin-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.fankui .zht .cwe .fa-z .kanfa {
+  margin-bottom: 40px;
+}
+.fankui .zht .cwe .fa-z .kanfa textarea {
+  width: 100%;
+  height: 160px;
+  resize: none;
+  border: 1px solid #DEDEDE;
+  margin-top: 5px;
+  outline: none;
+  font-size: 14px;
+  padding-left: 14px;
+  padding-top: 5px;
+  color: #BEBEBE;
+}
+.fankui .zht .cwe .fa-z h6 {
+  font-size: 14px;
+  color: #000000;
+}
+.fankui .zht .cwe .fa-z h6 r {
+  color: #FF0000;
+  margin-left: 5px;
+}
+.fankui .zht .cwe .fa-z h6 l {
+  color: #006CFF;
+  margin-left: 5px;
+}
+.fankui .zht .cwe .fa-z samp {
+  font-size: 12px;
+  color: #FF0000;
+  font-family: arial;
+  display: block;
+  margin-bottom: 10px;
+}
+.fankui .zht .cwe .fa-z .black {
+  width: 100%;
+  height: 30px;
+  padding-left: 5px;
+  line-height: 30px;
+  color: #666666;
+  border: 1px solid transparent;
+  margin-top: 2px;
+}
+.fankui .zht .cwe .fa-z .black input[type="radio"],
+.fankui .zht .cwe .fa-z .black input[type="checkbox"] {
+  margin: 8px 0 0;
+  float: left;
+  outline: none;
+  margin-right: 10px;
+}
+.fankui .zht .cwe .fa-z .black:hover {
+  background: #EBEBEB;
+  cursor: pointer;
+}
+.fankui .zht .cwe .fa-z .bk {
+  border: 1px solid #006CFF;
+}
+.fankui .zht .cwe .fa-z .wk {
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+.fankui .zht .cwe .fa-z .wk .anniu {
+  width: 160px;
+  height: 40px;
+  background: #006CFF;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  margin-left: -80px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+}
+@media (max-width: 500px) {
+  .head,
+  .zht {
+    width: 1190px;
+  }
+}
+@media screen and (min-width: 960px) {
+  .head,
+  .zht {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=fankui.css.map */

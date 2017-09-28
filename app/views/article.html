@@ -1,0 +1,34 @@
+<!--常见问题-->
+<!-- <div ng-controller="articlectrl"> -->
+<div class="z-cj">
+    <div class="c-tr">
+        <div class="container">
+            <div class="na-l">
+                <img class="img2" src="images/logo2_03.jpg" class="img-responsive" ui-sref="index.op" style="display: inline-block; float: left; margin-top: 10px;  height: 99px; margin-left: 66px; width: auto;" />
+                <div class="mh">
+                    <div class="ss-k">
+                        <input type="text" placeholder="请简单描述您的问题或问题关键词" />
+                    </div>
+                    <div class="sc-an" ui-sref="index.lb"><img src="images/ss-an.png" alt="" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hide_site">
+</div>
+<div class="container">
+    <div class="kp clearfix">
+        <span class="more" ui-sref="index.articlemenulist">
+            <a href="">更多 >> </a>
+        </span>
+
+        <div class="ri-f" id="accordion4" ng-controller="articlectrl">
+            <li ng-repeat="articles in articleCons"><span class="collapsed" data-toggle="collapse" data-parent="#accordion4" href="#{{articles.id}}"> &nbsp;<h4>{{articles.articleTitle}}</h4></span>
+                <p id="{{articles.id}}" class="powy panel-collapse wr  collapse in">{{articles.articleContent}}</p>
+            </li>
+        </div>
+   
+    </div>
+</div>
+<!-- </div> -->

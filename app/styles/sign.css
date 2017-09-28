@@ -1,0 +1,164 @@
+.sign {
+  /*全局样式*/
+  /*表头*/
+  /*主体*/
+  /*主体表单*/
+}
+.sign input {
+  outline: none;
+  border: 1px solid #DEDEDE;
+}
+.sign * {
+  margin: 0;
+  padding: 0;
+}
+.sign body {
+  font-size: 14px;
+  font-family: "微软雅黑";
+  color: #666666;
+}
+.sign li {
+  list-style: none;
+}
+.sign a {
+  text-decoration: none;
+  color: #999999;
+}
+.sign a:hover {
+  text-decoration: none;
+  color: #999999;
+}
+.sign i {
+  font-style: normal;
+}
+.sign .logo {
+  display: inline-block;
+  float: left;
+}
+.sign .icon-xiala {
+  font-weight: normal;
+  margin: 20px;
+  font-size: 5px;
+  position: relative;
+  top: -6px;
+  display: inline-block;
+  transform: rotate(180deg);
+}
+.sign .clear {
+  clear: both;
+}
+.sign .wbox1 {
+  height: 112px;
+  background: #EBEBEB;
+}
+.sign .body-box2 {
+  position: relative;
+  bottom: 50px;
+  height: 400px;
+  width: 100%;
+  border: 1px soli #CCCCCC;
+  top: 190px;
+}
+.sign .resat1 {
+  width: 650px;
+  height: 70px;
+  color: #eef5ff ;
+  line-height: 70px;
+  box-sizing: border-box;
+  padding-left: 15px;
+}
+.sign .resat1 > i {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #FFFFFF;
+  border-radius: 50px;
+  vertical-align: middle;
+}
+.sign .body-box3 {
+  margin-left: 226px;
+}
+.sign .body-box3 > div {
+  width: 650px;
+  height: 70px;
+}
+.sign .body-box3 > div {
+  margin-bottom: 20px;
+}
+.sign .resat1 ~ div {
+  border: 1px solid #EBEBEB;
+}
+.sign .resat1 ~ div > i {
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  border: 1px solid #EBEBEB;
+  float: left;
+}
+.sign .resat1 ~ div > button {
+  width: 120px;
+  height: 40px;
+  background: #fa850d;
+  color: #FFFFFF;
+  line-height: 40px;
+  outline: none;
+  border: none;
+  float: right;
+  margin-right: 15px;
+}
+.sign .clear-by {
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.sign .rest-clear > li:first-child {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 5px;
+}
+.sign .rest-clear > li:nth-child(2) {
+  font-size: 12px;
+  color: #BEBEBE;
+}
+.sign #retrieve-form > div {
+  display: block;
+  margin-bottom: 40px;
+}
+.sign #retrieve-form {
+  position: relative;
+  left: 182px;
+  margin-top: 30px;
+}
+.sign .true1 {
+  width: 160px;
+  height: 40px;
+  background: #006CFF;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 40px;
+  border: none;
+}
+.sign .fon {
+  width: 100%;
+  height: auto;
+  background: #ebebeb;
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 50px;
+}
+.sign .fon center {
+  width: 688px;
+  height: 189px;
+  text-align: center;
+  display: block;
+  font-size: 12px;
+  color: #666666;
+  margin: auto;
+  margin-top: 20px;
+}
+.sign .fon center .as-d {
+  margin-bottom: 10px;
+}
+.sign .fon center .z-b {
+  margin-top: 10px;
+}

@@ -1,0 +1,24 @@
+<div class="find" ng-controller="findPasswordsCtrl">
+    <div class="container clearfix" style="width:1102px;height: 380px;">
+        <p style="color: #666666; margin-top: 30px;">请您输入您要找会密码的用户名</p>
+        <form name="idForm" id="retrieve-form">
+            <h5 id="errinfo" style="color: #ee2e2c; margin-left: 54px;">&nbsp;</h5>
+            <div style="color:#666666">
+                登录名：
+                <input type="text" required ng-model="vm.Id.personId" name="phonenum" ng-pattern="/^1[3|5|7|8][0-9]\d{8}$/" ng-minlength="11" ng-maxlength="11" ng-focus="phonenumFocus=true" placeholder="手机/邮箱/会员名" style="height: 40px;width: 270px;padding-left: 10px;" />
+                <span style="color:red" ng-show="idForm.phonenum.$invalid && phonenumFocus">
+                    <span ng-show="idForm.phonenum.$error.required">请输入手机号码。</span>
+                <span ng-show="idForm.phonenum.$error.pattern">请输入合法的手机号码。</span>
+                </span>
+            </div>
+             <div style="color:#666666">
+                验证：
+                <div class="bar1 bar" style="width: 300px; height:40px; left: 55px;top:-25px"></div>
+            </div>
+            <button class="true1" style="position: relative;left:55px" ng-click="getAdmin(vm.Id.personId)" disabled="disabled">点击验证</button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+$('.bar1').slideToUnlock();
+</script>

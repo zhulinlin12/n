@@ -1,0 +1,404 @@
+.buysu {
+  height: auto;
+  background: #fff;
+  /*流程图*/
+  /*下面*/
+  /*订单状态*/
+  /*第一个*/
+  /*表单*/
+  /*订单信息的表单*/
+  /*第二个*/
+  /*第三个*/
+}
+.buysu li {
+  list-style: none;
+}
+.buysu .logo {
+  display: inline-block;
+  float: left;
+  top: -20px;
+}
+.buysu .icon-xiala {
+  font-weight: normal;
+  margin: 20px;
+  font-size: 5px;
+  position: relative;
+  top: -6px;
+  display: inline-block;
+  transform: rotate(180deg);
+}
+.buysu .clear {
+  clear: both;
+}
+.buysu .header-one {
+  height: 128px;
+  overflow: hidden;
+}
+.buysu #bb {
+  position: relative;
+  top: 50px;
+  left: 20px;
+}
+.buysu h4 > a {
+  height: 100%;
+}
+.buysu .lct {
+  width: 720px;
+  border-radius: 6px;
+  height: 6px;
+  background: #bebebe;
+  margin-right: 60px;
+}
+.buysu .lct > li {
+  width: 120px;
+  height: 6px;
+  border-radius: 6px;
+  float: left;
+  position: relative;
+}
+.buysu .lct > li > span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: 40%;
+  top: -156%;
+  border: 1px solid #bebebe;
+  text-align: center;
+  color: #fff;
+  background: #bebebe;
+}
+.buysu .bla {
+  background: #bedaff;
+}
+.buysu .lct .bla > span {
+  border: 1px solid  #bedaff;
+  background: #bedaff;
+}
+.buysu .bsl {
+  background: #006cff;
+  border: 1px solid #006cff;
+}
+.buysu .lct > .bsl > span {
+  border: 1px solid #006cff;
+  background: #006cff;
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  top: -15px;
+}
+.buysu .lct-x {
+  margin-right: 60px;
+  margin-top: 10px;
+}
+.buysu .lct-x > li {
+  width: 120px;
+  float: left;
+  color: #bebebe;
+  font-size: 14px;
+  text-align: center;
+}
+.buysu .lct-x .lct-x-1 {
+  color: #006cff;
+}
+.buysu .lct-x .lct-x-2 {
+  color: #BEDAFF;
+}
+.buysu .zhifu {
+  position: relative;
+}
+.buysu #zhifuff {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+.buysu .ddzt1 {
+  height: 190px;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.buysu .ddzt1 > ul:nth-child(1) {
+  font-size: 14px;
+  color: #000000;
+  margin-right: 22px;
+  position: relative;
+  top: 3px;
+}
+.buysu .ddzt1 > ul:nth-child(1) > li:nth-child(2) {
+  margin-bottom: 28px;
+}
+.buysu .ddzt1 > ul:nth-child(2) {
+  font-size: 14px;
+  color: #666666;
+}
+.buysu .ddzt1 > ul:nth-child(2) > li {
+  margin-bottom: 25px;
+  line-height: 20x;
+  position: relative;
+  top: 5px;
+}
+.buysu .ddzt1 > ul:nth-child(2) span {
+  color: #FF0000;
+}
+.buysu .ddzt1 > ul:first-child > li:first-child {
+  margin-bottom: 72px;
+}
+.buysu .ddzt1 > ul {
+  float: left;
+}
+.buysu #mj-1 {
+  margin-bottom: 0;
+  height: auto;
+}
+.buysu #mj-1 b {
+  line-height: 16px;
+}
+.buysu .mj-message {
+  width: 100%;
+  /*min-height:500px ;*/
+  height: auto;
+  border: 1px solid #EBEBEB;
+  margin-bottom: 30px;
+}
+.buysu ul {
+  margin-bottom: 0px;
+}
+.buysu .message {
+  width: 100%;
+  background: #F9F9F9;
+  height: 60px;
+  border-bottom: 1px solid #EBEBEB;
+}
+.buysu .message > b {
+  display: inline-block;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 30px;
+  font-weight: 400;
+  color: #000000;
+}
+.buysu .change1 li {
+  margin-top: 20px;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+.buysu .change1 span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #EBEBEB;
+  vertical-align: bottom;
+}
+.buysu .change1 .sy1 {
+  background: #6541ff;
+  border: 1px solid #6541ff;
+}
+.buysu #last-name {
+  width: 200px;
+}
+.buysu #form1 {
+  position: relative;
+}
+.buysu #form1 label {
+  font-weight: 200;
+  display: inline-block;
+  position: relative;
+  top: 21px;
+  left: 22px;
+  color: #666666;
+}
+.buysu #form1 input {
+  width: 380px;
+  height: 40px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  margin-top: 20px;
+  outline: none;
+}
+.buysu #form1 #last-check {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  padding-left: 0px;
+  margin-top: 0px;
+  top: 2px;
+  left: -5px;
+  background: #FFFFFF;
+}
+.buysu #shuo1 {
+  width: 100%;
+  position: relative;
+  left: -10px;
+  top: -22px;
+}
+.buysu .queren {
+  border: none;
+  width: 160px;
+  height: 40px;
+  border-radius: 0;
+  background: #006CFF;
+  color: #FFFFFF;
+  font-size: 14px;
+  text-align: center;
+  line-height: 25px;
+}
+.buysu .yanzm {
+  width: 200px;
+  height: 80px;
+  border: 1px solid #EBEBEB;
+  position: relative;
+  left: 230px;
+  top: 13px;
+}
+.buysu .yanzm a {
+  font-size: 14px;
+  color: #666666;
+  position: absolute;
+  top: 40%;
+  left: 231px;
+  width: 100px;
+}
+.buysu #form1 #dxyz1 {
+  width: 200px;
+  margin-right: 18px;
+}
+.buysu #dingdan1 > ul {
+  border-left: 1px solid #EBEBEB;
+  border-bottom: 1px solid #EBEBEB;
+}
+.buysu #dingdan1 ul:first-child {
+  border-left: none;
+}
+.buysu #dingdan1 > ul > li:first-child {
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background: #F9F9F9;
+  border-bottom: 1px solid #EBEBEB;
+}
+.buysu #dingdan1 > ul > li:nth-child(2) {
+  height: 160px;
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+.buysu #dingdan1 > ul > li:nth-child(2) > dl {
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+.buysu #dingdan1 > ul > li:nth-child(2) > dl > dt {
+  height: 120px;
+  width: 120px;
+  border: 1px solid #EBEBEB;
+  position: relative;
+}
+.buysu #dingdan1 > ul > li:nth-child(2) > dl > dd {
+  float: left;
+  width: 176px;
+  font-size: 14px;
+  color: #000000;
+  margin-left: 10px;
+}
+.buysu .ddbh1 {
+  box-sizing: border-box;
+}
+.buysu .ddbh1 > span {
+  color: #666666px;
+  font-size: 14px;
+}
+.buysu .ddbh1 > span > b {
+  font-weight: 100;
+  height: 50px;
+}
+.buysu #dingdan2 {
+  margin-right: 350px;
+}
+.buysu #dingdan2 ~ span {
+  margin-left: 70px;
+  color: #666666;
+}
+.buysu .ddww {
+  width: 100%;
+  height: auto;
+}
+.buysu .buy1 {
+  width: 340px;
+  height: 200px;
+  border-left: none;
+  background: #fff;
+  text-align: center;
+  border-right: 1px solid #DEDEDE;
+}
+.buysu .buy1 .by-w {
+  text-align: center;
+  line-height: 60px;
+  color: #666666;
+}
+.buysu .buy1 .sp {
+  height: 37px;
+  line-height: 37px;
+  border-bottom: 1px solid #DEDEDE;
+  background: #F2F2F2;
+}
+.buysu .buy1 .dl-horizontal {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.buysu .buy1 .dl-horizontal dd {
+  width: 176px;
+  text-align: left;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  font-size: 14px;
+  color: #000000;
+}
+.buysu .buy1 .dl-horizontal dt {
+  display: block;
+  width: 119px;
+  height: 119px;
+  background: #fff;
+  float: left;
+  border: 1px solid #DEDEDE;
+}
+.buysu .buy1 .dl-horizontal dt img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin-top: 5px;
+}
+.buysu #mj-2 {
+  margin-top: 0;
+  border-top: none;
+  height: 360px;
+  border: 1px solid #EBEBEB;
+  margin-bottom: 0;
+}
+.buysu #mj-2 b {
+  line-height: 5px;
+}
+.buysu .buy-sp {
+  width: 100%;
+  height: 37px;
+  background: #F2F2F2;
+}
+.buysu #mj-3 {
+  margin-top: 0;
+  border-top: none;
+  height: 360px;
+  border: 1px solid #EBEBEB;
+  margin-bottom: 0;
+}
+@media (max-width: 500px) {
+  .buysu {
+    width: 110%;
+  }
+}
+@media screen and (min-width: 960px) {
+  .buysu {
+    width: 100%;
+  }
+}

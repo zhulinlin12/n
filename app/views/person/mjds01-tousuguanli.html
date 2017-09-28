@@ -1,0 +1,99 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">投诉管理</h2>
+    </div>
+    <div class="m_top">
+        <span class="s1">投诉时间：从</span>
+        <input type="text" class="laydate-icon wb_2 time1" onclick="laydate()" style="width: 168px;"/>
+        <span class="s1">到</span>
+        <input type="text" class="laydate-icon wb_2 time2" onclick="laydate()" style="width: 168px;" />
+
+        <select class="wb_2" style="width: 150px;">
+            <option>所有投诉</option>
+            <option>未处理投诉</option>
+        </select>
+
+        <button type="button" class="search_btn" ng-click="searchFn()">查询</button>
+    </div>
+
+    <div class="content" id="cgdd">
+
+        <div class="t_warp">
+            <div class="row tit_box">
+                <div class="col-xs-2">订单编号</div>
+                <div class="col-xs-1">时间</div>
+                <div class="col-xs-2">投诉内容</div>
+                <div class="col-xs-3">采购商</div>
+                <div class="col-xs-2">商品金额</div>
+                <div class="col-xs-2">操作</div>
+
+            </div>
+            <div class="item_warp">
+                <div class="con_inner">
+                    <div class="row item_box" ng-repeat="item in data.complaint.complaints">
+                        <div class="col-xs-2 col_box">
+                            <p class="p1">{{item.orderCode}}</p>
+                        </div>
+                        <div class="col-xs-1 col_box">
+                            <p class="p4">{{item.createTime}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="p5">-</p>
+                        </div>
+                        <div class="col-xs-3 col_box">
+                            <p class="p1">{{item.shopName}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="p1">{{item.price}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <div class="btn_box">
+                                <a href="javascript:;" class="btn1">立即处理</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <script>
+                $('.pj_con .btn2').on('click',function(){
+                    $('.pj_con .hf_box').hide();
+                    $(this).parent().next().show();
+                })
+                $('.pj_con .close').on('click',function(){
+                    $(this).parents('.pj_con .hf_box').hide();
+                })
+            </script>
+
+
+        </div>
+        <p ng-show="data.complaint.count<1" style="text-align: center;line-height: 56px;font-size:15px;color:#999;">没有数据！</p>
+        <div class="page_box2 clear">
+            <div class="box">
+                <div id="pagination2" class="page fl"></div>
+                <div class="info fl">
+                </div>
+            </div>
+            <p class="page_hint">一共{{data.complaint.count}}条信息，共<span class="page_gong"></span>页</p>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

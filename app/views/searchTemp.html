@@ -1,0 +1,15 @@
+<div class="ss-k" id="myDropdown">
+    <div class="sak dropdown" id="ssk" is-show>
+        <span id="sl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <l id="lkk">{{SearchData.business}}</l><b></b>
+        </span>
+    </div>
+    <form id="fm" ng-submit="searchList()">
+        <input id="inp" type="text" ng-model="vm.searchContent.content" placeholder="{{placeholde}}" value="vm.searchContent.content" />
+    </form>
+</div>
+<div class="sc-an" ui-sref="index.search({Keyword:vm.searchContent.content})">
+    <button type="submit" form="fm" ng-click="searchList()"></button>
+</div>
+
+

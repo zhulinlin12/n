@@ -1,0 +1,404 @@
+<div class="c-tr" >
+    <div class="container" ng-controller="xzq">
+        <div class="zllw">
+            <div class="na-l">
+                   <a ui-sref="index.op"><img class="img2"  src="images/logo2_03.jpg" /></a>
+                <div class="sr clearfix" style=" width:700px; height:50px;margin: auto;">
+                    <search></search>
+                </div>
+               <!-- <div class="ks-cg">快速发布采购</div>-->
+                <div class="sp-lb">
+                    <div class="wozll">
+                        <div class="sp-aa" style="cursor: pointer;"><span>全部商品分类</span><img src="images/fenlei.png" /></div>
+                        <colore style="position: absolute;top:35px; left:0px; z-index: 9999999999999; display: none;"></colore>
+                    </div>
+                    <script>
+                    $(".sp-aa").mouseenter(function() {
+                        $("colore").show()
+                    })
+                    $(".wozll").mouseleave(function() {
+                        $("colore").hide()
+                    })
+                    </script>
+                    <div class="ol">
+                        <li><a ui-sref="index.op">直采商城</a></li>
+                        <li><a href="javascript:;">易货平台</a></li>
+                        <li><a href="javascript:;">集中采购</a></li>
+                        <li><a href="javascript:;">智慧工地</a></li>
+                        <li><a href="javascript:;">企业云管理</a></li>
+                    </div>
+                </div>
+            </div>
+            <!--{{product}}-->
+            <ul class="list2" style="line-height: 40px; border: 1px solid  #E5E5E5; background:#F9F9F9; text-indent: 8px;">
+                <li>交易平台</li>
+                <li> >>{{product.subnav}}</li>
+                <li> >><span style="cursor: pointer;"><a style="color: #000000;"  ui-sref="index.lb({code:product.categoryCode,word:product.categoryName})">{{product.categoryName}}</a></span></li>
+            </ul>
+            <div class="fdj">
+                <div class="fdj-le">
+                    <!--<div class="box">
+
+	<div class="tb-booth tb-pic tb-s310">
+		<a><img src="http://47.92.145.206/group1/M00/00/0A/rBoSSFmSm9WAUs_DAAK9LM469e0904.jpg" alt="美女" rel="http://47.92.145.206/group1/M00/00/0A/rBoSSFmSm9WAUs_DAAK9LM469e0904.jpg" class="jqzoom" /></a>
+	</div>
+
+<div class="img1x">
+							<span class="left"><i class="scrollbutton glyphicon glyphicon-menu-left disabled"></i></span>
+							<div class="zll-img" id="imageMenu">
+								<div class="zll-u">
+								<div class="zll-ingk" ng-repeat="imgs in product.imageUrls" ng-mouseenter="imgyr($event.target,$index)"  ng-class="{'zlbk':$index==wr}">
+									
+							<img  ng-src="{{imgs.imgUrl}}" alt=""  />
+							</div>
+							</div>
+							</div>
+							<span class="right"><i class="scrollbutton glyphicon glyphicon-menu-right "></i></span>
+						</div>
+	
+</div>-->
+                    <div class="img1" id="imgf" ng-mouseover="show()" ng-mouseleave="hide()">
+                        <img ng-src="{{product.imageUrls[wr].imgUrl}}" alt="" />
+                        <span class="yid"></span>
+                    </div>
+                    <div class="img1x">
+                        <span class="left" ><i class="scrollbutton glyphicon glyphicon-menu-left disabled"></i></span>
+                        <div class="zll-img" id="imageMenu">
+                            <div class="zll-u">
+                                <div class="zll-ingk" ng-repeat="imgs in product.imageUrls" ng-mouseenter="img($index)" ng-class="{'zlbk':$index==wr}">
+                                    <img ng-src="{{imgs.imgUrl}}" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <span class="right" ><i class="scrollbutton glyphicon glyphicon-menu-right"></i></span>
+                    </div>
+                    <script>
+                    //	$(".jqzoom").imagezoom();
+                    $("#imgf").mousemove(function(ev) {
+                        var ev = ev || event;
+                        var sW = $('#imgf span').width();
+                        var sH = $('#imgf span').height();
+                        var sj = $('#imgf').offset().left;
+                        var sl = $('#imgf').offset().top;
+                        var L = ev.pageX - sj - sW / 2;
+                        var H = ev.pageY - sl - sH / 2;
+                        if (L < 0) {
+                            L = 0;
+                        }
+                        if (H < 0) {
+                            H = 0;
+                        }
+                        if (L > $('#imgf img').width() - sW) {
+                            L = $('#imgf img').width() - sW;
+                        }
+                        if (H > $('#imgf img').height() - sH) {
+                            H = $('#imgf img').height() - sH;
+                        }
+                        $('#imgf span').css({
+                            'left': L + 'px'
+                        });
+                        $('#imgf span').css({
+                            'top': H + 'px'
+                        });
+                        var persentX = L / ($('#imgf').width() - sW);
+                        var persentY = H / ($('#imgf').height() - sH);
+                        $('#datu img').css({
+                            'left': -persentX * ($('#datu img').width() - $('#datu').width())
+                        });
+                        $('#datu img').css({
+                            'top': -persentY * ($('#datu img').height() - $('#datu').height())
+                        });
+                    })
+
+                 
+                    </script>
+                    <style>
+                    	.disabled{color: #EBEBEB;}
+                    </style>
+                    <div class="leftImgBot  clearfix" ng-if="product.memberFlag==0&&product.status==2">
+                        <a rel="nofollow" class="pro-fav" id="spnFavoProd" ng-click="addFavoritesTo()">
+                            <w ng-if="product.collect==0"><i class="glyphicon glyphicon-heart-empty"></i>收藏商品</w>
+                            <w ng-if="product.collect==1" style="color: red;"><i class="glyphicon glyphicon-heart-empty"></i>已收藏</w>
+                        </a>
+                        <span id="TxtFavoCount"></span>
+                        <input type="hidden" id="favoCount">
+                        <!--<a rel="nofollow" class="report" data-useractivelogs="UserBehavior_detail_complaint" href="javascript:onlineReport(623070459)" title="如您发现商铺中存在非法、虚假或欺诈信息，请点此投诉！">
+							<i class="glyphicon glyphicon-warning-sign"></i>举报</a>-->
+                        <div class="shareBox">
+                            <a class="shareLink" id="share"><i class="glyphicon glyphicon-share-alt"></i>分享</a>
+                            <div class="shareAlert" style="display: none;">
+                                <em class="arrow1"></em><em class="arrow2"></em>
+                                <div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1502763563705">
+                                    <a rel="nofollow" href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                    <a rel="nofollow" href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                    <a rel="nofollow" href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                        </script>
+                        <!--<div class="codeBotBox">
+							<a class="shareLink" id="twocode"><i class="glyphicon glyphicon-qrcode"></i>扫一扫</a>
+							<div class="big-img" id="cldeBot" style="position: relative; display: none;">
+								<p class="CardTit">
+									扫一扫,“码”上支付
+								</p>
+								<canvas width="148" height="148"></canvas><img src="http://style.org.hc360.cn/js/build/source/widgets/qrcode/logo-25.png" style="position: absolute; top: 500px; left: -1px;"></div>
+						</div>-->
+                        <script>
+                        $("#twocode").mouseover(function() {
+                            $("#cldeBot").css('display', 'block')
+                        })
+                        $(".codeBotBox").mouseleave(function() {
+                            $("#cldeBot").css('display', 'none')
+                        })
+                        $("#share").mouseover(function() {
+                            $(".shareAlert").css('display', 'block')
+                        })
+                        $(".shareBox").mouseleave(function() {
+                            $(".shareAlert").css('display', 'none')
+                        })
+                        </script>
+                    </div>
+                    <div class="zll-da" id="datu">
+                        <img ng-src="{{product.imageUrls[wr].imgUrl}}" alt="" />
+                    </div>
+                </div>
+                <div class="fdj-rt" style="min-height: 500px;">
+                    <div class="txwj">【{{product.brandName}}】 {{product.productName}}</div>
+                    <p>
+                        <span>
+								价格
+							</span>
+                        <span>
+								￥{{product.salePrice}}
+							</span>
+                    </p>
+                
+                    <div class="box1">
+                        <ul class="gy">
+                            <li>供应总量</li>
+                            <li ng-if="product.period">发货期限</li>
+                           <li>运费说明</li>
+                           <li>发货地址</li>
+                        </ul>
+                        <ul class="gyb">
+                            <li>{{product.stockSize}}{{product.unit}}</li>
+                            <li ng-if="product.period" ng-bind="product.period">{{product.period}}</li>
+                            <li> <span style="color: red;">{{product.distModel}}</span></li>
+                            <li>{{product.shipped}}</li>
+                        </ul>
+                        <div class="clear"></div>
+                        <div class="zll-g" style="margin-top: 10px;">
+                            <ul class="list-zj">
+                                <li><span class="zll-z">订购数量 </span>
+                                    <div>
+                                        <div class="tb_one clearfix" style="margin-left: 0px; color: #000000;">
+                                            <ul style="margin-bottom: 0px; height: 40px; ">
+                                                <li>起订量({{product.unit}})</li>
+                                                <li>产品价格</li>
+                                                <li style="width:340px; border-right: 0px;">采购量</li>
+                                            </ul>
+                                            <div class="zll-j" style="width:100%; height: auto; display: block; margin-left: 0px; position: relative;  z-index: 2;">
+                                                <ul style="margin-bottom: 0px;width:200px; " ng-repeat="pros in arr track by $index" ng-class="{'zll-t':$index==arr.length-1}">
+                                                    <li>{{pros.changeRule}}</li>
+                                                    <li>￥{{pros.price}}</li>
+                                                </ul>
+                                                <div class="jiajian" ng-show="product.status==2">
+                                                    <button  ng-click="number(zll,-1)" class="text-center">-</button>
+                                                    <button ng-click="number(zll,1)" class="text-center">+</button>
+      <input type="text" ng-model="zll" ng-blur="setBlur(zll)" id="pow" style="width: 50px; outline: none; position: absolute;left: 35px;height:28px; text-align: center;">
+                                                </div>
+                                                 <div class="jiajian" style="width:40px; text-align: center;" ng-if="product.status==1||product.status==0">
+                                                     <p>{{zll}}</p>
+                                                </div>
+                                                <!--<span>{{count}}</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        	<div id="hide_site">
+							</div>
+                        <div class="zll-g">
+                            <ul class="list-zj">
+                                <li><span class="zll-z">总价 </span>
+                                    <div>
+                                        <span class="zll-m">￥{{countPrice}}</span> <b class="zll-c"> <span>|</span> 共{{zll}} {{product.unit}}</b>
+                                    </div>
+                                </li>
+                                <li><span class="zll-z"></span>
+                                    <div ng-if="product.memberFlag==0&&product.status==2">
+                                        <span class="zll-d dg" ng-click="book()" >立即订购</span>
+                                        <span class="zll-d gwc" ng-click="addToCart()">加入购物车</span>
+                                        <!--<span class="zll-d ckl">查看联系方式</span>-->
+                                    </div>
+                                </li>
+                                 <li><div ng-if="product.status==1" style="height: 30px; padding-left: 10px; color: #333; font-size: 18px;">此宝贝已下架.</div>
+                    <div ng-if="product.status==0" style=" height: 30px; padding-left: 10px; color: #333; font-size: 18px;">此宝贝已不存在.</div>
+                    </li>
+                                <li style="margin-top: 10px; display: none;"><span class="zll-z">交易保障 </span>
+                                    <div>
+                                        <div class="zll-zf">
+                                            <a class="guaranteeLink">支付方式<i class="glyphicon glyphicon-menu-down"></i></a>
+                                            <div class="guaranteeShow w120" style="margin-left: 0px; display: none;">
+                                                <span><a data-useractivelogs="UserBehavior_detail_trademodle" onmousedown="return hcclick('?hcdetail_supply=supplyself_pay_way')" rel="nofollow" href="http://info.kf.hc360.com/2014/04/301045821.shtml" target="_blank">慧付宝</a></span>
+                                                <span><a data-useractivelogs="UserBehavior_detail_trademodle" onmousedown="return hcclick('?hcdetail_supply=supplyself_pay_way')" rel="nofollow" href="http://info.kf.hc360.com/2014/04/301045801.shtml" target="_blank">个人网银</a></span>
+                                                <span><a data-useractivelogs="UserBehavior_detail_trademodle" onmousedown="return hcclick('?hcdetail_supply=supplyself_pay_way')" rel="nofollow" href="http://info.kf.hc360.com/2014/04/301045801.shtml" target="_blank">信用卡</a></span>
+                                                <span><a data-useractivelogs="UserBehavior_detail_trademodle" onmousedown="return hcclick('?hcdetail_supply=supplyself_pay_way')" rel="nofollow" href="http://info.kf.hc360.com/2014/04/301045841.shtml" target="_blank">企业网银</a></span>
+                                            </div>
+                                        </div>
+                                        <script>
+                                        $(".guaranteeLink").mouseover(function() {
+                                            $(".w120").css('display', 'block')
+                                            $(".zll-zf").addClass('gHover')
+                                        })
+                                        $(".zll-zf").mouseleave(function() {
+                                            $(".w120").css('display', 'none')
+                                            $(".zll-zf").removeClass('gHover')
+                                        })
+                                        </script>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--页面下部-->
+            <div class="xb1 clearfloat">
+                <div class="boxle1">
+                    <div class="list11">
+                        <div>
+                            <b>店铺信息</b>
+                        </div>
+                        <div>
+                            <b>{{product.productShop.shopName}}</b>
+                            <i></i>
+                        </div>
+                        <div>
+                            <li style="margin-top: 0px; display: none;">商家信用等级</li>
+                            <li>所在地区：<span>{{product.productShop.province}} {{product.productShop.city}} {{product.productShop.county}}</span> </li>
+                            <li>认证信息：<span ng-if="product.productShop.status==1">已认证</span><span ng-if="product.productShop.status==0">未认证</span> </li>
+                            <li class="fwxin">店铺简介：{{product.productShop.description | limitTo:limit }}<a class="morech" ng-click="more($event.target)" ng-if="product.productShop.description.length>155">展开</a></li>
+                        </div>
+                        <div class="zll-p" style="margin-top: 10px;">
+                            <div class="dp"><i class="glyphicon glyphicon-gift"></i>进入店铺</div>
+                            <div class="zx"><i class="glyphicon glyphicon-comment"></i>咨询</div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="list22">
+                        <div><b>本店其他产品</b>
+                        </div>
+                        <div>
+                            <dl class="d1" ng-repeat="pd in product.productList">
+                                <a ui-sref="index.xq({id:pd.productId})" target="_blank"><img ng-src="{{pd.imageUrl}}" alt="" /></a>
+                                <dd>{{pd.brandName}} {{pd.productName}} </dd>
+                                <span>￥{{pd.salePrice}}</span>
+                            </dl>
+                            <!--<dl class="d2">
+									<dt></dt>
+									<dd>唐山长虹 河北泽田 节水科技 滴灌带厂</dd>
+									<span>￥1000.00</span>
+								</dl>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="xrg">
+                    <ul class="wt">
+                        <li ng-class="{'bluechenge':lovr==0}" ng-click="productw(0)" style="margin-left: 20px;">基本参数</li>
+                        <li ng-class="{'bluechenge':lovr==1}" ng-click="productw(1)">商品详情</li>
+                        <li ng-class="{'bluechenge':lovr==2}" ng-click="productw(2)">商品评价</li>
+                    </ul>
+                    <div class="zbb">
+                        <div class="listbox1" ng-if="lovr==0">
+                            <ul>
+                                <li ng-repeat="pro in product.skuList">{{pro.typeName}}：</li>
+                            </ul>
+                            <ul>
+                                <li ng-repeat="pro in  product.skuList">{{pro.propName}}</li>
+                            </ul>
+                        </div>
+                    
+                        <div class="listbox2" style="word-wrap:break-word; white-space:normal; word-break:break-all; " ng-show="lovr==1" style="text-align: center;">
+                        	<p id="ks"></p>
+                        	<div ng-repeat="cd in xre2.mateList" style="text-align: center;" >
+                            <img   ng-src="{{cd.path}}" class="img-responsive" style="display: inline-block;"/>
+                            </div>
+                            
+                        </div>
+                        <div class="listbox3" ng-if="lovr==2">
+                            <div ng-if="yes" class="wyi">
+                                <li class="zll-ww" ng-repeat="pct in plct.evaluate.evaluateList">
+                                    <div class="zllte">
+                                        <div class="imgkk" style="border-radius: 50px; cursor:default;" >
+                                            <img src="images/logo2_03.jpg" width="100%" height="100%" style="border-radius: 50px; cursor:default;" />
+                                        </div>
+                                        <span class="nic">{{pct.name}}</span>
+                                    </div>
+                                    <div class="zllr">
+                                        <div>{{pct.evaluate}}</div>
+                                        <div class="houst">{{pct.createTime}}</div>
+                                    </div>
+                                    <div ng-if="pct.replyTime!=''" style="width:100%; min-height: 30px; height: auto; margin-top: 20px; padding-left: 100px;">
+                                    	<span><span style="color: #006CFF;">卖家{{pct.replyShopName}}</span>回复:{{pct.replyText}}</span>
+                                    	 <div class="houst" style="margin-top: 10px;">{{pct.replyTime}}</div>
+                                    <!--<div class="zllte">
+                                        <div class="imgkk">
+                                            <img ng-src="{{pct.photo}}" />
+                                        </div>
+                                        <span class="nic">{{pct.name}}</span>
+                                    </div>
+                                    <div class="zllr">
+                                        <div>{{pct.evaluate}}</div>
+                                        <div class="houst">{{pct.createTime}}</div>
+                                    </div>-->
+                                    </div>
+                                </li>
+
+
+                                <!--分页-->
+                                <div style="width:100%;height: 50px;">
+                                    <nav aria-label="Page navigation" class="clearfix" style="float: right;">
+                                        <ul class="pagination pagination-sm pagination1 fr" style="margin: 0">
+                                            <li ng-class="{disabled:page==1}">
+                                                <a href="javascript:void(0)" aria-label="Previous" ng-click="sub(page-1<1?1:page-1)" ng-disabled="page==1">
+										<span aria-hidden="true">上一页</span>
+									</a>
+                                            </li>
+                                            <li ng-if="page >= pageNum && lastPage !== pageNum" ng-click="sub(1)" ng-class="{active:item==1}">
+                                                <a href="javascript:void(0)">1</a>
+                                            </li>
+                                            <li ng-if="page >= pageNum && lastPage !== pageNum">
+                                                <a href="javascript:void(0)">...</a>
+                                            </li>
+                                            <li ng-click="sub(item)" ng-class="{active:item==page}" ng-repeat="item in pages">
+                                                <a href="javascript:void(0)">{{item}}</a>
+                                            </li>
+                                            <li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum">
+                                                <a href="javascript:void(0)">...</a>
+                                            </li>
+                                            <li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum" ng-click="sub(lastPage)" ng-class="{active:item==page}">
+                                                <a href="javascript:void(0)">{{lastPage}}</a>
+                                            </li>
+                                            <li ng-class="{disabled:page==lastPage}">
+                                                <a href="javascript:void(0)" aria-label="Next" ng-click="sub(page+1>lastPage?page:page+1)">
+										<span aria-hidden="true">下一页</span>
+									</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="zllq" ng-if="none">此商品暂无评价。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <wo></wo>
+    </div>
+  
+</div>

@@ -1,0 +1,114 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">商品分类管理</h2>
+    </div>
+    <!--<div class="tab_nav2 clear">-->
+        <!--<div class="list ac"><a href="javascript:;">已创建分类商品</a></div>-->
+        <!--<div class="list"><a href="javascript:;">未创建分类商品</a></div>-->
+        <!--<a href="javascript:;" class="cjfl_btn">创建一级分类</a>-->
+    <!--</div>-->
+
+    <div class="content">
+        <div class="btn_box1 clear">
+            <button type="button" class="btn btn1">排序</button>
+            <button type="button" class="btn btn2">保存</button>
+        </div>
+
+        <div class="t_warp">
+            <div class="row tit_box">
+                <div class="col-xs-4">分类名称</div>
+                <div class="col-xs-4">分类产品</div>
+                <div class="col-xs-4">产品排序</div>
+            </div>
+            <div class="item_warp fenlei_box">
+                <div class="con_inner" ng-repeat="item in data.shop.shopCategories | orderBy:item.sort">
+                    <div class="row item_box">
+                        <div class="col-xs-4 col_box">
+                            <p class="txt1" data-shopId="{{item.shopId}}" data-categoryCode="{{item.categoryCode}}">{{item.categoryName}}</p>
+                        </div>
+                        <div class="col-xs-4 col_box">
+                            <p class="p1">产品列表({{item.productCount}})</p>
+                        </div>
+                        <div class="col-xs-4 col_box">
+                            <span class="s1">排序</span>
+                            <!--<span class="s1">{{item.sort}}</span>-->
+                            <input type="text" ng-model="item.sort" disabled class="sort_wb save">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!--<div class="con_inner">-->
+                    <!--<div class="row item_box">-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<input type="text" value="钢管" disabled class="fl_item">-->
+                            <!--<a href="javascript:;" class="xg_btn">修改</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<p class="p1">产品列表(100)</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<span class="s1">排序</span>-->
+                            <!--<select class="px_1">-->
+                                <!--<option>一</option>-->
+                                <!--<option>二</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<a href="javascript:;" class="btn_1">添加二级分类</a>-->
+                            <!--<a href="javascript:;" class="btn_1">删除分类</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+                <!--</div>-->
+                <!--<div class="con_inner">-->
+                    <!--<div class="row item_box">-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<input type="text" value="钢管" disabled class="fl_item">-->
+                            <!--<a href="javascript:;" class="xg_btn">修改</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<p class="p1">产品列表(100)</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<span class="s1">排序</span>-->
+                            <!--<select class="px_1">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col_box">-->
+                            <!--<a href="javascript:;" class="btn_1">删除分类</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+                <!--</div>-->
+
+            </div>
+
+
+        </div>
+        <p class="hint1 hint" style="text-align: center;display: none;line-height: 40px;color:red;margin-top:-20px;">您输入的序号不能重复</p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

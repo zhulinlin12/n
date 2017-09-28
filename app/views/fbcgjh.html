@@ -1,0 +1,156 @@
+<div class="c-jh">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>发布采购计划</h4>
+			<span>查看我的采购信息>></span>
+		</div>
+		<form name="myForm" novalidate>
+			<div class="c-qw">
+				<div class="c-wr">
+					<span>日期:</span>
+					<f>{{time}}</f>
+				</div>
+				
+				<div class="c-wr" ng-controller="fenl" ng-repeat="shu in sarr track by $index" style="position: relative; height: 80px; background: green;">
+					<span style="position: absolute; top:0px">采购产品:</span>
+					<div class="ysa" style="height: 40px; width:860px; position: absolute; top:0px; left:98px;">
+						<select ng-model="dd" ng-change="xz($index,dd)"  ng-options="o.code as o.name for o in dataw.category.categories">
+							<option value="">采购类型</option>
+						</select>
+						<select ng-model="shu.biddingType" ng-show="dd!=''" ng-change="ej($index,shu.biddingType)"  ng-options="o.code as o.name for o in res{{$index}}.category.categories" >
+						</select>
+						<select ng-model="shu.materialType" ng-show="shu.biddingType!=''" ng-options="o.code as o.name for o in rew{{$index}}.category.categories">
+					<!--		<option value="">物资分类</option>-->
+						</select>
+			<input type="text" ng-model="shu.materialName" placeholder="请输入物资名称"  style="width:170px;margin-right: 15px;" />
+						<select ng-model="shu.materialModel" ng-options="o.name as o.name for o in stus">
+						<option value="">规格型号</option>
+						</select>
+						<input type="text" ng-model="shu.biddingNumber" placeholder="请输入数量"  style="width:170px;margin-right: 15px;" />
+						<select ng-model="shu.materialUnit" ng-options="o.name as o.name for o in stus">
+							<option value="">单位</option>
+						</select>
+						<div class="c-yq" ng-click="sdx($index)" ng-show="$index==0">+</div>
+						<div class="c-yq" ng-click="sts_shch($index)" ng-show="$index!=0">x</div>
+					</div>
+					
+				</div>
+				<div class="c-wr">
+					<span> </span>
+					<div class="ysa">
+						<div class="wer" ng-repeat="img in img track by $index">+<img ng-src="{{img.fileImageUrl}}"/></div>
+					</div>
+				</div>
+				<div class="c-wr2">
+					<span>报价截止日期:</span>
+					<div class="ysa">
+
+<input def-laydate type="text" id="start" name="startTime" ng-model="startTime" required  ng-blur="riqi4()"  class="laydate-icon" />
+						
+				
+						<input type="text" id="datetimepicker1" class="tw" ng-model="riqis"/>
+						<div style="color:red; display: inline-block;" ng-show="riqi1 && myForm.startTime.$invalid">
+							<saw ng-show="myForm.startTime.$error.required">正确格式为：2014-01-01</saw>
+							<saw ng-show="myForm.startTime.$error.pattern">日期格式不正确，正确格式为：2014-01-01</saw>
+						</div>
+						<script>
+	                     $('#datetimepicker1').datetimepicker({
+		                  datepicker: false,
+		                  format: 'H:i',
+		                  step: 10
+	                        })
+                      </script>
+					</div>
+				</div>
+				<div class="c-wr2">
+					<span>到货日期:</span>
+					<div class="ysa">
+						<input def-laydate type="text"  name="endTime" id="end" ng-model="endTime" required ng-blur="dh7()" class="laydate-icon" />
+						
+						<input type="text" id="datetimepicker2" ng-model="dhs" class="tw"/>
+						<div style="color:red; display: inline-block;" ng-show="dh3 && myForm.endTime.$invalid">
+							<saw ng-show="myForm.endTime.$error.required">正确格式为：2014-01-01</saw>
+							<saw ng-show="myForm.endTime.$error.pattern">日期格式不正确，正确格式为：2014-01-01</saw>
+						</div>
+							<script>
+							$('#datetimepicker2').datetimepicker({
+	                          datepicker:false,
+	                          format:'H:i',
+	                           step:10
+                                })
+						</script>
+					</div>
+				</div>
+			
+				<div class="c-wr2">
+					<span>送货地址:</span>
+					<div class="ysa">
+					<input type="text" name="city" ng-pattern="/^(?=.*?[\u4E00-\u9FA5])[\d\u4E00-\u9FA5]+/" ng-model="em" required ng-blur="wer=true" />
+						<div style="color:red; display: inline-block;" ng-show="wer && myForm.city.$invalid">
+							<saw ng-show="myForm.city.$error.required">请务必填写您的真实地址</saw>
+							<saw ng-show="myForm.city.$error.pattern">不能低于5个字。</saw>
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2">
+					<span>运输方式:</span>
+					<div class="ysa">
+						<input type="text" name="type" ng-model="typesp" required ng-blur="type=true" />
+						<div style="color:red; display: inline-block;" ng-show="type && myForm.type.$invalid">
+							<saw ng-show="myForm.type.$error.required">用户名是必须的。</saw>
+							<saw ng-show="myForm.type.$error.minlength">不能低于5个字。</saw>
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2 gd">
+					<span>其它要求:</span>
+					<div class="ysa">
+						<div class="tex">
+							<textarea ng-model="other"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2">
+					<span>备注:</span>
+					<div class="ysa">
+						<div class="tex">
+							<input type="text" ng-model="des" />
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2 gd">
+					<span>邀请供应商:</span>
+					<div class="ysa">
+						<div class="tex dropdown">
+							<input type="text" class="yqs" data-toggle="dropdown" autocomplete="off" />
+							<button class="bwe">添加</button>
+							<ul id="ulKeyWord" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="border-radius: 0px;">
+								<li role="presentation" class="dropdown-header">查找热词中，请稍等...</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2">
+					<span></span>
+					<div class="ysa">
+						<div class="tex">
+							<button class="qwd gta">同鑫建投网络科技有限公司</button>
+							<button class="qwd gtj">同鑫建投网络科技有限公司<span>x</span></button>
+							<button class="qwd gtj">同鑫建投网络科技有限公司</button>
+						</div>
+					</div>
+				</div>
+				<div class="c-wr2 gd" style="padding-bottom: 40px;">
+					<span></span>
+					<div class="ysa">
+						<div class="tex">
+							<button class="qww" ng-click="fb()">发布</button>
+							<button class="qww gtj" ng-click="bc()">保存草稿</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>

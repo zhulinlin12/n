@@ -1,0 +1,393 @@
+     <div class="ctr" ng-controller="anorder">
+     	<!--<div id="tank" >
+		<div class="mod-bg"></div>
+		<div class="mod-dialog" style="left: 591.5px; top: 140.5px; display: block;">
+			<div class="dialog-nav"><span class="dialog-title">删除货品</span>
+				<a ng-click="qx()" class="dialog-close">&#10006</a>
+			</div>
+			<div class="dialog-main">
+				<div class="dialog-content">
+					<p>确认要删除该货品？</p>
+				</div>
+				<div class="dialog-console clearfix_new">
+					<a class="console-btn-cancel" ng-click="qx()">取消</a>
+					<a class="console-btn-confirm" ng-click="del()">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>-->
+     	<div class="container">
+     <div class="header-one">
+			<div class="logo">
+				<a ui-sref="index.op"><img src="images/logo2_03.jpg"  style="height: 99px; margin-top: 20px;margin-left: 66px;"/></a>
+			</div>
+			<div id="bb">
+				<ul class=" pull-right lct">
+					<li class="bsl">
+						<span>1</span>
+					</li>
+					<li>
+						<span>2</span>
+					</li>
+					<li><span>3</span></li>
+					<li><span>4</span></li>
+					<li><span>5</span></li>
+					<li><span>6</span></li>
+				</ul>
+				<ul class="pull-right lct-x">
+					<li class="lct-x-1">买家下单</li>
+					<li >卖家确认订单</li>
+					<li>买家付款</li>
+					<li ui-sref="index.cipher">卖家发货</li>
+					<li>确认收货</li>
+					<li>交易成功</li>
+				</ul>
+			</div>
+		</div>
+		<div id="hide_site"></div>
+		<!--中间-->
+		<div class="mjx" >
+		<div class="mj-message" style="height: auto;min-height: 150px; padding-bottom: 20px;  border: 1px solid #DEDEDE; overflow: hidden;"> 
+			<p class="message">
+				<b>收货信息</b>
+			</p>
+			<div class="location" id="shuohuo" ng-show="showt">
+				<ul id="qw">
+					<div class="zll-rt"  ng-repeat="swtie in delivery.comcontactList" ng-class="{'selectedll':$index==zllindex}" oder>
+					<li  ng-click="dj($event,'old',1,$index)"  >
+						<span style="color: #f40;font-weight: 700; margin-right: 8px; position: absolute; left:25px" ng-if="$index==zllindex">送货到</span>
+					<input type="radio"  name="site" data="{{swtie.id}}" class="goods"   ng-checked="swtie.typep==1"    />
+						<span>{{swtie.province}} {{swtie.city}}{{swtie.county}} {{swtie.detailedAddress}} ({{swtie.name}}收)</span>
+						<span ng-if="swtie.telephone">电话{{swtie.telephone}}</span>
+						<span ng-if="swtie.mobile">手机{{swtie.mobile}}</span>
+						&nbsp;
+						<span ng-show="swtie.types==1">默认地址</span>
+					    <span id="alter" style="display: inline-block; display: none; ">
+						<a href="javascript:void(0);" ng-show="swtie.types!=1" ng-click="default(swtie)">设为默认地址</a>
+						
+						</span>
+						<span><a  class="ringth" ng-if="$index==zllindex" ng-click="revamp($event,swtie,$event)" >修改本地址</a></span>
+					</li>
+					</div>
+					<div class="zll-rt2">
+					<li ng-click="new(1)" >
+						<!--<input type="radio" name="site"  />-->
+						使用新地址
+					</li>
+					</div>
+				</ul>
+				
+			</div>
+			<!--表单-->
+			<form class="form-horizontal"  id="form1" name="myForm" novalidate ng-show="receipt" >
+				  <div class="form-group">
+				    <label for="firstname" class="col-sm-2 control-label"> <e class="degree">*</e>收货人：</label>
+				    <div class="col-sm-10">
+				    	<input type="text" ng-model="name" autocomplete="off" placeholder="请填写收货人" name="name"  ng-minlength="1" ng-maxlength="10"  required ng-focus="wr2=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wr2 && myForm.name.$invalid">
+							<saw ng-show="myForm.name.$error.required">请填写收货人姓名。</saw>
+							<saw ng-show="myForm.name.$error.maxlength||myForm.name.$error.minlength">不要超过10个字符</saw>
+						</div>
+				    </div>
+				  </div>
+				  <!--<div class="form-group">
+				    <label for="lastname" class="col-sm-2 control-label">公司名称：</label>
+				    <div class="col-sm-10">
+				      <input type="text" ng-model="corporation" >
+				    </div>
+				  </div>-->
+				  <div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>所在地区：</label>
+				    <div class="col-sm-10" style="margin-left: -22px;">
+				  <sanj style="float: left;"></sanj>
+				  <div style="color:red; display: inline-block; float:left; margin-top:30px;margin-left: 5px;" ng-if="hidel" >
+							<saw>请选择省、市、区。</saw>
+						</div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>街道地址：</label>
+				    <div class="col-sm-10">
+				      <textarea placeholder="不要重复填写/省/市/区" ng-model="street" maxlength="100" size="100" name="street" required ng-focus="living()"></textarea>
+				      <div style="color:red; display: inline-block; margin-top: 20px; margin-left: 5px;" ng-show="wrstr&& myForm.street.$invalid">
+							<saw ng-show="myForm.street.$error.required">请填写街道地址。</saw>
+						</div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>邮政编码：</label>
+				    <div class="col-sm-10">
+				      <input type="text" autocomplete="off" ng-model="mail" placeholder="请填写邮政编码" name="mail" ng-pattern="/^[1-9][0-9]{5}$/"  required ng-focus="wrma=true">
+				      <div style="color:red; display: inline-block;" ng-show="wrma && myForm.mail.$invalid">
+							<saw ng-show="myForm.mail.$error.required">请填写邮政编码。</saw>
+							<saw ng-show="myForm.mail.$error.pattern">请输入正确的邮政编码</saw>
+						</div>
+				    </div>
+				  </div>
+				  	  <div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>手机号码：</label>
+				    <div class="col-sm-10">
+				      <input type="text" autocomplete="off" ng-model="cellphone"  name="cellphone" ng-pattern="/^1[3|5|7|8][0-9]\d{8}$/"  required ng-focus="wrph=true" >
+				        <div style="color:red; display: inline-block;" ng-show="wrph&&myForm.cellphone.$invalid">
+							<saw ng-show="myForm.cellphone.$error.required">请填写手机号。</saw>
+							<saw ng-show="myForm.cellphone.$error.pattern">请输入正确手机号的格式</saw>
+						</div>
+				    </div>
+				  </div>
+				  <!--<div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label">电话号码：</label>
+				    <div class="col-sm-10">
+				      <input type="text" autocomplete="off" ng-model="phone" name="phone" ng-pattern="/^0\d{2,3}-\d{5,9}|0\d{2,3}-\d{5,9}$/"  required ng-focus="wrph1=true" >
+				      <div style="color:red; display: inline-block;" ng-show="wrph1 && myForm.phone.$invalid&&myForm.cellphone.$invalid">
+							<saw ng-show="myForm.phone.$error.required&&myForm.cellphone.$error.required">电话选填。</saw>
+						</div>
+						<div style="color:red; display: inline-block;" ng-show="wrph1">
+							<saw ng-show="myForm.phone.$error.pattern">请输入正确电话的格式</saw>
+						</div>
+				    </div>
+				  </div>-->
+				   <div id="shuo1" class="form-group">
+				  	<label for="" class="col-sm-offset-2 col-sm-10">
+				  		<input type="checkbox" name="" ng-checked="typr==1" id="last-check" value="" />设置默认地址，设置后系统将在下单时自动选中该收货地址
+				  	</label>
+				  </div>
+				
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button  class="queren" ng-click="ofgoods()" ng-disabled="myForm.name.$dirty && myForm.name.$invalid">确认收货信息</button>
+				    </div>
+				  </div>
+				
+				</form>
+		</div>
+		<div class="mj-message" style=" border: 1px solid #DEDEDE; padding-bottom: 60px;"> 
+			<p class="message">
+				<b>发票信息</b>
+			</p>
+			<div class="z-yn">
+					<li>
+					<input type="radio"  name="istrn" id="zyes" ng-click="isInvoice(1)"    />
+					使用发票
+					</li>
+					<li>
+					<input type="radio"  name="istrn" checked="checked" id="zno"  ng-click="isInvoice(0)"   />
+					不使用发票
+					</li>
+			</div>
+			<div class="location" ng-show="pshow">
+				<ul id="po">
+					<div class="zll-rt"  ng-repeat="swtie in voucher.recordList" ng-class="{'selectedll':$index==zllindex2}" oder>
+					<li  ng-click="dj($event,'old',2,$index)"  >
+						<span style="color: #f40;font-weight: 700; margin-right: 8px; position: absolute; left:25px" ng-if="$index==zllindex2">用此发票</span>
+					<input type="radio"  name="site2" data="{{swtie.id}}" class="goods2"   ng-checked="swtie.typep==1"    />
+						<span>{{swtie.invoiceType}}发票  抬头:{{swtie.invoiceTitle}}</span>
+						<span ng-if="swtie.invoiceType=='单位'">单位地址:{{swtie.companyAddress}} 电话:{{swtie.phone}}</span>
+						<!--<span>手机</span>-->
+						&nbsp;
+						<span ng-show="swtie.isDefault==1">默认发票</span>
+					    <span id="alter" style="display: inline-block; display: none; ">
+						<a href="javascript:void(0);" ng-show="swtie.isDefault!=1" ng-click="default2(swtie)">设为默认发票</a>
+						
+						</span>
+						<span><a  class="ringth" ng-if="$index==zllindex2" ng-click="revamp2($event,swtie,$event)" >修改本发票</a></span>
+					</li>
+					</div>
+					<div class="zll-rt2">
+					<li ng-click="new(2)" >
+						<!--<input type="radio" name="site"  />-->
+						使用新发票
+					</li>
+					</div>
+				</ul>
+				<!--<script>
+					$(".location2 li").each(function(){
+						$(this).hover(function(){
+							$(this).find("#alter").show()
+						},function(){
+							$(this).find("#alter").hide()
+						})
+						$(this).click(function(){
+							$(this).find("input").prop("checked",true)
+							$(this).siblings().find("input").removeAttr("checked")
+							
+						})
+					})
+				</script>-->
+			</div>
+			<form class="form-horizontal" role="form" id="form1" style="margin-bottom: 40px;" ng-show="phid" name="mpForm" novalidate>
+				 <div class="form-group">
+				    <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>类型：</label>
+				    <div class="col-sm-10">
+				      <div  class="monad" ng-class="{'macrive':type==1}" ng-click="mold($event,1)">单位</div>
+				      <div class="monad" ng-class="{'macrive':type==2}" ng-click="mold($event,2)">个人</div>
+				    </div>
+				    <!--<script>
+				    	function fn(a){		
+				    		$(a).addClass("macrive").siblings().removeClass("macrive")
+				    	}
+				    </script>-->
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="firstname" class="col-sm-2 control-label"><e class="degree">*</e>抬头：</label>
+				    <div class="col-sm-10">
+				      <input type="text" ng-model="bill" autocomplete="off" maxlength="30" placeholder="发票抬头" name="bill"  required ng-focus="wrbill=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wrbill && mpForm.bill.$invalid">
+							<saw ng-show="mpForm.bill.$error.required">请填写发票抬头。</saw>
+						</div>
+				    </div>
+				  </div>
+				 <div ng-show="type==1">
+				  <div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label" ><e class="degree">*</e>税号：</label>
+				    <div class="col-sm-10">
+				         <input type="text" ng-model="duty" autocomplete="off"  name="duty"  required ng-focus="wrduty=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wrduty && mpForm.duty.$invalid">
+							<saw ng-show="mpForm.duty.$error.required">请填写税号。</saw>
+						</div>
+				   
+				    </div>
+				  </div>
+				  <div class="form-group" >
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>单位地址：</label>
+				    <div class="col-sm-10">
+				     <input type="text" ng-model="address" autocomplete="off" maxlength="100"  name="address"  required ng-focus="wraddress=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wraddress && mpForm.address.$invalid">
+							<saw ng-show="mpForm.address.$error.required">请填写单位地址。</saw>
+						</div>
+				    </div>
+				  </div>
+				    <div class="form-group" >
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>电话号码: </label>
+				    <div class="col-sm-10">
+				     <input type="text" ng-model="fphohe" autocomplete="off" ng-pattern="/^0\d{2,3}-\d{5,9}|0\d{2,3}-\d{5,9}$/"   name="fphohe"  required  ng-focus="wrfphohe=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wrfphohe && mpForm.fphohe.$invalid">
+							<saw ng-show="mpForm.fphohe.$error.required">请填写电话号码。</saw>
+							<saw ng-show="mpForm.fphohe.$error.pattern">请输入正确电话的格式</saw>
+						</div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>开户银行：</label>
+				    <div class="col-sm-10">
+				      <input type="text" ng-model="open" autocomplete="off"  name="open" maxlength="20"  required ng-focus="wropen=true"/>
+				 <div style="color:red; display: inline-block;" ng-show="wropen && mpForm.open.$invalid">
+							<saw ng-show="mpForm.open.$error.required">请填写开户银行。</saw>
+						</div>
+				    </div>
+				  </div>
+				<div class="form-group">
+				   <label for="lastname" class="col-sm-2 control-label"><e class="degree">*</e>银行账户：</label>
+				    <div class="col-sm-10">
+				     <input type="text" ng-model="house" autocomplete="off"  name="house" ng-pattern="/^\d+$/" ng-minlength="7"  ng-maxlength="25"  required ng-focus="wrhouse=true"   id="account"  />
+				 <div style="color:red; display: inline-block;" ng-show="wrhouse && mpForm.house.$invalid">
+							<saw ng-show="mpForm.house.$error.required">请填写银行账户。</saw>
+							<saw ng-show="mpForm.house.$error.pattern">请输入银行卡账户</saw>
+						    <saw ng-show="mpForm.house.$error.maxlength||mpForm.house.$error.minlength">不得小于7个字符大于25个字符</saw>
+						</div>
+				    </div>
+				  </div>
+				  	</div>
+				  <div id="shuo1" class="form-group">
+				  	<label for="" class="col-sm-offset-2 col-sm-10">
+				  		<input type="checkbox" name="" ng-checked="typr2==1" id="last-check2" value="" />设置默认发票，设置后系统将在下单时自动选中该发票
+				  	</label>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button type="submit" ng-click="invoice()"  class="queren">确认发票信息</button>
+				    </div>
+				  </div>
+			
+				</form>
+		
+			
+		</div>
+		<!--订单详情-->
+		<div class="mj-message" style=" border: 1px solid #DEDEDE; border-bottom: none;"> 
+			<p class="message">
+				<b>订单信息</b>
+			</p>
+		<div class="container" id="dingdan1" ng-repeat="ct in arr track by $index">
+					<div class="ddbh1" style="height: 30px;margin: 10px 0;line-height: 30px;">
+				卖家：{{ct.shopName}}
+			</div>
+			<div class="subscribe">
+				<div  style="display: table; border-collapse:separate; margin-left: auto;
+    margin-right: auto; ">
+				<ul  class="pull clearfix">
+					<li class="pull1">商品信息</li>
+					<li>单价(元)</li>
+					<li>数量</li>
+					<li>金额</li>
+					<li>运费</li>
+				</ul>
+				</div>
+				<div  style="display: table; border-collapse:separate; margin-left: auto;
+    margin-right: auto; ">
+				<ul  class="pull3 clearfix" style="background: none; " ng-repeat="wp in ct.detailList">
+					<li class="pull1">
+						<dl class="dl-horizontal">
+							<dt style="width:100px;" ui-sref="index.xq({id:wp.productId})"><img style="width:100%; height: 100%;" ng-src="{{wp.imageUrl}}"/></dt>
+							<span class="nme">{{wp.productName}}</span>
+						</dl></li>
+					<li><span class="zllnum">
+						<div ng-repeat="pri in  wp.priceList" class="sop" ng-class="{'nonx':pri.zid}" style="height: 30px;">{{pri.changeRule}}  价格为：<sop> {{pri.price}}</sop></div>					
+						</span></li>
+					<li style="position: relative;"><div class="input-group"style="width: 150px;margin: auto;  position: absolute; top:15px; left:50%; right: 50%; margin-left: -75px;">
+						{{wp.count}}
+							<!--<div class="input-group-addon">-</div>
+								<input type="text" class="form-control"  ng-model="wp.count" value="10" style="text-align: center;" />
+							<div class="input-group-addon">+</div>-->
+						</div></li>
+					<li>{{wp.subtotal}}</li>
+					<li><div>0.00</div>
+						<!--<div>运费到付(买家承担)</div>--></li>
+				</ul>
+				</div>
+				</div>
+				<!--留言-->
+				<span style="display: inline-block;margin-top: 20px;" style="color:#666666">给卖家留言</span>
+				<textarea name="texta" class="texttar" ng-model="ct.message" rows="2" cols="60"  maxlength="500"  placeholder="请输入您对该笔交易或货品的特殊要求，字数不超过500字。" autocomplete="off"></textarea>
+				<div class="liuyan2 pull-right" style="height: 86px;box-sizing: border-box;padding: 20px;" >
+					<div >货品金额：<span>￥{{ct.Amount}}</span></div>
+					<div>运费金额：<span>￥0.00</span></div>
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="mj-message-last" style="height:80px;">
+				<div class="pull-right  ">
+					<span style="color: #000000;" style="font-weight: 600;">订单金额：</span>
+					<span style="color: #FF0000;">￥{{oall}}</span>
+					<button type="submit" class="queren" ng-click="refer()" style="margin-left: 40px;font-size: 14px;">提交订单</button>
+				</div>
+		</div>
+</div>
+
+
+     	</div>
+     	<wo></wo>
+     </div>
+     	<!--<script>
+				$(function(){
+					$(".location li").each(function(){
+						$(this).hover(function(){
+							$(this).find("#alter").show()
+						},function(){
+							$(this).find("#alter").hide()
+						})
+						$(this).click(function(){
+							$(this).find("input").prop("checked",true)
+							$(this).siblings().find("input").removeAttr("checked")
+							
+						})
+					})
+					function dj(a){
+						console.log()
+						$(a).find("input").prop("checked",true)
+							$(a).siblings().find("input").removeAttr("checked")
+					}
+						})
+				</script>-->

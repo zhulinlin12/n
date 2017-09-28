@@ -1,0 +1,335 @@
+<div class="synr">
+    <div class="c-tr" style="padding-bottom: 0px; width:100%">
+        <div class="container">
+            <div class="na-l">
+                <img class="img2" src="images/sc-logo.png" />
+                <div class="ss-k" id="myDropdown">
+                    <div class="sak dropdown" id="ssk" is-show>
+                        <span id="sl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     						<l id="lkk">{{SearchData.business}}</l><b></b>
+     					</span>
+                        <div class="sskx" aria-labelledby="sl" id="skx">
+                            <l id="ll" ng-click="St($event)">{{SearchData.buy}}</l>
+                            <l id="lk" ng-click="Sr($event)">{{SearchData.company}}</l>
+                        </div>
+                    </div>
+                    <form id="fm" ng-submit="searchList(vm.searchContent.content)">
+                        <input id="inp" type="text" ng-model="vm.searchContent.content" placeholder="{{placeholde}}" />
+                    </form>
+                </div>
+                <div class="sc-an" ui-sref="index.search({code:vm.searchContent.content})" ng-click="searchList(vm.searchContent.content)">
+                    <button type="submit" form="fm"></button>
+                </div>
+                <div class="ks-cg">快速发布采购</div>
+                <div class="sp-lb" style="background: #fff;">
+                    <div class="sp-aa"><span>全部商品分类</span><img src="images/fenlei.png" /></div>
+                    <div class="ol">
+                        <li style="margin-left: 0px;" ui-sref="buyt.buyer">招标采购</li>
+                        <li>直采商城</li>
+                        <li>易货平台</li>
+                        <li>租赁平台</li>
+                        <li>投融资</li>
+                        <li>项目分包</li>
+                        <li>知识库</li>
+                        <li>OA</li>
+                        <li>积分</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="b-s clearfloat">
+            <div class="l-b">
+                <div class="ul-a" id="erdh">
+                    <li ng-repeat=" pro in data.category.categories" enter-show data-code="{{pro.code}}">
+                        <a class="a"><img ng-src="{{pro.url}}"/>
+						<a>{{pro.name}}</a>
+                        <span></span>
+                        </a>
+                    </li>
+                </div>
+                <!-- 下拉详细列表具体分类 -->
+                <div class="yMenuListCon" style="display: none;">
+                    <div class="erji">
+                        <kz>
+                            <er ng-repeat="sub in subs " class="clearfix">
+                                <nh>{{sub.name}}> </nh>
+                                <kk>
+                                    <sc ng-repeat="small in sub.subMenuList" ui-sref="index.lb({page:small.sort,code:small.code,word:small.name})">
+                                        {{small.name}}
+                                    </sc>
+                                </kk>
+                            </er>
+                        </kz>
+                    </div>
+                </div>
+            </div>
+            <div class="bann">
+                <!--轮播图-->
+                <style>
+                .left,
+                .right {
+                    font-size: 43px !important;
+                }
+
+                .carousel .left>.glyphicon-chevron-left {
+                    left: 0;
+                }
+                </style>
+                <div class="bner-a" style="position: relative;">
+                    <div ng-controller="CarouselCtrl">
+                        <carousel interval="myInterval" no-wrap="noWrapSlides">
+                            <slide ng-repeat="slide in slides" active="slide.active">
+                                <img ng-src="{{slide.image}}" style="margin:auto;">
+                            </slide>
+                        </carousel>
+                    </div>
+                </div>
+                <div class="bn-b">
+                    <div ng-repeat="img in bottom" ng-class="{'bn-bl':$index==0,'bn-bl2':$index==1}">
+                        <div class="bn-bw">
+                            <img ng-src='{{img.bannerImgUrl}}' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="z-r clearfloat">
+                <div class="z-h">
+                    <div class="b-l">
+                        <img src="images/tx.png" />
+                        <ag style="display: none;">
+                            <span>欢迎来到同鑫！</span>
+                            <div class="bnt">登录</div>
+                            <div class="bnt2">注册</div>
+                        </ag>
+                        <span>Hi,上午好！<br/>欢迎来到同鑫！</span>
+                    </div>
+                </div>
+                <div class="z-j">
+                    <h5>惊喜连连</h5>
+                    <div class="z-ka">
+                        <li>[建材]春季装修宝典 干...</li>
+                        <li>[办公]OA系统为您排忧</li>
+                        <li>[建材]春季装修宝典 干...</li>
+                        <li>[办公]OA系统为您排忧</li>
+                        <li>[建材]春季装修宝典 干...</li>
+                        <li>[办公]OA系统为您排忧</li>
+                    </div>
+                </div>
+                <div class="z-b">
+                    <ul>
+                        <li data-name-type='cgs' name-type>采购商 &nbsp;</li><span>|</span>
+                        <li data-name-type='gys' name-type>供应商 &nbsp;</li><span>|</span>
+                        <li data-name-type='zjf' name-type>资金方</li>
+                    </ul>
+                    <!--{{isAct}}-->
+                </div>
+                <div class="z-yy">
+                    <div class="z-tb" ng-repeat=" art in artTemp">
+                        <img ng-src="{{art.iconUrl}}" />
+                        <span>{{art.iconName}}</span>
+                    </div>
+                    <!--<div class="z-tb">
+						<img src="images/fabao.png" style="margin-top: 11px;" />
+						<span>发包承包</span>
+					</div>
+					<div class="z-tb" style="border-right:0px;">
+						<img src="images/zpt.png" style="margin-top: 12px;" />
+						<span>租赁平台</span>
+					</div>
+					<div class="z-tb gg">
+						<img src="images/trz2.png" style="margin-top: 5px;" />
+						<span>投融资</span>
+					</div>
+					<div class="z-tb gg">
+						<img src="images/zsk.png" />
+						<span>知识库</span>
+					</div>
+					<div class="z-tb gg" style="border-right:0px;">
+						<img src="images/OA.png" />
+						<span>OA</span>
+					</div>-->
+                </div>
+            </div>
+        </div>
+        <div class="z-sp">
+            <div class="z-spl" style="margin-left: 0px;">
+                <div class="z-hr">{{recommend[0].name}}</div>
+                <div class="z-le">
+                    <h4>{{recommend[0].productList[0].productName}}<br/><small></small></h4>
+                    <img ng-src="{{recommend[0].productList[0].url}}" />
+                </div>
+                <div class="z-zj">
+                    <div class="z-ww">
+                        <h4>{{recommend[0].productList[1].productName}}<br/><small></small></h4>
+                        <img ng-src="{{recommend[0].productList[1].url}}" />
+                    </div>
+                    <div class="z-zjb">
+                        <div class="z-zjbl">
+                            <h4>{{recommend[0].productList[2].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[0].productList[2].url}}" />
+                        </div>
+                        <div class="z-zjbl" style="border: none; float: right;">
+                            <h4>{{recommend[0].productList[3].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[0].productList[3].url}}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="z-spl" style="float: right;">
+                <div class="z-hr" style="background: url(images/youpingtuijian.png) no-repeat center;">{{recommend[1].name}}</div>
+                <div class="z-le">
+                    <h4>{{recommend[1].productList[0].productName}}<br/><small></small></h4>
+                    <img ng-src="{{recommend[1].productList[0].url}}" />
+                </div>
+                <div class="z-zj">
+                    <div class="z-ww">
+                        <h4>{{recommend[1].productList[1].productName}}<br/><small></small></h4>
+                        <img ng-src="{{recommend[1].productList[1].url}}" />
+                    </div>
+                    <div class="z-zjb">
+                        <div class="z-zjbl">
+                            <h4>{{recommend[1].productList[2].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[1].productList[2].url}}" />
+                        </div>
+                        <div class="z-zjbl" style="border: none;float: right;">
+                            <h4>{{recommend[1].productList[3].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[1].productList[3].url}}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ww">
+            <img src="images/z-bt.png" />
+        </div>
+        <!-- 选项卡 -->
+        <div class="z-cen " ng-repeat="list in dataList" id="{{list.iconCode}}" data-code-type="{{list.iconCode}}" style="overflow: hidden;">
+            <div class="z-he">
+                <img src="images/ly-bw.png" />
+                <span>{{list.iconName}}</span>
+                <div class="z-sd">
+                    <li class="lis" ng-repeat=" cate in  list.categoryList" data-cacode="{{cate.iconCode}}" ng-mouseenter="getCode(cate.iconCode,list.iconCode)">{{cate.iconName}}</li>
+                </div>
+            </div>
+            <div class="height3 fir" switcher>
+                <div class="z-spk">
+                    <div class="sp-z">
+                        <h4>{{list.productList[0].productName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{list.productList[0].url}}" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[1].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[1].url}}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[2].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[2].url}}" />
+                    </div>
+                </div>
+                <div class="z-spk">
+                    <div class="sp-z" style="border: none;">
+                        <h4>{{list.productList[3].productName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{list.productList[3].url}}" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[4].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[4].url}}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[5].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[5].url}}" />
+                    </div>
+                </div>
+                <div class="z-spk">
+                    <div class="sp-z">
+                        <h4>{{list.productList[6].productName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{list.productList[6].url}}" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[7].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[7].url}}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[8].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[8].url}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="height3 aj hide" ng-repeat="cate in list.categoryList" id="{{cate.iconCode}}" data-code="{{cate.iconCode}}" switcher>
+                <div class="z-spk">
+                    <div class="sp-z">
+                        <h4>{{lists.productList[0].productName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{lists.productList[0].imageUrl}}" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <!--{{productList[1].productListName}}-->
+                        <h4>{{lists.productList[1].productListName}}<br/><small></small></h4>
+                        <img ng-src="{{lists.productList[1].imageUrl}}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{lists.productList[2].productListName}}<br/><small></small></h4>
+                        <img ng-src="{{lists.productList[2].url}}" />
+                    </div>
+                </div>
+                <div class="z-spk">
+                    <!--{{productList[3].productListName}}-->
+                    <div class="sp-z" style="border: none;">
+                        <h4>{{lists.productList[3].productListName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{lists.productList[3].imageUrl}}" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{lists.productList[4].productListName}}<br/><small></small></h4>
+                        <img ng-src="{{lists.productList[4].imageUrl}}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{lists.productList[5].productListName}}<br/><small></small></h4>
+                        <img ng-src="{{lists.productList[5].imageUrl}}" />
+                    </div>
+                </div>
+                <div class="z-spk">
+                    <div class="sp-z">
+                        <h4>{{lists.productList[6].productListName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{lists.productList[6].imageUrl}}" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{lists.productList[7].productListName}}<br/><small></small></h4>
+                        <img ng-src="{{lists.productList[7].imageUrl}}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{lists.productList[8].productListName}}<br/><small></small></h4>
+                        <img ng-src="{{lists.productList[8].imageUrl}}" />
+                    </div>
+                </div>
+            </div>
+            <!--<div class="loading" ng-show='gStatus'><img src="images/loading.gif"/></div>-->
+        </div>
+        <!--楼层-->
+        <div class="louz" id="fixed" style="display: none;">
+            <li data-postion="1210" scroll-pos style="height:40px;">
+                <img src="images/ly-l.png" /><span>楼宇<br/>建筑</span>
+            </li>
+            <li data-postion="1740" scroll-pos><img src="images/yq-l.png" /><span>园区<br/>建设</span></li>
+            <li data-postion="2276" scroll-pos><img src="images/gy-l.png" /><span>工业<br/>厂房</span></li>
+            <li data-postion="2810" scroll-pos><img src="images/nm-l.png" /><span>农牧<br/>设施</span></li>
+            <li data-postion="3342" scroll-pos><img src="images/jt-l.png" /><span>交通<br/>建设</span></li>
+            <li data-postion="3875" scroll-pos><img src="images/sy-l.png" /><span> 石油<br/>项目</span></li>
+            <li data-postion="4405" scroll-pos><img src="images/kc-l.png" /><span>开采<br/>项目</span></li>
+            <li data-postion="4920" scroll-pos><img src="images/sz-l.png" /><span>市政<br/>工程</span></li>
+            <li data-postion="5453" scroll-pos><img src="images/qt-l.png"><span>其它<br/>建筑</span></li>
+            <li data-postion="5966" scroll-pos><img src="images/qt-l.png"><span>其它<br/>建筑</span></li>
+            <li data-postion="6500" scroll-pos><img src="images/qt-l.png"><span>其它<br/>建筑</span></li>
+            <li data-postion="7013" scroll-pos><img src="images/qt-l.png"><span>其它<br/>建筑</span></li>
+            <li data-postion="7543" scroll-pos><img src="images/qt-l.png"><span>其它<br/>建筑</span></li>
+            <li data-postion="8056" scroll-pos><img src="images/qt-l.png"><span>其它<br/>建筑</span></li>
+            <li data-postion="8599" scroll-pos style="border-bottom: none;"><img src="images/qt-l.png"><span>其它<br/>建筑</span></li>
+        </div>
+        <!--客服-->
+        <div class="z-gd" ng-show='back'>
+            <li><img src="images/gouwuche.png" /></li>
+            <li><img src="images/lianxiwomeng.png" /></li>
+            <li><img src="images/bianji.png" /></li>
+            <li go-top><img src="images/huidaodingbu.png" /></li>
+        </div>
+    </div>

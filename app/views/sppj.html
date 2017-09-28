@@ -1,0 +1,115 @@
+
+     		<div class="bangzhu">
+     		<div class="c-tr">
+     			<div class="container">
+     				<div class="na-l">
+     				<div class="logo">
+			<img src="images/logo2_03.jpg" ui-sref="index.op" style="height: 99px; margin-top: 20px;margin-left: 66px;"/>
+			</div>
+     					<div id="bb">
+					<ul class=" pull-right lct">
+						<li class="bla">
+							<span>1</span>
+						</li>
+						<!--<li  class="bla">
+							<span>2</span>
+						</li>-->
+						<li  class="bla"><span>2</span></li>
+						<li class="bla"><span>3</span></li>
+						<li class="bla"><span>4</span></li>
+						<li class="bsl"><span>5</span></li>
+					</ul>
+					<ul class="pull-right lct-x">
+						<li class="lct-x-2" >买家下单</li>
+					<!--	<li class="lct-x-2">卖家确认订单</li>-->
+						<li class="lct-x-2">买家付款</li>
+						<li class="lct-x-2">卖家发货</li>
+						<li  class="lct-x-2">确认收货</li>
+						<li class="lct-x-1">交易成功</li>
+					</ul>
+				</div>					
+     					
+     				</div>
+     <div class="tb-rate-alert type-fail size-l" ng-if="opwr">
+	<h4>
+			抱歉，评价发布失败！
+		</h4>
+	<p>原因可能是：</p>
+	<ol class="tb-rate-ol">
+					                <li>你已进行过评价</li>
+                <li>不在评价期内，交易成功后<strong>15</strong>天内可做评价</li>
+						</ol>
+</div>
+     				<div class="sp-k clearfloat" ng-if="opiu">
+     			<div class="sp-r">
+				<div class="pj">订单评价</div>
+				<div class="sz">订单编号：{{oder.orderCode}}</div>
+				<div class="sz"><span>{{oder.createTime}}</span></div>
+			     </div>
+			     <!--<div class="sp-pq">
+			     	<div class="col-xs-4" style="border-right:1px solid #DEDEDE; height: 160px; padding-top: 20px;">
+				
+						<div style="height: 120px;float: left;width: 120px;display: inline-block;background: yellow;">图片</div>
+						<div class="sp-x" >
+						<h4>配送服务</h4>
+						<p>皮皮虾 <span>13812763903 </span></p>
+						<p>德邦物流员工</p>
+						</div>
+				</div>
+				<div class="sp-gh">
+					<div class="col-xs-12">
+						<p class="col-xs-12">请填写配送价格</p>
+						<p class="col-xs-6"><zi>商品完成度</zi>
+							<qw>
+								
+						 <span star rating-value="ratingVal" max="max" on-hover="onHover" on-leave="onLeave" readonly="{{readonly}}"></span>
+						</qw><samp>{{ratingVal*20}}分</samp>
+						
+						</p>
+						<p class="col-xs-6"><zi>送货速度</zi>
+							<qw>
+							<span star rating-value="ratingVawl" max="max" on-hover="onHover" on-leave="onLeave" readonly="{{readonly}}"></span>
+						</qw><samp>{{ratingVawl*20}}分</samp>
+						
+						</p>
+					</div>			
+				</div>
+			     </div>-->
+			     	     <div class="sp-pq" style="height: 220px; " ng-repeat="pj in oder.productList track by $index" >
+			     	<div class="col-xs-4" style="border-right:1px solid #DEDEDE; height: 220px; padding-top: 20px;">
+					<!--<img src="" alt="" /><-->
+						<a ui-sref="index.xq({id:pj.productId})" target="_blank"><div  style="height: 120px;float: left;width: 120px;display: inline-block;background: yellow;border:1px solid #DEDEDE;"><img class="imkp" ng-src="{{pj.imageUrl}}" /></div></a>
+						<div class="sp-x" >
+						 	{{pj.productName}}
+						</div>
+				</div>
+				<div class="sp-gh" style="margin-top: 15px;">
+					<div class="col-xs-12">
+						<p class="col-xs-12">请对此商品进行评价</p>
+						<p class="col-xs-6"><zi>商品满意度</zi>
+							<qw>
+							<span star rating-value="ratingValw" data="$index" max="max" on-hover="onHover" on-leave="onLeave" readonly="{{readonly}}"></span>
+						</qw><samp id="po{{$index}}">{{ratingValw*20}}分</samp>
+						<input type="hidden" ng-show="pj.descLevel=ratingValw" />
+						<!--<input  type="text" ng-model="ratingValw" />-->
+						
+						</p>
+						<p class="col-xs-12"><zi>商品评价</zi>
+							<textarea ng-model="pj.evaluate" maxlength="500" placeholder="最多可输入500字"></textarea>
+						
+						</p>
+					</div>			
+				</div>
+				
+			     </div>
+			     <div class="bnt">
+			     	<div class="sp-kw" ng-click="refer()">提交</div>
+			     </div>
+     				</div>
+     				
+     			</div>
+     		</div>
+                   </div>
+			
+		
+	

@@ -1,0 +1,225 @@
+.regist .main-box {
+  background-color: #ebebeb;
+  height: 94px;
+}
+.regist .main-box .main {
+  width: 980px;
+  height: 94px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.regist .main-box .main .logo {
+  width: 66px;
+  height: 75px;
+  margin-top: 10px;
+  float: left;
+}
+.regist .main-box .main .logo img {
+  width: 60px;
+  height: 75px;
+}
+.regist .main-box .main .title {
+  float: left;
+  margin-left: 56px;
+  font-size: 24px;
+  color: #000000;
+  line-height: 94px;
+}
+.regist .main-box .main .login-txt {
+  float: right;
+  line-height: 94px;
+  color: #999999;
+  font-size: 14px;
+}
+.regist .input-box {
+  width: 980px;
+  margin: 0 auto;
+  height: 430px;
+  background-color: #ffffff;
+}
+.regist .input-box span {
+  color: #ff6b6b;
+}
+.regist .input-box .mb {
+  padding-left: 250px;
+  margin-top: 94px;
+}
+.regist .input-box .mb p {
+  float: left;
+  line-height: 40px;
+  width: 100px;
+  text-align: right;
+  margin: 0;
+}
+.regist .input-box .mb input {
+  height: 40px;
+  width: 280px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  text-indent: 10px;
+  outline: none;
+  margin-right: 20px;
+}
+.regist .input-box .yzm {
+  padding-left: 250px;
+  margin-top: 34px;
+  position: relative;
+}
+.regist .input-box .yzm p {
+  float: left;
+  line-height: 40px;
+  width: 100px;
+  text-align: right;
+  margin: 0;
+}
+.regist .input-box .yzm input {
+  height: 40px;
+  width: 280px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  text-indent: 10px;
+  outline: none;
+  margin-right: 20px;
+  position: relative;
+}
+.regist .input-box .yzm i {
+  position: absolute;
+  left: 62%;
+  top: 50%;
+  bottom: 50%;
+  margin-top: -6px;
+}
+.regist .input-box .dxyzm {
+  padding-left: 250px;
+  margin-top: 34px;
+}
+.regist .input-box .dxyzm p {
+  float: left;
+  line-height: 40px;
+  width: 100px;
+  text-align: right;
+  margin: 0;
+}
+.regist .input-box .dxyzm input {
+  float: left;
+  height: 40px;
+  width: 130px;
+  text-indent: 10px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  outline: none;
+  margin-right: 20px;
+}
+.regist .input-box .dxyzm .btn-dzm {
+  display: block;
+  float: left;
+  width: 130px;
+  height: 40px;
+  background: #EBEBEB;
+  font-size: 12px;
+  color: #666666;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-right: 20px;
+}
+.regist .input-box .dxyzm span {
+  height: 40px;
+  line-height: 40px;
+}
+.regist .input-box .dxyzm .active {
+  background: #006CFF;
+  color: #fff;
+}
+.regist .input-box .tyxy {
+  padding-left: 350px;
+  margin-top: 34px;
+}
+.regist .input-box .zc {
+  padding-left: 350px;
+  margin-top: 10px;
+}
+.regist .input-box .zc button {
+  background-color: #006CFF;
+  height: 38px;
+  width: 160px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 14px;
+}
+.regist .sucess-box {
+  width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  height: 420px;
+}
+.regist .sucess-box .circle {
+  margin-top: 98px;
+  text-align: center;
+}
+.regist .sucess-box .txt {
+  margin-top: 40px;
+  font-size: 24px;
+}
+.regist .sucess-box .tip-txt {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ebebeb;
+}
+.regist .sucess-box .two-btn {
+  margin-top: 32px;
+  font-size: 14px;
+}
+.regist .sucess-box .two-btn button {
+  height: 38px;
+  border: none;
+  outline: none;
+}
+.regist .sucess-box .two-btn button:first-child {
+  width: 158px;
+  background-color: #999999;
+}
+.regist .sucess-box .two-btn button:last-child {
+  width: 158px;
+  margin-left: 20px;
+  background-color: #006CFF;
+}
+.regist .footer {
+  background-color: #ebebeb;
+  height: 166px;
+  margin-top: 10px;
+}
+.regist .footer .foo-box {
+  width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  color: #999999;
+  padding-top: 32px;
+}
+.regist .footer .foo-box a {
+  color: #999999;
+}
+@media (max-width: 500px) {
+  .main-box {
+    width: 980px;
+  }
+  .regist .main-box .main .logo {
+    margin-left: 150px;
+  }
+  .footer {
+    width: 980px;
+  }
+}
+@media screen and (min-width: 550px) {
+  .main-box {
+    width: 100%;
+  }
+  .footer {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=register.css.map */

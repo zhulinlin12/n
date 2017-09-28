@@ -1,0 +1,91 @@
+<!--查看报价-->
+<div class="c-jh lhzm">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>管理联合采购申请>>报名</h4>
+			<span>查看发布联合招标信息>></span>
+		</div>
+		<div class="c-qw">
+			<div class="c-wr font" >
+				<span><b >招募活动:</b></span>
+				<f class="gayw hs"><b>{{data.title}}</b></f>
+			</div>
+			<div class="c-wr" ng-repeat="zm in data.bindingItemList" >
+				<span>采购产品:</span>
+				<div class="ysa hs">
+			<samp>{{zm.materialType2}}</samp><samp>{{zm.materialType3}}</samp><samp>{{zm.materialName}}</samp>
+				</div>
+			</div>
+			<div class="c-wr"  >
+				<span>送货地点范围:</span>
+				<div class="ysa hs">
+					<samp ng-repeat="cit in data.deliverAddreList">{{cit.province}}{{cit.city}}</samp>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>到货日期范围:</span>
+				<div class="ysa hs">
+					<samp>{{data.arrivalCreateTime.split(' ')[0]}}至{{data.arrivalEndTime.split(' ')[0]}}</samp>
+					
+				</div>
+			</div>
+			<div class="c-wr2">
+				<span>其它要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.otherRequire}}</samp>
+					</div>
+				</div>
+			</div>
+			<div class="c-wr2">
+				<span>技术质量要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.qualityAssurance}}</samp>
+					</div>
+				</div>
+			</div>
+			<div class="c-wr2">
+				<span>采购方报名资格要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.purchaserOtherRequire}}</samp>
+					</div>
+				</div>
+			</div>
+			<div class="c-wr2">
+				<span>供应商报名资格要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.supplierOtherRequire}}</samp>
+					</div>
+				</div>
+			</div>
+	<div class="c-wr">
+				<span>采购商报名截止日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.purchaserEndTime.split(' ')[0]}}</samp>
+					
+				</div>
+			</div>
+		<div class="c-wr">
+				<span>供应商报名截止日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.supplierEndTime.split(' ')[0]}}</samp>
+					
+				</div>
+			</div>
+<div class="c-wr2" style="margin-top: 50px; padding-bottom: 20px;">
+				<span></span>
+				 <div class="ysa">
+				<div class="tex">
+	<button class="qww unselected" ng-click="cg(2)">采购商报名</button>
+			<button class="qww unselected" ng-click="cg(1)">供应商报名</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<wo></wo>

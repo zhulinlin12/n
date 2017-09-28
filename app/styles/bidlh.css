@@ -1,0 +1,534 @@
+.lh .ol li {
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.lh .actis {
+  cursor: pointer;
+  background: #fc9429;
+  color: #fff;
+}
+.lh .ol li:hover {
+  cursor: pointer;
+  background: #fc9429;
+  color: #fff;
+}
+.lh .lh-left {
+  width: 845px;
+  height: auto;
+  float: left;
+}
+.lh .lh-rigth {
+  width: 300px;
+  height: auto;
+  float: right;
+}
+.lh .lh-left1 {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+.lh .lh-left1 .lh-we {
+  width: 100%;
+  height: 20px;
+  border-bottom: 1px solid #004eb9;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "宋体";
+  color: #010101;
+}
+.lh .lh-left1 .lh-we span {
+  float: right;
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+}
+.lh .lh-left1 .lh-we span a {
+  color: #666666;
+  text-decoration: none;
+}
+.lh .lh-left1 .lh-we span a:hover {
+  color: #337ab7;
+}
+.lh .lh-left1 .lh-lefw {
+  background: #fff;
+  height: auto;
+  min-height: 210px;
+  padding: 10px;
+}
+.lh .lh-left1 .lh-lefw .lh-wy {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.lh .lh-left1 .lh-lefw ul {
+  height: auto;
+  overflow: hidden;
+  list-style: none;
+  margin-bottom: 0;
+}
+.lh .lh-left1 .lh-lefw ul li {
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #999999;
+  margin-bottom: 6px;
+}
+.lh .lh-left1 .lh-lefw ul li a {
+  width: 600px;
+  height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #999999;
+  text-decoration: none;
+}
+.lh .lh-left1 .lh-lefw ul li samp {
+  display: inline-block;
+  height: 18px;
+  line-height: 18px;
+  margin-right: 5px;
+}
+.lh .lh-left1 .lh-lefw ul li .goods {
+  width: 180px;
+  height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.lh .lh-left1 .lh-lefw ul li span {
+  display: block;
+  float: right;
+}
+.lh .lh-left1 .lh-lefw ul .bul {
+  color: #004EB9;
+  cursor: pointer;
+}
+.lh .lh-left1 .lh-lefw ul li a:hover {
+  cursor: pointer;
+  color: #004eb9;
+}
+.lhzm .c-k .c-qw .c-wr2 span {
+  width: 130px;
+}
+.lhzm .c-k .c-qw .c-wr span {
+  display: inline-block;
+  width: 130px;
+}
+.lh-xx {
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-right: 20px;
+}
+.lh-xx span {
+  width: 75px;
+  height: auto;
+  text-align: right;
+  float: left;
+  font-size: 15px;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+.lh-xx .c-wr {
+  min-height: 40px;
+  margin-bottom: 20px;
+}
+.lh-xx .c-wr label {
+  padding: 5px 2px;
+  border: 1px solid #fff;
+  font-weight: normal;
+}
+.lh-xx .c-wr .error {
+  border-color: #f00;
+}
+.lh-xx .c-wr select {
+  width: 100px;
+  height: 40px;
+  border: 1px solid #DEDEDE;
+  text-indent: 10px;
+  margin-right: 15px;
+  background: #fff;
+  outline: none;
+  /*很关键：将默认的select选择框样式清除*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-attachment: fixed;
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+  background-position-x: 95%;
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 20px;
+  line-height: 40px;
+}
+.lh-xx .c-wr select option {
+  height: 40px;
+  display: block;
+}
+.lh-xx .c-wr select::-ms-expand {
+  display: none;
+}
+.lh-xx .c-wr input[type=text],
+.lh-xx .c-wr input[type=tel] {
+  width: 500px;
+  height: 40px;
+  display: inline-block;
+  outline: none;
+  text-indent: 10px;
+  border: 1px solid #ebebeb;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.lh-xx .c-wr textarea {
+  width: 600px;
+  display: inline-block;
+  height: 100px;
+  resize: none;
+  outline: none;
+  border: 1px solid #ebebeb;
+  padding: 10px;
+}
+.lh-xx .font {
+  font-family: "宋体";
+}
+.lh-xx .tabla {
+  width: 1000px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.lh-xx .tabla table td {
+  width: 141px;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.lh-xx .tabla table tr:first {
+  width: 40px;
+}
+.lh-xx .tabla table input[type=text] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.lh-xx .tabla table input[type=radio] {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.lh-xx .qww {
+  width: 160px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: gray;
+  margin-right: 45px;
+  margin-top: 10px;
+}
+.lh-xx .unselected {
+  background: #006CFF;
+}
+.lh-xx .red {
+  background: #FF0000;
+}
+.lh-xx .tabcon tr td:first-child {
+  background: #ebebeb;
+}
+.lh-xx .tabcon tr td:nth-child(2) {
+  background: #ebebeb;
+}
+.lh-xx .tabcon tr td:first-child + td {
+  background: #ebebeb;
+}
+.lh-xx .tabcon tr td:nth-child(3) {
+  background: #ebebeb;
+}
+.lh-xx .tabcon tr td:first-child + td + td {
+  background: #ebebeb;
+}
+.lh-xx .tabcon tr td:nth-child(4) {
+  background: #ebebeb;
+}
+.lh-xx .tabcon tr td:first-child + td + td + td {
+  background: #ebebeb;
+}
+.lh-wyu {
+  height: auto;
+}
+.lh-wyu .lh-qq {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 1px solid #bebebe;
+  border-radius: 50%;
+  margin: auto;
+}
+.lh-wyu .tabla {
+  width: 1000px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.lh-wyu .tabla table {
+  display: block;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.lh-wyu .tabla table tr:first-child td {
+  border-top: 0px solid #EBEBEB;
+}
+.lh-wyu .tabla table .lh-kk {
+  position: relative;
+  text-align: center;
+}
+.lh-wyu .tabla table .lh-kk .radio {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  color: #0c4757;
+  padding-left: 25px;
+  cursor: pointer;
+}
+.lh-wyu .tabla table .lh-kk .radio input {
+  position: absolute;
+  left: -9999px;
+}
+.lh-wyu .tabla table .lh-kk .radio i {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -5px;
+  outline: 0;
+  border: 1px solid #EBEBEB;
+  background: #fff;
+  border-radius: 50%;
+  transition: border-color .3s;
+  -webkit-transition: border-color .3s;
+}
+.lh-wyu .tabla table .lh-kk .radio input:checked + i {
+  border-color: #EBEBEB;
+}
+.lh-wyu .tabla table .lh-kk .radio input + i:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background-color: #222222;
+  opacity: 0;
+  transition: opacity .1s;
+  -webkit-transition: opacity .1s;
+}
+.lh-wyu .tabla table .lh-kk .radio input:checked + i:after {
+  opacity: 1;
+}
+.lh-wyu .tabla table td {
+  width: 141px;
+  height: 40px;
+  min-width: 98px;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.lh-wyu .tabla table td span {
+  width: 20px;
+  height: 20px;
+  background: #008000;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+.lh-wyu .tabla table td span .icon-checkmark {
+  color: #fff;
+  font-size: 10px;
+}
+.lh-wyu .tabla table tr:first {
+  width: 40px;
+}
+.lh-wyu .tabla table input[type=text] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.lh-wyu .tabla .bluew {
+  color: #006CFF;
+}
+.lh-ui {
+  width: 1000px;
+  height: auto;
+  border: 1px solid #BEBEBE;
+}
+.lh-ui ul {
+  margin: 0px;
+  padding: 0px;
+}
+.lh-ui .lh-u {
+  width: 100%;
+  height: 40px;
+  background: #ebebeb;
+  border-bottom: 1px solid #BEBEBE;
+}
+.lh-ui .lh-u li {
+  text-align: center;
+  line-height: 40px;
+  width: 89px;
+  float: left;
+  height: 40px;
+  border-right: 1px solid #BEBEBE;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.lh-ui .lh-u li .lh-qq {
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #bebebe;
+  border-radius: 50%;
+  margin: auto;
+}
+.lh-ui .lh-u li:last-child {
+  border-right: none;
+}
+.lh-ui .lh-u .lh-wt {
+  width: 157px;
+}
+.lh-ui .lh-pp {
+  width: 100%;
+  height: auto;
+}
+.lh-ui .lh-pp .lh-tt {
+  width: 89px;
+  height: auto;
+  float: left;
+  border-right: 1px solid #BEBEBE;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk {
+  width: 100%;
+  height: auto;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-bottom: 1px solid #BEBEBE;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #666666;
+  position: relative;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li span {
+  width: 20px;
+  height: 20px;
+  background: red;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  text-align: center;
+  line-height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li span .icon-checkmark {
+  color: #fff;
+  font-size: 10px;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li .radio {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  color: #0c4757;
+  padding-left: 25px;
+  cursor: pointer;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li .radio input {
+  position: absolute;
+  left: -9999px;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li .radio i {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -5px;
+  outline: 0;
+  border: 1px solid #EBEBEB;
+  background: #fff;
+  border-radius: 50%;
+  transition: border-color .3s;
+  -webkit-transition: border-color .3s;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li .radio input:checked + i {
+  border-color: #EBEBEB;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li .radio input + i:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background-color: #5E5E5E;
+  opacity: 0;
+  transition: opacity .1s;
+  -webkit-transition: opacity .1s;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li .radio input:checked + i:after {
+  opacity: 1;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li:first-child {
+  color: #FF0000;
+}
+.lh-ui .lh-pp .lh-tt .lh-lk li:last-child {
+  border-bottom: none;
+}
+.lh-ui .lh-pp li:last-child {
+  border-right: none;
+}
+.lh-ui .lh-pp .lh-bul li {
+  color: #006CFF !important;
+}
+.lh-ui .lh-pp .lh-wt {
+  width: 157px;
+}
+/*# sourceMappingURL=bidlh.css.map */

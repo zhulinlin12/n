@@ -1,0 +1,29 @@
+<div class="perf-lw">
+	<div class="perf-success-box">
+		<div class="perf-success-main">
+			<div class="head">
+				<h4>公司信息完善</h4>
+			</div>
+			<div class="perf-main" ng-show="info.status==1" >
+				<div class="main-pics">
+					<img src="images/gsdui.png" alt="" />
+				</div>
+				<h3>您的公司信息正在审核中</h3>
+			</div>
+			<div class="perf-main" ng-show="info.status==2" >
+				<div class="main-pics">
+					<img src="images/gsdui.png" alt="" />
+				</div>
+				<h3>恭喜您，您的公司信息通过审核</h3>
+			</div>
+			<div class="perf-main" ng-show="info.status==3">
+				<div class="main-pics">
+					<img src="images/cha.png" alt="" />
+				</div>
+				<h3>非常抱歉，您提交的信息未通过审核。</h3>
+				<p class="infos">请认真核对，保证您填的信息准确无误,我们将尽快为您审核。</p>
+				<button class="btn btn-approve" ui-sref="buyt.perinfor">重新提交</button>
+			</div>
+		</div>
+	</div>
+</div>

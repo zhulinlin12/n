@@ -1,0 +1,115 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">收货地址管理</h2>
+    </div>
+    <!--<div class="tab_nav2 clear">-->
+    <!--<div class="list ac"><a href="javascript:;">发货地址</a></div>-->
+    <!--<div class="list"><a href="javascript:;">收货地址</a></div>-->
+    <!--</div>-->
+    <div class="content">
+        <h2 class="tit_1">已保存地址 <span class="s1">最多保存有效地址</span></h2>
+        <div class="t_warp">
+            <div class="row tit_box">
+                <div class="col-xs-1">联系人</div>
+                <div class="col-xs-2">所在地区</div>
+                <div class="col-xs-3">街道地址</div>
+                <div class="col-xs-2">邮编</div>
+                <div class="col-xs-2">电话/手机</div>
+                <div class="col-xs-2">操作</div>
+            </div>
+            <div class="item_warp fenlei_box">
+                <div class="con_inner">
+                    <div class="row item_box" ng-repeat="item in data.comcontactList">
+                        <div class="col-xs-1 col_box">
+                            <p>{{item.name}}{{item.id}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p>
+                                {{item.province}} {{item.city}} {{item.county}}
+                            </p>
+                        </div>
+                        <div class="col-xs-3 col_box">
+                            <p>{{item.detailedAddress}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p>{{item.zipNo}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p>{{item.mobile}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box" data-id="{{item.id}}" ng-click="getId($event)">
+                            <a href="javascript:;" class="btn_1" ng-show="item.types==1" style="color:red;">常用地址</a>
+                            <a href="javascript:;" class="btn_1" ng-click="modifyAddress(item,$event)">修改</a>
+                            <a href="javascript:;" class="btn_1" ng-click="deleteAddress($event,item,$event)">删除</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btm_con">
+            <h2 class="tit_1">添加收货地址</h2>
+            <!--表单-->
+            <form class="form-horizontal" id="form1" name="myForm" novalidate>
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-2 control-label">
+                        <e class="degree">*</e>联系人姓名：</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="name" autocomplete="off" placeholder="请填写收货人" name="name" ng-pattern="/[\u4e00-\u9fa5]/" ng-minlength="1" maxlength="10" required ng-focus="wr2=true" />
+                        <div style="color:red; display: inline-block;" ng-show="wr2 && myForm.name.$invalid">
+                            <saw ng-show="myForm.name.$error.required">请填写收货人姓名。</saw>
+                            <saw ng-show="myForm.name.$error.pattern||myForm.name.$error.minlength">一共可以输入1-10字</saw>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-sm-2 control-label">
+                        <e class="degree">*</e>所在地区：</label>
+                    <div class="col-sm-10" style="margin-left: -22px;">
+                        <sanj style="float: left;"></sanj>
+                        <div style="color:red; display: inline-block; float:left; margin-top:30px;margin-left: 5px;" ng-if="hidel">
+                            <saw>请选择省、市、区。</saw>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-sm-2 control-label">
+                        <e class="degree">*</e>街道地址：</label>
+                    <div class="col-sm-10">
+                        <textarea placeholder="不要重复填写/省/市/区" ng-model="street" maxlength="100" size="100" name="street" required ng-focus="living()"></textarea>
+                        <div style="color:red; display: inline-block; margin-top: 20px; margin-left: 5px;" ng-show="wrstr&& myForm.street.$invalid">
+                            <saw ng-show="myForm.street.$error.required">请填写街道地址。</saw>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-sm-2 control-label">
+                        <e class="degree">*</e>邮政编码：</label>
+                    <div class="col-sm-10">
+                        <input type="text" autocomplete="off" ng-model="mail" placeholder="请填写邮政编码" name="mail" ng-pattern="/^[1-9][0-9]{5}$/" required ng-focus="wrma=true">
+                        <div style="color:red; display: inline-block;" ng-show="wrma && myForm.mail.$invalid">
+                            <saw ng-show="myForm.mail.$error.required">请填写邮政编码。</saw>
+                            <saw ng-show="myForm.mail.$error.pattern">请输入正确的邮政编码</saw>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-sm-2 control-label">
+                        <e class="degree">*</e>手机号码：</label>
+                    <div class="col-sm-10">
+                        <input type="text" autocomplete="off" ng-model="cellphone" name="cellphone" ng-pattern="/^1[3|5|7|8][0-9]\d{8}$/" required ng-focus="wrph=true">
+                        <div style="color:red; display: inline-block;" ng-show="wrph&&myForm.cellphone.$invalid">
+                            <saw ng-show="myForm.cellphone.$error.required">请填写手机号。</saw>
+                            <saw ng-show="myForm.cellphone.$error.pattern">请输入正确手机号的格式</saw>
+                        </div>
+                    </div>
+                </div>
+                <div id="shuo1" class="form-group">
+                    <label for="" class="col-sm-offset-2 col-sm-10">
+                        <input type="checkbox" name="" ng-checked="typr==1" id="last-check" value="" />设置默认地址
+                    </label>
+                </div>
+                <button type="button" class="save_btn2" ng-click="editAddress()" ng-disabled="myForm.name.$dirty && myForm.name.$invalid">保存</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,213 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">返修/退换货>>申请商品退换</h2>
+    </div>
+
+    <form class="content sq_box">
+        <div class="t_warp th_con" style="width: auto">
+            <div class="row tit_box">
+                <div class="col-xs-2">订单编号</div>
+                <div class="col-xs-4">商品名称</div>
+                <div class="col-xs-4">商品清单</div>
+                <div class="col-xs-2">购买数量</div>
+            </div>
+            <div class="item_warp">
+                <div class="con_inner">
+                    <div class="row item_box" style="height:100px;">
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{data.service.orderCode}}</p>
+                        </div>
+                        <div class="col-xs-4 col_box">
+                            <p class="pp3">{{data.service.productName}} </p>
+                        </div>
+                        <div class="col-xs-4 col_box">
+                            <p class="pp1">-</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{data.service.count}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="floor">
+            <div class="row">
+                <div class="col-xs-2 tit">服务类型:</div>
+                <div class="col-xs-10 p1">退货/退款</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 tit">数量:</div>
+                <div class="col-xs-10">
+                    <div class="num_box clear">
+                        <button type="button" class="min_btn">-</button>
+                        <input type="text" class="num_txt" value="1"/>
+                        <button type="button" class="add_btn">+</button>
+                    </div>
+                    <p class="p2">*您最多提交的数量为10个</p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 tit">问题描述：</div>
+                <div class="col-xs-10">
+                    <textarea class="wbk_1"></textarea>
+                    <div class="clear">
+                        <div class="pui" ng-repeat="item in thumb">
+                            <!-- 采用angular循环的方式，对存入thumb的图片进行展示 -->
+                            <label>
+                                <img ng-src="{{item.imgSrc}}"/>
+                            </label>
+                            <span ng-if="item.imgSrc" ng-click="img_del($index)">X</span>
+                        </div>
+                        <div  >
+                            <!-- 这里之所以写个循环，是为了后期万一需要多个‘加号’框 -->
+                            <label>
+                                <div class="wt">
+                                    <span>+</span>
+                                    <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files)"/>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <p class="hint_2">建议上传至少3张以上，不小于500*500像素的真实图片，支持jpg,jpeg,gif,bmp格式</p>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="floor">
+            <h2 class="tit_1">确认信息</h2>
+            <div class="row">
+                <div class="col-xs-2 tit">申请凭据:</div>
+                <div class="col-xs-10 p3">
+                    <select class="wb_1">
+                        <option ng-repeat="item in data.service.applyList" data-code="{{item.code}}">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 tit">返回方式:</div>
+                <div class="col-xs-10 p3">
+                    <select class="wb_1">
+                        <option ng-repeat="item in data.service.returnModelList" data-code="{{item.code}}">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 tit">返回方式:</div>
+                <div class="col-xs-10 p3">
+                    {{data.service.cityName}}
+                    {{data.service.countyName}}
+                    {{data.service.consigneeAddress}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 tit">客户姓名:</div>
+                <div class="col-xs-10 p3">{{data.service.consignee}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 tit">手机号:</div>
+                <div class="col-xs-10 p3 hint_3">{{data.service.consigneeMoblie}}</div>
+            </div>
+
+        </div>
+        <div class="btn_box">
+            <button type="button" class="save_btn">保存</button>
+        </div>
+
+
+    </form>
+
+
+</div>
+
+
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .wt{
+        width:100px;
+        height: 100px;
+        background: #fff;
+        float: left;
+        position: relative;
+        border:1px solid #999;
+        top:20px;
+
+    }
+    .wt input{
+        width:100px;
+        height: 100px;
+        opacity: 0;
+        overflow:hidden;
+        cursor: pointer;
+    }
+    .wt span{
+        display: block;
+        width:100px;
+        height: 100px;
+        font-size: 30px;
+        text-align: center;
+        line-height: 100px;
+        position: absolute;
+        top:0px;
+        left:0px;
+        cursor: pointer;
+    }
+    .pui{
+        width:100px;
+        height: 100px;
+        position: relative;
+        float: left;
+        margin-right: 10px;
+        margin-top:20px;
+    }
+    .pui img{
+        display: block;
+        width:100px;
+        height: 100px;
+        float: left;
+
+    }
+    .pui span{
+        display: block;
+        position: absolute;
+        top:0px;
+        right: 0px;
+        display: none;
+    }
+    .pui:before{
+        width:100px;
+        height: 100px;
+        background: red;
+        opacity: .4;
+    }
+    .pui:hover:before{
+        content:"";
+        display: block;
+        width:100px;
+        height: 100px;
+        background: red;
+        opacity: .4;
+        position: absolute;
+        top:0px;
+        cursor: pointer;
+        left:0px;
+    }
+    .pui:hover span{
+        display: block;
+    }
+</style>
+
+
+
+
+
+
+

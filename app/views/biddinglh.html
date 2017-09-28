@@ -1,0 +1,108 @@
+<div class="c-tr lh" style="padding-bottom: 0px;">
+	<div class="container">
+		<div class="zll-w">
+			<div class="na-l" style="height: 0px;">
+				<img class="img2" src="images/logo.png" />
+				<div class="ss-k">
+					<input id="inp" style="border: none;" type="text" placeholder="搜索 慧筑云 商品" />
+				</div>
+				<div class="sc-an" ui-sref="index.lb"><img src="images/ss-an.png" /></div>
+				<div class="sp-lb" style="background: #fff;">
+				<!--	<div class="sp-aa"><span>全部商品分类</span><img src="images/fenlei.png" /></div>-->
+					<div class="ol" style="color: #fb8002; ">
+						<li  data="1" ui-sref="buyt.perinfor({staur:0})"   >
+					买家电商管理
+				</li>
+				<li  ui-sref="buyt.await({staur:1})"   data="1"  >
+					卖家电商管理
+				</li>
+				<li class="actis" ui-sref="index.bilh({staur:2})" >
+					联合采购
+				</li>
+				<li ui-sref="buyt.await({staur:3})" >
+					询价采购
+				</li>
+				<li ui-sref="buyt.await({staur:4})" >
+					易货
+				</li>
+				<li  ui-sref="buyt.await({staur:5})">
+					供应链金融
+				</li>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container lh" style="padding-bottom: 100px;">
+	<div class="lh-left">
+		<div class="lh-left1">
+			<div class="lh-we">招募信息<span><a>更多>></a></span></div>
+			<div class="lh-lefw">
+				<ul>
+				<li ng-repeat="recruit in data.biddingLists"><a ui-sref="buyt.bmlh({staur:2,spid:recruit.biddingId})"><samp>●</samp><samp>{{recruit.title}}</samp></a><span>{{recruit.createTime}}</span></li>	
+				</ul>
+				
+			</div>
+		</div>
+			<div class="lh-left1" >
+			<div class="lh-we">报价通知<span><a>更多>></a></span></div>
+			<div class="lh-lefw">
+				<div ng-if="constanttest2!=''">
+				<ul ng-if="data.binddingApplyList!=''">
+				<li ng-repeat="price in data.binddingApplyList"><a><samp>●</samp><samp class="goods">{{price.materialName}}</samp></a><span class="bul" ui-sref="buyt.makelh({staur:2,spid:price.itemId})">查看信息>></span></li>	
+				
+				</ul>
+				
+				</div>
+				<div ng-if="constanttest2==''">
+					<p >您还没登录，登录后查看更多信息</p>
+				</div>
+			</div>
+		</div>
+			<div class="lh-left1">
+			<div class="lh-we">结果公示<span><a>更多>></a></span></div>
+			<div class="lh-lefw">
+				
+				<ul ng-if="data.binddingApplyZBList!=''">
+				<li><samp>●</samp><samp>关于钢管类物资的招募信息</samp><span class="bul">2016-02-03</span></li>	
+				<li><samp>●</samp><samp>关于钢管类物资的招募信息</samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><span class="bul">2016-02-03</span></li>	
+				<li><samp>●</samp><samp>关于钢管类物资的招募信息</samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><span class="bul">2016-02-03</span></li>	
+				<li style="margin-bottom: 0px;"><samp>●</samp><samp>关于钢管类物资的招募信息</samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><samp>描述 </samp><span class="bul">2016-02-03</span></li>	
+				
+				</ul>
+				
+				
+				
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="lh-rigth">
+		<div class="lh-left1">
+			<div class="lh-we">联合采购有关政策</div>
+			<div class="lh-lefw">
+				<div class="lh-wy"><img src="images/lianh.png"/></div>
+				<ul>
+				<li><a><samp>●</samp>联合采购相关信息 联合采购定义</a> </li>	
+				<li><a><samp>●</samp>联合采购优点</a> </li>	
+				<li><a><samp>●</samp>联合采购相关信息</a> </li>	
+				<li style="margin-bottom: 0px;"><a><samp>●</samp>联合采购相关信息</a> </li>	
+				
+				</ul>
+				
+			</div>
+		</div>
+		<div class="lh-left1">
+			<div class="lh-we">交易状态</div>
+			<div class="lh-lefw" style="min-height: 350px;">
+
+				<ul ng-if="data.binddingApplyZBList!=''">
+				<li ng-repeat="hy in data.binddingApplyZBList"><a><samp>●</samp> 国家发行关于联合采购的支持文件，要求双方必…</a></li>	
+				</ul>
+			
+			</div>
+		</div>
+	</div>
+</div>

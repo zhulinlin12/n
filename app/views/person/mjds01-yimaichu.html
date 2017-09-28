@@ -1,0 +1,204 @@
+	<div id="tank" ng-if="tank">
+		<div class="mod-bg"></div>
+		<div class="mod-dialog" style="left: 591.5px; top: 140.5px; display: block;">
+			<div class="dialog-nav"><span class="dialog-title">取消订单</span>
+				<a ng-click="qx()" class="dialog-close">&#10006</a>
+			</div>
+			<div class="dialog-main">
+				<div class="dialog-content">
+					<p>是否要取消订单，取消之后买家将无法付款对此订单？</p>
+				</div>
+				<div class="dialog-console clearfix_new">
+					<a class="console-btn-cancel" ng-click="qx()">取消</a>
+					<a class="console-btn-confirm" ng-click="del()">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">已卖出商品</h2>
+        <p class="a2">去商品管理上架商品吧>></p>
+    </div>
+    <div class="m_top">
+        <div class="row">
+            <input type="text" class="wb_2 ddhm" placeholder="订单号码" />
+            <input type="text" class="wb_2 cpmc" placeholder="产品名称" />
+        </div>
+        <div class="row">
+            <span class="s1">下单时间从：</span>
+            <input def-calendata type="text" style="width:168px;" datw="-1" id="start" name="establish" ng-model="establish" required ng-focus="establishFocus = true" class="laydate-icon" readonly/>
+            <span class="s1">到</span>
+            	<input def-calendata type="text" style="width:168px;" datw="-1" id="end" name="regist" ng-model="regist" required ng-focus="registFocus = true" class="laydate-icon" readonly/>
+            <!--<a href="javascript:;" class="date-btn1" ng-class="" ng-click="flagFn1()">最近3天</a>
+            <a href="javascript:;" class="date-btn1" ng-click="flagFn2()">最近一周</a>
+            <a href="javascript:;" class="date-btn1" ng-click="flagFn3()">最近一月</a>-->
+            <button type="button" class="search_btn" ng-click="searchFn()">查询</button>
+            <p>{{time_1}}</p>
+        </div>
+    </div>
+    <div class="content" id="cgdd">
+         <ul class="tab_box clear">
+            <li class="list"  ng-class="{'ac':owq==''}"><a href="javascript:;" ng-click="tab('')">全部（{{data.order.allCount}}）</a></li>
+            <li class="list" ng-class="{'ac':owq==84}"><a href="javascript:;" ng-click="tab(84)">待确认({{data.order.confirmCount}})</a></li>
+            <li class="list" ng-class="{'ac':owq==82}"><a href="javascript:;" ng-click="tab(82)">待付款({{data.order.fukuancount}})</a></li>
+            <li class="list" ng-class="{'ac':owq==86}"><a href="javascript:;" ng-click="tab(86)">支付待确认({{data.order.toPayCount}})</a></li>
+            <li class="list" ng-class="{'ac':owq==83}"><a href="javascript:;" ng-click="tab(83)">待 发货({{data.order.fahuocount}})</a></li>
+            <li class="list" ng-class="{'ac':owq==85}"><a href="javascript:;" ng-click="tab(85)">待收货({{data.order.shouhuocount}})</a></li>
+            <li class="list" ng-class="{'ac':owq==87}"><a href="javascript:;" ng-click="tab(87)">待 评价({{data.order.pingjiacount}})</a></li>
+        </ul> 
+        <style>
+        	#ymc #cgdd .tab_box a {
+     color: #c3c3c3; 
+}
+        	#ymc #cgdd .tab_box .ac a {
+     color: #006CFF; 
+}
+a:link,a:visited{
+	text-decoration: none;   
+}
+#ymc #cgdd .tab_box a:hover{
+	color: #006CFF;
+	text-decoration: underline;   
+}
+
+        </style>
+        <div class="t_warp">
+            <div class="row tit_box" >
+            	<div style="width:806px; float: left;">
+                <div class="col-xs-2">商品信息</div>
+                <div class="col-xs-2">单价(元)</div>
+                <div class="col-xs-2">数量</div>
+                <div class="col-xs-2">商品金额(元)</div>
+                <div class="col-xs-2">实际付款</div>
+                <div class="col-xs-2">订单状态</div>
+                </div>
+                <div class="col-xs-2"  style="width:140px; float: right; ">交易操作</div>
+            </div>
+            <div class="item_warp clearfix" style="border-bottom: 1px solid #eaeaea;"  ng-repeat="item in data.order.orderList">
+                <div class="mes col-lg-12">
+                    <span class="txt col-lg-3">
+                        订单号：{{item.orderCode}}
+                    </span>
+                    <span class="txt col-lg-3">
+                        下单时间：{{item.createTime}}
+                    </span>
+                    <!--<span class="txt">
+                        购买商：{{item.shopName}}
+                    </span>-->
+                    <span class="txt col-lg-2">
+                        联系人：{{item.consignee}}
+                    </span>
+                    <span class="txt col-lg-2">
+                        电话：{{item.consigneeMoblie}}
+                    </span>
+                </div>
+                <div style="float: left;">
+                <div class="con_inner clearfix"  style="width:806px;" ng-repeat="iten in item.productList">
+                    <div class="row item_box">
+                        <div class="col-xs-2 col_box sp_box" ng-class="{'bn-bl':$index==item.productList.length-1}">
+                            <img ui-sref="index.xq({id:iten.productId})" ng-src="{{item.productList[0].imageUrl}}" alt="" class="pic1"/>
+                            <p ui-sref="index.xq({id:iten.productId})" class="nametxt">{{iten.productName}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box" ng-class="{'bn-bl':$index==item.productList.length-1}"><p class="p1">{{iten.unitPrice}}</p></div>
+                        <div class="col-xs-2 col_box" ng-class="{'bn-bl':$index==item.productList.length-1}"><p class="p1">{{iten.purQty}}</p></div>
+                        <div class="col-xs-2 col_box" ng-class="{'bn-bl':$index==item.productList.length-1}"><p class="p1">{{iten.sumTotal}}</p></div>
+                        <div class="col-xs-2 col_box" ng-class="{'bn-bl':$index==item.productList.length-1}">
+                            <p class="p2">¥{{item.payTotal}}</p>
+                            <p class="p3">（含运费¥{{item.freight}}）</p>
+                        </div>
+                        <div class="col-xs-2 col_box" ng-class="{'bn-bl':$index==item.productList.length-1}" style="border-right: 1px solid #eaeaea;">
+                        	 <p class="p4" ng-if="item.status==80">交易失败</p>
+                            <p class="p4" ng-if="item.status==82">等待买家付款</p>
+                            <p class="p4" ng-if="item.status==83">买家已付款</p>
+                            <p class="p4" ng-if="item.status==84">待确认</p>
+                            <p class="p4" ng-if="item.status==85">买家未收货</p>
+                             <p class="p4" ng-if="item.status==86">买家付款待确认</p>
+                            <p class="p4" ng-if="item.status==87">买家已收货</p>
+                            <p class="p4" ng-if="item.status==88">交易成功</p>
+                             <p class="p4" ng-if="item.status==89">交易过期</p>
+                              <p class="p4" ng-if="item.status==90">退款中</p>
+                               <p class="p4" ng-if="item.status==91">退款成功</p>
+                                <p class="p4" ng-if="item.status==92">已取消订单</p>
+                            <p class="p3"><a href="javascript:;" data-type="{{item.orderId}}"  ui-sref="index.sesh({id:item.orderId})" >订单详情</a></p>
+
+                        </div>
+                       <!-- <div class="col-xs-2 col_box"></div>-->
+                    </div>
+
+                   </div>
+                </div>
+ <div class="btn_box" style=" float:right; width:140px; height: {{166*item.productList.length}}px; border-right: 1px solid #eaeaea; position: relative;">
+ 	            <div class="clmwr" ng-if="item.status==82">
+                        <a href="javascript:;" class="btn1" >提醒买家付款</a>
+                        </div>
+                         <div class="clmwr powf" ng-if="item.status==84">
+                        <a href="javascript:;" class="btn1" ui-sref="index.sesh({id:item.orderId})">确认订单</a>
+                         <a href="javascript:;" class="btn1 btn-ae" ng-click="cancel(item.orderId)" >取消订单</a>
+                        </div>
+                         <div class="clmwr" ng-if="item.status==87||item.status==85||item.status==89||item.status==90||item.status==91||item.status==92||item.status==88||item.status==80||item.status==86">
+                        <a href="javascript:;" class="btn1" ui-sref="index.sesh({id:item.orderId})" >查看订单</a>
+                        </div>
+                         <div class="clmwr" ng-if="item.status==83" >
+                        <a href="javascript:;" class="btn1"ui-sref="buyt.mjds01-yimaichu-ddxq({id:item.orderId})"  >确认发货</a>
+                        </div>
+                    </div>
+
+            </div>
+<style>
+	.clmwr{
+		padding: 5px;
+		position: absolute;
+		top:50%;
+		left:50%;
+		bottom: 50%;
+		right: 50%;
+		margin-top: -30px;
+		margin-left: -50px;
+	}
+	.powf{
+		margin-top: -60px;
+	}
+		.item_warp .con_inner .bn-bl{
+            		border-bottom: none !important;
+            	}
+            	#ymc .item_warp .btn_box .btn-ae{
+            		background: #FF0000;
+            	}
+</style>
+  
+        </div>
+     
+ <p ng-show="data.order.orderCount<1" style="text-align: center;line-height: 56px;font-size:15px;color:#999;">没有数据！</p>
+        <div class="page_box2 clear">
+            <!--<div class="page">-->
+                <!--<a href="javascript:;" class="item"><<</a>-->
+                <!--<a href="javascript:;" class="item ac">1</a>-->
+                <!--<a href="javascript:;" class="item">2</a>-->
+                <!--<a href="javascript:;" class="item">3</a>-->
+                <!--<a href="javascript:;" class="item">>></a>-->
+            <!--</div>-->
+            <div class="box">
+                <div id="pagination2" class="page fl"></div>
+                <div class="info fl">
+                </div>
+            </div>
+            <p class="page_hint">一共{{data.order.orderCount}}条信息，共<span class="page_gong"></span>页</p>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

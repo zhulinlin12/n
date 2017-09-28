@@ -1,0 +1,66 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">我的收藏</h2>
+    </div>
+    <div class="tab_nav2 clear fanxiu">
+        <div class="list ac"><a href="javascript:;">我收藏的商品</a></div>
+        <div class="list"><a href="javascript:;" ui-sref="buyt.cgs01-wodeshoucang2">我收藏的店铺</a></div>
+    </div>
+    <div class="content">
+        <ul class="con_box">
+            <li class="list_box" ng-repeat="item in data.collect.productList" ui-sref="index.xq({id:item.productId})">
+                <img ng-src="{{item.imageUrl}}" alt="" class="pic">
+                <div class="mes">
+                    <p class="money_box">
+                        ￥{{item.salePrice}}/个
+                    </p>
+                    <a href="javascript:;" class="dz_btn"><img ng-src="images/shoucang_pic_07.jpg" data-productId="{{item.productId}}" ng-click="getProductId($event);changeCollect()"></a>
+                    <p class="txt">
+                        {{item.productName}}
+                    </p>
+                    <div class="btn_box">
+                        <a href="javascript:;" class="buy_btn" data-skuId="{{item.skuId}}">我要购买</a>
+                    </div>
+
+                </div>
+            </li>
+
+        </ul>
+
+        <div class="c_btm clear" style="padding:0 22px 20px;">
+            <!--<p class="page_hint">显示第一页，共36条记录</p>-->
+            <!--<div class="page_box">-->
+                <!--<a href="javascript:;" class="item">上一页</a>-->
+                <!--<a href="javascript:;" class="item ac">1</a>-->
+                <!--<a href="javascript:;" class="item">2</a>-->
+                <!--<span class="s1">...</span>-->
+                <!--<a href="javascript:;" class="item">6</a>-->
+                <!--<input type="text" class="page_txt" />-->
+                <!--<a href="javascript:;" class="item">下一页</a>-->
+
+            <!--</div>-->
+            <div class="box">
+                <div id="pagination2" class="page fl"></div>
+                <div class="info fl">
+                </div>
+            </div>
+            <p class="page_hint">一共{{data.collect.count}}条信息，共<span class="page_gong"></span>页</p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

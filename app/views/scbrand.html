@@ -1,0 +1,135 @@
+<div class="sclb" ng-controller="sclb">
+    <div class="c-tr">
+        <div class="container">
+            <div class="na-l">
+                <img class="img2" ui-sref="index.op" src="images/logo2_03.jpg" />
+                <div class="sr clearfix" style=" width:700px; height:50px;margin: auto;">
+                    <search></search>
+                </div>
+                <!--<div class="ks-cg">快速发布采购</div>-->
+                <div class="sp-lb">
+                    <div class="wozll">
+                        <div class="sp-aa"><span>全部商品分类</span><img src="images/fenlei.png" /></div>
+                        <colore style="position: absolute;top:35px; left:0px; z-index: 9999999999999; display: none;"></colore>
+                    </div>
+                    <script>
+                    $(".sp-aa").mouseenter(function() {
+                        $("colore").show()
+                    })
+                    $(".wozll").mouseleave(function() {
+                        $("colore").hide()
+                    })
+                    </script>
+                    <!--<div class="ol">
+                        <li style="margin-left: 0px;">招标采购</li>
+                        <li>直采商城</li>
+                        <li>易货平台</li>
+                        <li>租赁平台</li>
+                        <li>投融资</li>
+                        <li>项目分包</li>
+                        <li>知识库</li>
+                        <li>OA</li>
+                        <li>积分</li>
+                    </div>-->
+                </div>
+            </div>
+            <div class="lb-z-a clearfloat">
+                <div>
+                    <span>全部结果>"<na>{{word}}</na>"</span>
+                </div>
+                <div class="lb-z-j clearfloat">
+                    <div class="lb-z-dh clearfix">
+                        <k>高级选项：</k>
+                        <div class="lb-z-sp">
+                            <li ng-repeat="spec in specList" up-down>
+                                <span>{{spec.propValue}} <s style="text-decoration: none;" class="glyphicon glyphicon-chevron-down" ></s> </span>
+                                <ul>
+                                    <li ng-repeat="sp in spec.propList" ng-click="advancedFilter(sp.propCode)">{{sp.propValue}}</li>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div id="hide_site">
+                            </div>
+            <div class="lb-z-h">
+                <div class="lb-z-aw">
+                    <span ng-click="zonghe()">综合</span>
+                    <div class="lb-jg" ng-click="priceUpDown()">价格<b class="glyphicon glyphicon-menu-up"></b></div>
+                    <div class="lb-jq">
+                        <input class="lb-zd" type="text" value="vm.price.low" placeholder="￥最低价" ng-model="vm.price.low" ng-click="focus()" />
+                        <input class="lb-zg" type="text" value="vm.price.high" placeholder="￥最高价" ng-model="vm.price.high" ng-click="focus()" />
+                        <p>
+                            <button ng-click="priceLowHigh(vm.price.low,vm.price.high)">确定</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="lb-z-wp clearfloat">
+                <div class="lb-z-lw">
+                    <div class="lb-z-sd" ng-repeat="recommendlist in recommend.productList">
+                        <div class="lb-z-img" ui-sref="index.xq({id:recommendlist.productId})"><img ng-src="{{recommendlist.url}}" /></div>
+                        <div class="lb-z-m">
+                            <ad>
+                                <jg>￥{{recommendlist.salePrice}}</jg>/
+                                <ge>个</ge>
+                            </ad>
+                            <div class="lb-z-hot"><img src="images/hot.png" /></div>
+                            <div class="lb-za-w" ui-sref="index.xq({id:recommendlist.productId})">{{recommendlist.productName}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lb-z-rw">
+                    <div class="lb-z-sd" ng-repeat="list in productList">
+                        <div class="lb-z-img"><img ng-src="{{list.imageUrl}}" ui-sref="index.xq({id:list.productId})" /></div>
+                        <div class="lb-z-m">
+                            <ad>
+                                <jg>￥{{list.salePrice}}</jg>
+                                <ge>个</ge>
+                            </ad>
+                            <div class="lb-z-hot"><img src="images/hot.png" /></div>
+                            <div class="lb-za-w" ng-bind-html="list.productName | to_trusted"></div>
+                            <div class="lb-z-ko">
+                                <m ui-sref="index.xq({id:list.productId})">{{list.shopName}}</m>
+
+                                <div class="lb-z-hk">
+                                    <!-- <xs></xs>
+                                    <qr></qr>
+                                    <ns>2年</ns> -->
+                                </div>
+                            </div>
+                            <div class="lb-z-kq">
+                                <m ui-sref="index.xq({id:list.productId})">{{list.shopAddress}}</m>
+                                
+                                <div class="lb-z-hk">
+                                    <!-- <xs></xs>
+                                    <qr></qr> -->
+                                </div>
+                            </div>
+                            <div class="lb-z-gm" ui-sref="index.xq({id:list.productId})">我要购买</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lb-z-feny clearfloat " >
+                    <!-- <my-pagination page-option="option" style="display: block;margin: 0 auto; position: absolute;left:50%;transform: translateX(-50%);" class="clearfix"></my-pagination> -->
+                    <button class="lb-z-syy" ng-click="Previous()">＜
+                        上一页
+                    </button>
+                    <div class="lb-z-ui" >
+                        <li ng-repeat="selPage in pageList" ng-click="selectPage(selPage)" ng-class="{'active': active(selPage)}">{{selPage}}</li>
+                    </div>
+                    <div class="lb-dot">...</div>
+                    <button class="lb-z-xyy" id="next" ng-click="selPage >= total||Next()">下一页></button>
+                    <div class="lb-z-tob">共{{total}}页  </div>
+                   <!--  <div class="lb-from">
+                        <span class="text">到第</span>
+                        <input type="tel" max="{{totalSize}}" min="1" value="{{selPage}}" ng-model="pagenum" max-va/>
+                        <span class="text">页</span>
+                        <span class="lb-bnt" ng-click="pagenum > totalSize || PageGo(pagenum)">确定</span>
+                    </div> -->
+                 
+                </div>
+            </div>
+        </div>
+    </div>

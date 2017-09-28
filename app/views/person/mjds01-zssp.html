@@ -1,0 +1,142 @@
+<div id="zssp">
+	<div id="tank" ng-if="tank">
+		<div class="mod-bg"></div>
+		<div class="mod-dialog" style="left: 591.5px; top: 140.5px; display: block;">
+			<div class="dialog-nav"><span class="dialog-title">删除货品</span>
+				<a ng-click="qx()" class="dialog-close">&#10006</a>
+			</div>
+			<div class="dialog-main">
+				<div class="dialog-content">
+					<p>删除货品别人就找不到了噢？</p>
+				</div>
+				<div class="dialog-console clearfix_new">
+					<a class="console-btn-cancel" ng-click="qx()">取消</a>
+					<a class="console-btn-confirm" ng-click="del()">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="tit_box01">
+        <h2 class="tit">在售/未上架商品</h2>
+        <p class="a1">上架商品总数：{{data.product.count}}</p>
+    </div>
+    <div class="m_top">
+        <input type="text" class="wb_2" placeholder="请输入商品标题" ng-model="sp_name1" />
+        <span class="s1">价格：</span>
+        <input type="text" class="wb_2" style="width: 110px;" ng-model="Price1" placeholder="最低价格"/>
+        <input type="text" class="wb_2" style="width: 110px;" ng-model="Price2" placeholder="最高价格"/>
+        <button type="button" class="search_btn" ng-click="search_fn()">搜索</button>
+    </div>
+    <div class="content" id="cgdd">
+        <ul class="tab_box clear">
+            <li class="list" ng-class="{'ac':Statu==1}"><a href="javascript:;" ng-click="changeStatus1()">在售商品（{{data.product.shelvesCount}}）</a></li>
+            <li class="list" ng-class="{'ac':Statu==0}"><a href="javascript:;" ng-click="changeStatus0()">已下架 ({{data.product.SoldOutCount}})</a></li>
+            <!--<li class="list"><a href="javascript:;">审核中 (0)</a></li>
+            <li class="list"><a href="javascript:;">审核未通过 (0)</a></li>-->
+        </ul>
+        <form>
+            <div class="btn_box2">
+                <label class="btn1" ><input type="checkbox" ng-click="quanxuan()">全选</label>
+                <a href="javascript:;" class="btn1 xiajia2" ng-click="shelveFn()" ng-show="Statu==0">上架</a>
+                <a href="javascript:;" class="btn1 xiajia2" ng-click="shelveFn()" ng-show="Statu==1">下架</a>
+          <!--      <a href="javascript:;" class="btn1">删除</a>-->
+
+            </div>
+            <table class="t_box1">
+                <thead>
+                <tr>
+                    <th>选项</th>
+                    <th>商品信息</th>
+                    <th>价格</th>
+                    <th>发布日期</th>
+                    <th>是否合格</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in data.product.productList">
+                    <td><input type="checkbox" class="xx_01" ng-checked="m"></td>
+                    <td class="sp_mes">
+                        <img ui-sref="index.xq({id:item.productId})" ng-src="{{item.imageUrl}}" alt="" class="pic" />
+                        <span ui-sref="index.xq({id:item.productId})"  class="sp_txt">{{item.productName}}</span>
+                    </td>
+                    <td class="s1">{{item.salePrice}}</td>
+                    <td class="s1">{{item.createTime}}</td>
+                    <td class="s1">是</td>
+                    <td class="btn_box">
+                        <button type="button" class="btn1"  ng-click="getProductId4(item.productId)" data-productId="{{item.productId}}" ng-hide="Statu>0">修改</button>
+                        <button type="button" class="btn2 xiajia_btn" ng-hide="Statu>0" ng-click="shelveFn();getProductId3($event)" data-productId="{{item.productId}}">上架</button>
+                        <button type="button" class="btn3" ng-hide="Statu>0" ng-click="getProductId2($event);delFn()" data-productId="{{item.productId}}">删除</button>
+                        <button type="button" class="btn1 xiajia_btn" ng-show="Statu>0" ng-click="shelveFn();getProductId($event)" data-productId="{{item.productId}}">下架</button>
+                    </td>
+                </tr>
+
+
+
+                </tbody>
+
+            </table>
+            <p ng-show="data.product.count<1" style="text-align: center;line-height: 56px;font-size:15px;color:#999;">没有数据！</p>
+
+            <div class="c_btm clear">
+                <p class="page_hint">显示第{{page}}页，共{{data.product.count}}条记录</p>
+                <div class="f-r" style="float: right;">
+						<nav aria-label="Page navigation" class="clearfix">
+							<ul class="pagination pagination-sm pagination1 fr" style="margin: 0">
+								<li ng-class="{disabled:page==1}">
+									<a href="javascript:void(0)" ><button aria-label="Previous" ng-click="sub(page-1<1?1:page-1)" ng-disabled="page==1">
+										
+										<span aria-hidden="true">上一页</span>
+										
+									</button></a>
+								</li>
+								<li ng-if="page >= pageNum && lastPage !== pageNum" ng-click="sub(1)" ng-class="{active:item==1}">
+									<a href="javascript:void(0)">1</a>
+								</li>
+								<li ng-if="page >= pageNum && lastPage !== pageNum">
+									<a href="javascript:void(0)">...</a>
+								</li>
+								<li ng-click="sub(item)" ng-class="{active:item==page}" ng-repeat="item in pages">
+									<a href="javascript:void(0)">{{item}}</a>
+								</li>
+								<li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum">
+									<a href="javascript:void(0)">...</a>
+								</li>
+								<li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum" ng-click="sub(lastPage)" ng-class="{active:item==page}">
+									<a href="javascript:void(0)">{{lastPage}}</a>
+								</li>
+								<li ng-class="{disabled:page==lastPage}">
+								<a href="javascript:void(0)"><button  aria-label="Next" ng-click="sub(page+1>lastPage?page:page+1)" ng-disabled="page==lastPage">
+										<span aria-hidden="true">下一页</span>
+									</button></a>	
+								</li>
+							</ul>
+						</nav>
+					</div>
+                <div class="box">
+                    <div id="pagination2" class="page fl"></div>
+                    <div class="info fl">
+                    </div>
+                </div>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+<style>
+	.f-r button{
+		background: none;
+		width:100%;
+		height: 100%;
+	}
+</style>
+
+
+</div>
+
+
+
+

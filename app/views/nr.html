@@ -1,0 +1,340 @@
+<div class="synr">
+    <div class="c-tr" style="padding-bottom: 0px; width:100%">
+        <div class="container">
+            <div class="na-l">
+                <a ui-sref="index.op"><img class="img2"  src="images/logo2_03.jpg" /></a>
+                <div class="sr clearfix" style=" width:700px; height:50px;margin: auto;">
+                    <search></search>
+                </div>
+                <!--<div class="ks-cg">快速发布采购</div>-->
+                <div class="sp-lb" style="background: #fff;">
+                    <div class="sp-aa"><span>全部商品分类</span><img src="images/fenlei.png" /></div>
+                    <div class="ol">
+                        <!--<li style="margin-left: 0px;" ui-sref="buyt.buyer">招标采购</li>-->
+                         <li><a ui-sref="index.op">直采商城</a></li>
+                        <li><a href="javascript:;">易货平台</a></li>
+                        <li><a href="javascript:;">集中采购</a></li>
+                        <li><a href="javascript:;">智慧工地</a></li>
+                        <li><a href="javascript:;">企业云管理</a></li>
+                        <!--<li>知识库</li>
+                        <li>OA</li>
+                        <li>积分</li>-->
+                    </div>
+                    <style>
+                    	.synr .c-tr .na-l .sp-lb .ol li a{
+                    		color: #fb8002;
+                    	}
+                    </style>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hide_site">
+    </div>
+    <div class="container">
+        <div class="b-s clearfloat">
+            <colore></colore>
+            <div class="bann">
+                <!--轮播图-->
+                <style>
+                .left,
+                .right {
+                    font-size: 43px !important;
+                }
+
+                .carousel .left>.glyphicon-chevron-left {
+                    left: 0;
+                }
+                </style>
+                <div class="bner-a" style="position: relative;">
+                    <div ng-controller="CarouselCtrl">
+                        <carousel interval="myInterval" no-wrap="noWrapSlides">
+                            <slide ng-repeat="slide in top" active="slide.active">
+                                <a ng-href="{{slide.activityUrl}}" target="_blank">
+                                <img ng-src="{{slide.activityImages}}" style="margin:auto;" title="{{slide.activityName}}"> 
+                            </a>
+                            </slide>
+                        </carousel>
+                    </div>
+                </div>
+                <div class="bn-b">
+                    <div ng-repeat="img in bottom" ng-class="{'bn-bl':$index==0,'bn-bl2':$index==1}">
+                        <div class="bn-bw">
+                            <a ng-href="{{img.activityUrl}}" target="_blank">
+                            <img ng-src='{{img.activityImages}}' title="{{img.activityName}}"/>  
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="z-r clearfloat">
+                <div class="z-h">
+                    <div class="b-l">
+                        <img src="images/logo2_03.jpg" />
+                    </div>
+                    <div class="hi">
+                       <housr></housr>
+                    </div>
+                    <div class="prize">
+                        <span>
+                            <p>
+                                <img src="images/price.png" alt="">
+                                <e ng-click="getPrizes()">领身份，赢奖品</e>&nbsp; <span>9+万已领</span>
+                        </p>
+                        </span>
+                    </div>
+                    <div class="text">
+                        <p>专属货源、一手价格、个性服务</p>
+                    </div>
+                    <div class="anniu">
+                        <button ui-sref="login" ng-show="pq">登录</button>
+                        <button ng-click="tuichu()" ng-show="pl">退出</button>
+                        <button ui-sref="register.rigc">注册</button>
+                    </div>
+                </div>
+                <div class="tab">
+                    <div class="z-b">
+                        <ul class="nav nav-tabs" id="butOrsell">
+                            <li class="active"><a href="#buy">我是买家</a></li>
+                            <li><a href="#sell" >我是卖家</a></li>
+                        </ul>
+                        <style>
+                        	.z-b #butOrsell .active a{
+                        		color: #FFFFFF;
+                        		background: #999999;
+                       
+                        	}
+                        	.z-b #butOrsell li a{
+                        		color: #006CFF;
+                        		background: #FFFFFF;
+                        	 border: 1px solid #ddd !important;
+                        	}
+                        </style>
+                    </div>
+                    <div class="z-yy1">
+                        <div class="tab-content">
+                            <div class="tab-pane active clearfix" id="buy">
+                                <div class="box">
+                                    <div>
+                                        <p style="margin:0;">免费</p>
+                                        <p style="margin:0;">注册</p>
+                                    </div>
+                                </div>
+                                <div style="height:40px;width: 26px; display:block; float: left; text-align: center;line-height: 40px;"> > </div>
+                                <div class="box">
+                                    <div>
+                                        <p style="margin:0;">选购</p>
+                                        <p style="margin:0;">商品</p>
+                                    </div>
+                                </div>
+                                <div style="height:40px;width: 25px; display:block; float: left;text-align: center;line-height: 40px;"> > </div>
+                                <div class="box">
+                                    <div>
+                                        <p style="margin:0;">等待</p>
+                                        <p style="margin:0;">收货</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane  clearfix" id="sell">
+                                <div class="box">
+                                    <div>
+                                        <p style="margin:0;">免费</p>
+                                        <p style="margin:0;">注册</p>
+                                    </div>
+                                </div>
+                                <div style="height:40px;width: 26px; display:block; float: left; text-align: center;line-height: 40px;"> > </div>
+                                <div class="box">
+                                    <div>
+                                        <p style="margin:0;">开通</p>
+                                        <p style="margin:0;">商铺</p>
+                                    </div>
+                                </div>
+                                <div style="height:40px;width: 25px; display:block; float: left;text-align: center;line-height: 40px;"> > </div>
+                                <div class="box">
+                                    <div>
+                                        <p style="margin:0;">发布</p>
+                                        <p style="margin:0;">产品</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="z-b">
+                        <ul  id="otherInfoTab">
+                            <li ng-repeat="menus in ArticleMenuLists"><a ng-class="{'active' : menus.name == menuName}" ng-click="getArticleTit(menus.id,menus.name)">{{menus.name}}</a></li>
+                        </ul>
+                    </div>
+                    <div class="z-yy2">
+                        <div class="tab-content">
+                            <div ng-repeat="articles in ArticleLists" class="tab-pane active" id="{{articles.articleMenuId}}" >
+                                <a href="" ng-show="articles.articleMenuId == '456789fyj'" ui-sref="index.article({articleid:articles.id})">[公告]&nbsp;{{articles.articleTitle}}</a>
+                                <a href="" ng-show="articles.articleMenuId == '123456fyj'" ui-sref="index.article({articleid:articles.id})">[规则]&nbsp;{{articles.articleTitle}}</a>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <a href="" style="position: absolute; bottom: 110px; right: 13px; color: #0000FF;" ui-sref="index.articlemenulist">更多</a>
+
+            </div>
+            <script>
+            $(function() {
+                $('#otherInfoTab a:first').tab('show'); //初始化显示哪个tab  
+
+                $('#otherInfoTab a').click(function(e) {
+                    e.preventDefault(); //阻止a链接的跳转行为  
+                    $(this).tab('show'); //显示当前选中的链接及关联的content  
+                })
+            })
+            $(function() {
+                $('#butOrsell a:first').tab('show'); //初始化显示哪个tab  
+
+                $('#butOrsell a').click(function(e) {
+                    e.preventDefault(); //阻止a链接的跳转行为  
+                    $(this).tab('show'); //显示当前选中的链接及关联的content  
+                })
+            })
+            </script>
+        </div>
+        <div class="z-sp">
+            <div class="z-spl" style="margin-left: 0px;">
+                <div class="z-hr">{{recommend[0].name}}</div>
+                <div class="z-le">
+                    <h4 ui-sref="index.xq({id:recommend[0].productList[0].productId})">{{recommend[0].productList[0].productName}}<br/><small></small></h4>
+                    <img ng-src="{{recommend[0].productList[0].url}}" ui-sref="index.xq({id:recommend[0].productList[0].productId})" ng-class="{'hide':recommend[0].productList[0].url == ''||null }"/>
+                </div>
+                <div class="z-zj">
+                    <div class="z-ww">
+                        <h4 ui-sref="index.xq({id:recommend[0].productList[1].productId})">{{recommend[0].productList[1].productName}}<br/><small></small></h4>
+                        <img ng-src="{{recommend[0].productList[1].url}}" ui-sref="index.xq({id:recommend[0].productList[1].productId})" ng-class="{'hide':recommend[0].productList[1].url == ''||null }"/>
+                    </div>
+                    <div class="z-zjb">
+                        <div class="z-zjbl">
+                            <h4 ui-sref="index.xq({id:recommend[0].productList[2].productId})">{{recommend[0].productList[2].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[0].productList[2].url}}" ui-sref="index.xq({id:recommend[0].productList[2].productId})" ng-class="{'hide':recommend[0].productList[2].url == ''||null }"/>
+                        </div>
+                        <div class="z-zjbl" style="border: none; float: right;">
+                            <h4 ui-sref="index.xq({id:recommend[0].productList[3].productId})">{{recommend[0].productList[3].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[0].productList[3].url}}" ui-sref="index.xq({id:recommend[0].productList[3].productId})" ng-class="{'hide':recommend[0].productList[3].url == ''||null }"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="z-spl" style="float: right;">
+                <div class="z-hr" style="background: url(images/youpingtuijian.png) no-repeat center;">{{recommend[1].name}}</div>
+                <div class="z-le">
+                    <h4 ui-sref="index.xq({id:recommend[1].productList[0].productId})">{{recommend[1].productList[0].productName}}<br/><small></small></h4>
+                    <img ng-src="{{recommend[1].productList[0].url}}" ui-sref="index.xq({id:recommend[1].productList[0].productId})" ng-class="{'hide':recommend[1].productList[0].url == ''||null }"/>
+                </div>
+                <div class="z-zj">
+                    <div class="z-ww">
+                        <h4 ui-sref="index.xq({id:recommend[1].productList[1].productId})">{{recommend[1].productList[1].productName}}<br/><small></small></h4>
+                        <img ng-src="{{recommend[1].productList[1].url}}" ui-sref="index.xq({id:recommend[1].productList[1].productId})" ng-class="{'hide':recommend[1].productList[1].url == ''||null }"/>
+                    </div>
+                    <div class="z-zjb">
+                        <div class="z-zjbl">
+                            <h4 ui-sref="index.xq({id:recommend[1].productList[2].productId})">{{recommend[1].productList[2].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[1].productList[2].url}}" ui-sref="index.xq({id:recommend[1].productList[2].productId})" ng-class="{'hide':recommend[1].productList[2].url == ''||null }"/>
+                        </div>
+                        <div class="z-zjbl" style="border: none;float: right;">
+                            <h4 ui-sref="index.xq({id:recommend[1].productList[3].productId})">{{recommend[1].productList[3].productName}}<br/><small></small></h4>
+                            <img ng-src="{{recommend[1].productList[3].url}}" ui-sref="index.xq({id:recommend[1].productList[3].productId})" ng-class="{'hide':recommend[1].productList[3].url == ''||null }"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ww" ng-repeat="img in zhong">
+            <a ng-href="{{img.activityUrl}}">
+                <img ng-src="{{img.activityImages}}" title="{{img.activityName}}" />   
+            </a>
+        </div>
+        <!-- 选项卡 -->
+        <div class="z-cen " ng-repeat="list in dataList" id="{{list.iconCode}}" data-code-type="{{list.iconCode}}" style="overflow: hidden;">
+            <div class="z-he">
+                <span style="font-size:24px;margin-left:14px;">
+                    <i class="{{list.url}}" style="color: #FFFFFF; font-size:22px; display: inline-block; margin-top"></i>
+                </span>
+                <span data-code="{{list.iconCode}}" style="cursor:pointer;" ui-sref="index.lb({code:list.iconCode,word:list.iconName})">{{list.iconName}}</span>
+                <div class="z-sd">
+                    <li class="lis" ng-repeat=" cate in  list.categoryList" data-cacode="{{cate.iconCode}}" ui-sref="index.lb({code:cate.iconCode,word:cate.iconName})">{{cate.iconName}}</li>
+                </div>
+            </div>
+            <div class="height3 fir">
+                <div class="z-spk">
+                    <div class="sp-z">
+                        <h4>{{list.productList[0].productName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{list.productList[0].url}}" ui-sref="index.xq({id:list.productList[0].productId})" ng-class="{'hide':list.productList[0].url == ''||null }" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[1].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[1].url}}" ui-sref="index.xq({id:list.productList[1].productId})" ng-class="{'hide':list.productList[1].url == null}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[2].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[2].url}}" ui-sref="index.xq({id:list.productList[2].productId})" ng-class="{'hide':list.productList[2].url == null}" />
+                    </div>
+                </div>
+                <div class="z-spk">
+                    <div class="sp-z">
+                        <h4>{{list.productList[3].productName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{list.productList[3].url}}" ui-sref="index.xq({id:list.productList[3].productId})" ng-class="{'hide':list.productList[3].url == null}" /></div>
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[4].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[4].url}}" ui-sref="index.xq({id:list.productList[4].productId})" ng-class="{'hide':list.productList[4].url == null}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[5].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[5].url}}" ui-sref="index.xq({id:list.productList[5].productId})" ng-class="{'hide':list.productList[5].url == null}" />
+                    </div>
+                </div>
+                <div class="z-spk">
+                    <div class="sp-z" style="border: none;">
+                        <h4>{{list.productList[6].productName}}<br/><small></small></h4>
+                        <div class="ima"><img ng-src="{{list.productList[6].url}}" ui-sref="index.xq({id:list.productList[6].productId})" ng-class="{'hide':list.productList[6].url == null}" /></div>
+                    </div>
+                    <div class="z-spa" style="position: relative;">
+                        <h4>{{list.productList[7].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[7].url}}" ui-sref="index.xq({id:list.productList[7].productId})" ng-class="{'hide':list.productList[7].url == null}" />
+                    </div>
+                    <div class="z-spa">
+                        <h4>{{list.productList[8].productName}}<br/><small></small></h4>
+                        <img ng-src="{{list.productList[8].url}}" ui-sref="index.xq({id:list.productList[8].productId})" ng-class="{'hide':list.productList[8].url == null}" />
+                    </div>
+                </div>
+            </div>
+            <!--<div class="loading" ng-show='gStatus'><img src="images/loading.gif"/></div>-->
+        </div>
+        <!--楼层-->
+        <div class="louz" id="fixed" style="display: none;">
+            <li data-postion="1210" scroll-pos style="height:50px;">
+                <i class="icon-jingshu mun" style="color: #006cff; font-size: 28px;"></i><span><i class="icon-jingshu" style="color: #FFFFFF; font-size: 34px;"></i></span>
+            </li>
+            <li data-postion="1700" scroll-pos><i class="icon-shichai mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-shichai" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="2176" scroll-pos><i class="icon-mengchuang mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-mengchuang" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="2670" scroll-pos><i class="icon-dimian mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-dimian" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="3152" scroll-pos><i class="icon-fangshui mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-fangshui" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="3635" scroll-pos><i class="icon-dianli mun" style="color: #006cff; font-size: 28px;"></i><span><i class="icon-dianli" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="4115" scroll-pos><i class="icon-guanchai mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-guanchai" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="4600" scroll-pos><i class="icon-xiaofang mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-xiaofang" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="5085" scroll-pos><i class="icon-kongtiao mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-kongtiao" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="5570" scroll-pos><i class="icon-chufang mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-chufang" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="6055" scroll-pos><i class="icon-shihua mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-shihua" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="6545" scroll-pos><i class="icon-tiyu mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-tiyu" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="7030" scroll-pos><i class="icon-yuanling mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-yuanling" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="7520" scroll-pos><i class="icon-jixie mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-jixie" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+            <li data-postion="8000" scroll-pos style="border-bottom: none;"><i class="icon-qita mun" style="color: #006cff; font-size: 34px;"></i><span><i class="icon-qita" style="color: #FFFFFF; font-size: 34px;"></i></span></li>
+        </div>
+        <!--客服-->
+        <div class="z-gd" ng-show='back'>
+            <li ui-sref="index.guo"><img src="images/gouwuche.png" /></li>
+            <li ui-sref="buyt.cgs01-cgdd({staur:0})"><img src="images/lianxiwomeng.png" /></li>
+            <a ui-sref="fank">
+                <li><img src="images/bianji.png" /></li>
+            </a>
+            <li go-top><img src="images/huidaodingbu.png" /></li>
+        </div>
+    </div>

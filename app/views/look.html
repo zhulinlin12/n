@@ -1,0 +1,88 @@
+<!--查看报价-->
+<div class="c-jh">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>我的投标信息>>查看报价</h4>
+			<span>查看我的采购信息>></span>
+		</div>
+		<div class="c-qw">
+			<div class="c-wr">
+				<span>单号:</span>
+				<f>{{data.biddingApplyDetail.applyDetailList[0].orderCode}}</f>
+			</div>
+			<div class="c-wr">
+				<span>发布日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].createTime.split(' ')[0]}}</samp>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>采购产品:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].materialName}}</samp>
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].biddingType}}</samp>
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].materialModel}}</samp>
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].materialNumber}}/{{data.biddingApplyDetail.applyDetailList[0].materialUnit}}</samp>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span></span>
+				<div class="ysa">
+					<div class="wer wbk"><img ng-src="{{data.biddingApplyDetail.applyDetailList[0].fileImageUrl}}"/></div>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>报价截止日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].endTime}}</samp>
+					
+
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>到货日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].arrivalTime}}</samp>
+					
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>送货地址:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].deliveryAddre}}</samp>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>运输方式:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingApplyDetail.applyDetailList[0].typeShipping}}</samp>
+				</div>
+			</div>
+			<div class="c-wr2 gd">
+				<span>其它要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.biddingApplyDetail.applyDetailList[0].otherRequire}}</samp>
+					</div>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>备注:</span>
+				<div class="ysa hs">
+					<samp >{{data.biddingApplyDetail.applyDetailList[0].description}}</samp>
+				</div>
+			</div>
+			<div class="c-wr2 gd" style="padding-bottom: 40px;">
+				<span>报价:</span>
+				<div class="ysa hs">
+					<div class="tex">
+						<h4 style="font-size: 24px;">{{data.biddingApplyDetail.applyDetailList[0].biddingPrice}}/{{data.biddingApplyDetail.applyDetailList[0].materialUnit}}</h4>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>

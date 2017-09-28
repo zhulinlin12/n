@@ -1,0 +1,42 @@
+<!--foot-->
+<div class="footr" ng-controller="bottomMenuCtrl">
+    <div class="container f-t" style="height: 407px;">
+    
+        <div class="f-zy">
+            <b>客户热线（9:30-18:30）</b>
+
+            <div class="di">
+            	<i>400-8228-321</i>
+                <li>
+                    <samp>慧筑云微信公众号</samp>
+                </li>
+               
+                	<div class="erweima"></div>
+            </div>
+        </div>
+       <div class="foot-top-buy w">
+                <dl ng-repeat="title in titleLists">
+                    <dt>{{title.name}}</dt>
+                    <dd ng-repeat="ddname in title.children"><a href="">{{ddname.name}}</a></dd>
+                </dl>
+            </div>
+    </div>
+</div>
+
+<div class="footr2">
+    <div class="container f-t2">
+        <div class="z-bs">
+            京公网安备 11000002000088号 ｜&nbsp;京ICP证070359号 ｜&nbsp;京ICP备17034812-1号 ｜&nbsp;违法和不良信息举报电话：400-8228-321
+            <br /> 
+            <br /> Copring@2017-2017 慧筑云 huizhuyun.com版权所有 &nbsp;&nbsp;经营证照
+        </div>
+        <div class="pic">
+        		<a href="" class="mod_copyright_auth_ico mod_copyright_auth_ico_1"></a>
+        		<a href="" class="mod_copyright_auth_ico mod_copyright_auth_ico_2"></a>
+        		<a href="" class="mod_copyright_auth_ico mod_copyright_auth_ico_3"></a>
+        		<a href="" class="mod_copyright_auth_ico mod_copyright_auth_ico_4"></a>
+        		<a href="" class="mod_copyright_auth_ico mod_copyright_auth_ico_5"></a>
+        		<a href="" class="mod_copyright_auth_ico mod_copyright_auth_ico_6"></a>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,194 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">投诉管理>>投诉</h2>
+    </div>
+    <div class="jd_box">
+        <img src="images/ts_jd1_03.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <div class="t_warp th_con" style="width: auto">
+            <div class="row tit_box">
+                <div class="col-xs-6">商品信息</div>
+                <div class="col-xs-2">数量</div>
+                <div class="col-xs-2">收货人</div>
+                <div class="col-xs-2">订单金额（元）</div>
+            </div>
+            <div class="item_warp">
+                <div class="con_inner fanxiu3">
+                    <div class="txt_box">
+                        <span class="s1">订单号：{{data.complaint.orderCode}}</span>
+                        <span class="s1">下单时间：{{data.complaint.createTime}}</span>
+                        <span class="s1">供应商：{{data.complaint.shopName}}</span>
+                    </div>
+
+                    <div class="row item_box">
+                        <div class="col-xs-6 col_box">
+                            <div class="mes_box">
+                                <img src="images/cp_pic2_03.jpg" alt="" class="pic2">
+                                <span class="txt1" style="width: 380px">{{data.complaint.productName}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{data.complaint.count}}</p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{data.complaint.consignee}} </p>
+                        </div>
+                        <div class="col-xs-2 col_box">
+                            <p class="pp1">{{data.complaint.price}}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="btm_con">
+            <div class="row item">
+                <div class="col-xs-2 tit">*投诉类型：</div>
+                <div class="col-xs-10">
+                    <label class="p1"><input type="radio" name="money_type"/> 违背承诺</label>
+                    <label class="p1"><input type="radio" name="money_type"/> 延迟发货 </label>
+                    <label class="p1"><input type="radio" name="money_type"/> 缺货/未按时发 </label>
+                </div>
+
+            </div>
+            <div class="row item">
+                <div class="col-xs-2 tit">*问题描述：</div>
+                <div class="col-xs-10">
+                    <textarea class="wbk_1" ng-model="descriptionWb"></textarea>
+                    <p class="hint_2">尊敬的用户，为了更好的解决您的问题，请您在问题描述中反馈具体纠纷问题，并上传相关证据图片，<br/>避免上传外部链接等内容，以免耽误您的纠纷处理。</p>
+                </div>
+
+            </div>
+            <div class="row item">
+                <div class="col-xs-2 tit">证据上传：</div>
+                <div class="col-xs-10">
+                    <form ng-submit="submit_form()">
+
+                        <div class="clear">
+                            <div class="pui" ng-repeat="item in thumb">
+                                <!-- 采用angular循环的方式，对存入thumb的图片进行展示 -->
+                                <label>
+                                    <img ng-src="{{item.imgSrc}}"/>
+                                </label>
+                                <span ng-if="item.imgSrc" ng-click="img_del($index)">X</span>
+                            </div>
+                            <div  >
+                                <!-- 这里之所以写个循环，是为了后期万一需要多个‘加号’框 -->
+                                <label>
+                                    <div class="wt">
+                                        <span>+</span>
+                                        <input type="file" id="one-input" name="pic" title=" " onchange="angular.element(this).scope().img_upload(this.files)"/>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <!--<input type="submit" name="" value="提 交" />-->
+                    </form>
+                    <p class="hint_2">0/5 为了能够更快更好地解决问题，请您上传与卖家沟通的记录图片，每张图片大小不超过5M</p>
+
+                </div>
+
+            </div>
+            <div class="row item">
+                <div class="col-xs-2 tit">*联系方式：</div>
+                <div class="col-xs-10">
+                    <input type="text" class="wb_1 phone_num" style="width: 200px" />
+                </div>
+                <p class="hint_2">此消息只对慧筑云平台客服可见</p>
+
+            </div>
+
+        </div>
+        <div class="btn_box2">
+            <button type="button" class="send_btn" ng-click="saveTousu()">保存</button>
+            <button type="button" class="send_btn2" ui-sref="buyt.cgs01-tousuguanli" ng-hide="true">保存</button>
+            <span style="color:#ea5c5c;padding-left:50px;">{{data2.complaint.applyMsg}}</span>
+        </div>
+
+    </div>
+
+
+</div>
+
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .wt{
+        width:100px;
+        height: 100px;
+        background: #fff;
+        float: left;
+        position: relative;
+        border:1px solid #999;
+
+    }
+    .wt input{
+        width:100px;
+        height: 100px;
+        opacity: 0;
+        overflow:hidden;
+        cursor: pointer;
+    }
+    .wt span{
+        display: block;
+        width:100px;
+        height: 100px;
+        font-size: 30px;
+        text-align: center;
+        line-height: 100px;
+        position: absolute;
+        top:0px;
+        left:0px;
+        cursor: pointer;
+    }
+    .pui{
+        width:100px;
+        height: 100px;
+        position: relative;
+        float: left;
+        margin-right: 10px;
+    }
+    .pui img{
+        display: block;
+        width:100px;
+        height: 100px;
+        float: left;
+
+    }
+    .pui span{
+        display: block;
+        position: absolute;
+        top:0px;
+        right: 0px;
+        display: none;
+    }
+    .pui:before{
+        width:100px;
+        height: 100px;
+        background: red;
+        opacity: .4;
+    }
+    .pui:hover:before{
+        content:"";
+        display: block;
+        width:100px;
+        height: 100px;
+        background: red;
+        opacity: .4;
+        position: absolute;
+        top:0px;
+        cursor: pointer;
+        left:0px;
+    }
+    .pui:hover span{
+        display: block;
+    }
+</style>

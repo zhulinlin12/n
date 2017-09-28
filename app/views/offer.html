@@ -1,0 +1,103 @@
+<div class="c-jh">
+		<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>我的投标信息>>报价</h4>
+			<span>查看我的采购信息>></span>
+		</div>
+		<div class="c-qw">
+			<div class="c-wr">
+				<span>单号:</span>
+				<f>{{data.biddingOpenDetail.orderCode}}</f>
+			</div>
+			<div class="c-wr">
+				<span>发布日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingOpenDetail.createTime}}</samp>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>采购产品:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingOpenDetail.materialName}}</samp>
+					<samp>{{data.biddingOpenDetail.biddingType}}</samp>
+					<samp>{{data.biddingOpenDetail.materialModel}}</samp>
+					<samp>{{data.biddingOpenDetail.materialNumber}}/{{data.biddingOpenDetail.materialUnit}}</samp>
+				</div>
+			</div>
+			<!--<div class="c-wr">
+				<span></span>
+				<div class="ysa">
+					<div class="wer wbk"><img ng-src="{{data.biddingOpenDetail.fileImageUrl}}"/></div>
+				</div>
+			</div>-->
+			<div class="c-wr">
+				<span>报价截止日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingOpenDetail.endTime}}</samp>
+					
+
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>到货日期:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingOpenDetail.arrivalTime}}</samp>
+					
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>送货地址:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingOpenDetail.deliveryAddre}}</samp>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>运输方式:</span>
+				<div class="ysa hs">
+					<samp>{{data.biddingOpenDetail.typeShipping}}</samp>
+				</div>
+			</div>
+			<div class="c-wr2 gd">
+				<span>其它要求:</span>
+				<div class="ysa">
+					<div class="tex">
+						<samp>{{data.biddingOpenDetail.otherRequire}}</samp>
+					</div>
+				</div>
+			</div>
+			<div class="c-wr">
+				<span>备注:</span>
+				<div class="ysa hs">
+					<samp >{{data.biddingOpenDetail.description}}</samp>
+				</div>
+			</div>
+				<form name="myForm" novalidate>
+			<div class="c-wr2 gd" style="padding-bottom: 40px;">
+				<span>报价:</span>
+				<div class="ysa hs">
+					<div class="tex">
+						<input type="number"ng-model="offer" name="user" ng-pattern="/^\d+(\.\d{0,2})?$/"  required ng-focus="wr=true"  />
+                        <div style="color:red; display: inline-block;" ng-show="wr && myForm.user.$invalid">
+							<saw ng-show="myForm.user.$error.required">用户名是必须的。</saw>
+							<saw ng-show="myForm.user.$error.pattern">报价不可为负数且精度为2</saw>
+						</div>
+					</div>
+				</div>
+			</div>
+           <div class="c-wr2" style="padding-bottom: 40px;">
+					<span></span>
+					<div class="ysa">
+						<div class="tex">
+							
+							<button class="qww" ng-class="{true:'selected',false:'unselected'}[wr && myForm.user.$invalid]" ng-disabled="myForm.user.$dirty && myForm.user.$invalid" ng-click="affirm()" >确认</button>
+						</div>
+					</div>
+				</div>
+				</form>
+		</div>
+	</div>
+
+</div>
+<style>
+	
+</style>

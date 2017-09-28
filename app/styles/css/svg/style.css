@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?cc4llt');
+  src:  url('fonts/icomoon.eot?cc4llt#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?cc4llt') format('truetype'),
+    url('fonts/icomoon.woff?cc4llt') format('woff'),
+    url('fonts/icomoon.svg?cc4llt#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xiala:before {
+  content: "\e900";
+}
+.icon-soucang:before {
+  content: "\e901";
+}
+.icon-saoyisao:before {
+  content: "\e902";
+}
+.icon-jubao:before {
+  content: "\e903";
+}
+.icon-fengxiang:before {
+  content: "\e904";
+}
+.icon-zixun:before {
+  content: "\e905";
+}
+.icon-dianpu:before {
+  content: "\e906";
+}
+

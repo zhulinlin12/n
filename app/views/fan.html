@@ -1,0 +1,117 @@
+<div class="fankui">
+	<div class="head">
+		<div class="container">
+			<div class="tulogo"> <img class="img2" ui-sref="index.op" src="images/logo2_03.jpg" style="height: 90px; margin-left: 130px;" /></div>
+			<div class="rigth wiet"><span><a ui-sref="index.op">返回首页</a></span><!--<span>|</span><span>帮助中心</span>--></div>
+		</div>
+		
+	</div>
+	<!--弹框-->
+	<div class="alt">
+		即将返回首页
+	</div>
+	<!--主体-->
+	
+	<div class="zht">
+		<div class="container">
+		<div class="cwe">
+		<h2>慧筑云用户反馈页面</h2>
+		<div class="lma">亲爱的用户，为了给您提供更好的服务，我们希望收集您使用慧筑云时的看法或建议，我们非常重视每位用户的宝贝意见，期待您的参与，对您的支持与配合表示忠心的感谢！</div>
+		<div class="fa-z">
+			<div class="kanfa">
+				<h6>1.您对慧筑云整体满意程度如何？<r>*</r></h6>
+				<samp ng-if="kty1">这道题您漏掉了哦!</samp>
+				<li class="black" ng-click="feedback($event.target)" >
+					<input type="radio" name="we" />
+					非常满意
+				</li> 
+				<li class="black" ng-click="feedback($event.target)">
+					<input type="radio" name="we" />
+				满意
+				</li>
+				<li class="black" ng-click="feedback($event.target)">
+					<input type="radio" name="we" />
+					一般
+				</li>
+				<li class="black" ng-click="feedback($event.target)">
+					<input type="radio" name="we" />
+					不满意
+				</li>
+				<li class="black" ng-click="feedback($event.target)">
+					<input type="radio" name="we" />
+					非常不满意
+				</li>
+			</div>
+			<div class="kanfa">
+				<h6>2.您来慧筑云会做些什么？<l>[多选题]</l><r>*</r></h6>
+				<samp ng-if="kty2">这道题您漏掉了哦!</samp>
+				<li class="black" ng-click="feedback2($event.target)" >
+					<input type="checkbox" name="wee" />
+					找行业
+				</li>
+				<li class="black" ng-click="feedback2($event.target)">
+					<input type="checkbox" name="wee" />
+					通过搜索与分类找商品
+				</li>
+				<li class="black" ng-click="feedback2($event.target)">
+					<input type="checkbox" name="wee" />
+					找商家
+				</li>
+				<li class="black" ng-click="feedback2($event.target)">
+					<input type="checkbox" name="wee" />
+					登录慧筑云网
+				</li>
+				<li class="black" ng-click="feedback2($event.target)">
+					<input type="checkbox" name="wee" />
+					随便逛逛
+				</li>
+				<li class="black" ng-click="feedback2($event.target)">
+					<input type="checkbox" name="wee" />
+					其他
+				</li>
+			</div>
+			<div class="kanfa">
+				<h6>3.您来慧筑云有什么想法和建议？(请大声说出来！我们会关注您的反馈，为您提供更好的服务，感谢您的支持)<r>*</r></h6>
+				<samp ng-if="kty3">这道题您漏掉了哦!</samp>
+				<textarea placeholder="请输入您的建议" ng-model="proposal" ng-blur="pun()"></textarea>
+			</div>
+			<div class="wk"><button class="anniu" ng-click="put()">提交</button></div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+</div>
+<div ui-view></div>
+<!--<script>
+	$("input[name='wee']").click(function(){
+		if($(this).is(':checked')) {
+           $(this).parent().addClass('bk')
+             }else{
+             	$(this).parent().removeClass('bk')
+             }
+		
+	})
+		$("input[name='we']").click(function(){
+           $(this).parent().addClass('bk')
+           $(this).parent().siblings().removeClass('bk')
+		
+	})
+		$(".wk").click(function(){
+			$(".alt").show()
+			setTimeout(function(){
+				var arr=window.location.href;
+			    var str=arr.split("!")
+				//alert(str[0])
+				window.location.href=str[0]+'!'+'/toubu/synr'
+			},1000)
+		})
+		//判断所有input没有被选中
+//		$("input").each(function(i,_i){
+//  if($(_i).is(':checked')){
+//      alert("选中")；
+//  }else{
+//      alert("未选中")；
+//  }
+//});
+</script>-->

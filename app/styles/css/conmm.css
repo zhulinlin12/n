@@ -1,0 +1,229 @@
+/*清楚浮动**/
+
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+ul{
+	margin-bottom: 0px !important;
+}
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.clearfloat {
+    zoom: 1;
+}
+
+select {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #DEDEDE;
+    text-indent: 10px;
+    margin-right: 15px;
+    background: #fff;
+    outline: none;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-attachment: fixed;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+    background-position-x: 95%;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    padding-right: 20px;
+    line-height: 40px;
+    option {
+        height: 40px;
+        display: block;
+    }
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+
+.lhinf {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+
+    position: fixed;
+    display: none;
+    padding-top: 50px;
+}
+
+.modal2 {
+    margin: auto;
+    width: 300px;
+    height: 80px;
+    z-index: 99999999;
+}
+
+
+
+.zhulinlin {
+    width: 191px;
+    height: 480px;
+    background: #004eb9;
+    float: left;
+}
+
+.zhulinlin .ul-a {
+    width: 100%;
+    float: left;
+}
+
+.zhulinlin .erji {
+    width: 813px;
+    height: auto;
+    min-height: 470px;
+    background: #fff;
+    position: absolute;
+    left: 191px;
+    top: 10px;
+    z-index: 9999999;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.zhulinlin .erji kz {
+    display: inline-block;
+    width: 823px;
+    height: auto;
+}
+
+.zhulinlin .erji kz .zllwein {
+    display: block;
+    width: 823px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.zhulinlin .erji kz .zllwein nh {
+    display: inline-block;
+    width: 222px;
+    height: auto;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: right;
+    float: left;
+}
+
+.zhulinlin .erji kz .zllwein kk {
+    width: 599px;
+    height: auto;
+    float: right;
+    display: inline-block;
+}
+
+.zhulinlin .erji kz .zllwein kk sc {
+    color: #666666;
+    margin-left: 15px;
+    font-size: 12px;
+    float: left;
+    margin-right: 15px;
+}
+
+.zhulinlin .erji kz .zllwein kk sc:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.zhulinlin .ul-a li {
+    display: block;
+    list-style: none;
+    width: 100%;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.zhulinlin .ul-a li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.zhulinlin .ul-a li .a {
+    width: 100%;
+    height: 32px;
+}
+
+.zhulinlin .ul-a li .a span {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 12px;
+    right: 8px;
+}
+
+.zhulinlin .ul-a li .a img {
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    margin-right: 8px;
+    left: 0;
+    -webkit-transition: margin-left .2s linear;
+    -moz-transition: margin-left .2s linear;
+    -o-transition: margin-left .2s linear;
+    width: 18px;
+    height: 18px;
+    opacity: .4;
+}
+
+.zhulinlin .ul-a li.menulihover img {
+    margin-left: 6px;
+}
+
+.zhulinlin .ul-a li.menuliselected {
+    background: #737373;
+}
+
+.zhulinlin .ul-a li.menuliselected span {
+    top: 14px;
+    right: 7px;
+    border-left: 4px solid transparent;
+    border-top: 4px solid #fff;
+    border-right: 4px solid transparent;
+    border-bottom: 0;
+}
+
+.zhulinlin .ul-a li.menulihover {
+    background: #FFFFFF;
+}
+.zhulinlin .ul-a li i {
+opacity: .5;
+}
+
+.zhulinlin .ul-a li span {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 12px;
+    right: 8px;
+}
+.zhulinlin .ul-a li.menulihover a{
+	color: #000;
+}
+.zhulinlin .ul-a li.menulihover span {
+    top: 12px;
+    right: 8px;
+    border-left: 4px solid #fff;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 0;
+}
+
+.wozll {
+    position: relative;
+}

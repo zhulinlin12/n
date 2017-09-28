@@ -1,0 +1,92 @@
+<div class="container2" style="padding-left: 0px; padding-right: 0px;">
+    <div class="conrt" id="contr" ng-show="xs">
+        <div class="brn" id="brn" ng-click="hide()"></div>
+        <div class="login">
+            <h3>同鑫会员登录</h3>
+            <div class="form-group">
+                <p>*<span>您的用户名或密码输入错误</span></p>
+                <form class="form-signin">
+                    <div class="inpt">
+                        <i class="kop"></i>
+                        <input type="email" class="control" placeholder="请输入您的账号">
+                    </div>
+                    <div class="inpt ypl">
+                        <i class="kop"></i>
+                        <input type="email" class="control" placeholder="请输入您的密码">
+                    </div>
+                    <div class="box">
+                        <span ui-sref="logint.zhmm">忘记密码</span>
+                        <span class="text-right" style="float: right;">立即注册</span>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="we()">登录</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--   	<touh></touh>-->
+    <div class="container">
+        <div class="had clearfloat">
+            <div class="had-s "><a ui-sref="index.publicity">网站首页</a></div>
+            <div class="span ">400-3636-4534</div>
+            <div class="had-q " ng-show="pq">亲，请您先<span ui-sref="login">[登录]</span>免费<span ui-sref="register.rigc">[注册]</span></div>
+            <div class="ha-b clearfloat" ng-show="pl">Hi 欢迎来到慧筑云<span ng-bind="username">{{username}}</span><b ng-click="tuichu()">退出</b>
+                <div class="kld"><span style="cursor: pointer; " ui-sref="buyt.await">消息<!--<sk>10</sk>--></span><span ui-sref="buyt.await" style="cursor: pointer; margin-left: 30px;">采购车<!--<sk>99+</sk>--></span><i class="glyphicon glyphicon-shopping-cart"></i></div>
+            </div>
+            <div class="ul clearfloat " id="kehu">
+                <li style="margin-left: 0px; cursor: pointer;" ui-sref="buyt.await"><a>手机慧筑云<b></b></a>
+                    <div class="kehu1">
+                    </div>
+                </li>
+                <li ng-mouseover="fn(1)" style="cursor: pointer; " ui-sref="buyt.await" ng-mouseleave="th(1)">
+                    <a>帮助中心<b></b></a>
+                    <div class="kehu1" id="kehu1" style="display: none;" ng-show="yt">
+                        <span><r>采购帮助</r></span>
+                        <span><r>供应帮助</r></span>
+                        <span ui-sref="index.zhongxin"><r>常见问题</r></span>
+                        <span ui-sref="index.zx"><r>在线回答</r></span>
+                    </div>
+                </li>
+                <li ng-mouseover="fn(2)" style="cursor: pointer; " ui-sref="buyt.await" ng-mouseleave="th(2)"><a>网站地图<b></b></a>
+                    <div class="kehu1 km" style="right: 0px; display: none;" ng-show="wd">
+                        <div class="ma-s">
+                            <h4>特色市场</h4>
+                            <ks>首页</ks>
+                            <ks>搜索</ks>
+                            <ks>供应</ks>
+                            <ks>求购</ks>
+                            <ks>产品门户</ks>
+                            <ks>企业大全</ks>
+                            <ks>搜搜</ks>
+                            <ks>手机站</ks>
+                            <ks>极速版</ks>
+                            <ks>产业带</ks>
+                        </div>
+                        <div class="ma-s">
+                            <h4>专业市场</h4>
+                            <ks>首页</ks>
+                            <ks>搜索</ks>
+                            <ks>供应</ks>
+                            <ks>求购</ks>
+                            <ks>产品门户</ks>
+                            <ks>企业大全</ks>
+                            <ks>搜搜</ks>
+                            <ks>手机站</ks>
+                            <ks>极速版</ks>
+                            <ks>产业带</ks>
+                            <ks>产品门户</ks>
+                            <ks>企业大全</ks>
+                            <ks>搜搜</ks>
+                            <ks>手机站</ks>
+                            <ks>极速版</ks>
+                            <ks>产业带</ks>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="synr" style="margin-bottom: 0px;">
+		<div ng-include="'views/business/businessNav.html'"></div>
+	</div>	
+    <div ui-view></div>
+</div>

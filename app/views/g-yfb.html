@@ -1,0 +1,131 @@
+<div class="c-jh">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>管理采购计划</h4>
+			<span style="color: #a0a0a1;">您已成功发布<ts>{{data.bidding.count}}</ts>条采购计划</span>
+		</div>
+		<div class="fbcg" style="padding-top: 0px; height: auto;">
+			<div class="f-rq">
+				<span>发布日期：从</span>
+				<input def-laydate type="text" placeholder="2017-5-20" id="start" ng-model="startTime" class="laydate-icon" />
+				<k class="k">到</k>
+				<input def-laydate type="text" placeholder="2017-5-23" id="end" ng-model="endTime" class="laydate-icon" />
+				<select ng-model="shu.biddingType" ng-options="o.name as o.name for o in stus">
+					<option value="">采购类型</option>
+				</select>
+				<select ng-model="shu.biddingType" ng-options="o.name as o.name for o in stus">
+					<option value="">采购类型</option>
+				</select>
+				<select ng-model="shu.biddingType" ng-options="o.name as o.name for o in stus">
+					<option value="">采购类型</option>
+				</select>
+				<button class="btw">搜素</button>
+			</div>
+			<div class="f-qb">
+				<li class="ac" colorw ng-click="yb('')">全部<span>({{data.bidding.count}})</span></li>
+				<li colorw ng-click="yb(0)">已发布<span>({{data.bidding.published}})</span></li>
+				<li colorw ng-click="yb(1)">未发布<span>({{data.bidding.unpublished}})</span></li>
+				<li colorw ng-click="yb(9)">待开标<span>({{data.bidding.waitOpen}})</span></li>
+				<li colorw ng-click="yb(3)">作废订单<span>({{data.bidding.voidOrder}})</span></li>
+			</div>
+			<!--壳子-->
+			<div class="f-sp" ng-show="up">
+				<div class="f-spf">
+					<span class="f-y9">商品分类</span>
+					<span class="f-y10">商品信息</span>
+					<span class="f-y9">单位</span>
+					<span class="f-y9">数量</span>
+					<span class="f-y9">采购类型</span>
+					<span class="f-y9">订单状态</span>
+					<span class="f-y9">报价单位</span>
+					<span class="f-y9">订单金额</span>
+					<span class="f-y9">操作</span>
+				</div>
+				<!--已发布商品-->
+				<div class="z-spf">
+					<div class="f-wq" ng-repeat="code in data.bidding.biddingList">
+						<div class="f-w">
+							<span>单号：<lp>{{code.orderCode}}</lp></span>
+							<span>发布日期：<lp>{{code.createTime}}</lp></span>
+							<span>招标单位：<lp>皮皮虾建设有限公司</lp></span>
+							<span>联系人：<lp>皮皮虾</lp></span>
+							<span>电话：<lp>1823371289</lp></span>
+						</div>
+						<div class="f-wp" ng-repeat="shping in data.bidding.biddingList[$index].biddingList">
+							<div class="f-y9">{{shping.materialType}}</div>
+							<div class="f-y10">
+								<div class="f-img"></div>
+								<div class="f-wz">
+									<span>{{shping.materialName}}</span>
+									<samp>{{shping.materialModel}}</samp>
+								</div>
+							</div>
+							<div class="f-y9">{{shping.materialUnit}}</div>
+							<div class="f-y9">{{shping.biddingNumber}}</div>
+							<div class="f-y9">{{shping.biddingType}}</div>
+							<div class="f-y9" ng-show="{{shping.status}}==0">已发布</div>
+							<div class="f-y9" ng-show="{{shping.status}}==1">未发布</div>
+							<div class="f-y9" ng-show="{{shping.status}}==2">待开标</div>
+							<div class="f-y9" ng-show="{{shping.status}}==3">已付款</div>
+							<div class="f-y9" ng-show="{{shping.status}}==6">已收货</div>
+							<div class="f-y9" ng-show="{{shping.status}}==10">已完成</div>
+							<div class="f-y9">开标后显示</div>
+							<div class="f-y9">{{shping.biddingPrice}}</div>
+							<div class="f-y11" ng-show="{{shping.status}}==0" sid="{{shping.biddingId}}">
+								<div class="bwt">撤回</div>
+							</div>
+							<div class="f-y11" ng-show="{{shping.status}}==1">
+								<div class="f-rt f-xg" ui-sref="buyt.xgcgjh({spid:shping.biddingId})">修改</div>
+								<div class="f-rt f-red">删除</div>
+								<div class="f-rt f-blue" ng-click="push(shping.biddingId)">发布</div>
+							</div>
+							<div class="f-y11 f-pq" ng-show="{{shping.status}}==2">
+								<div class="f-rt f-xg" ui-sref="buyt.ckjh({spid:shping.biddingId})">查看信息</div>
+								<div class="f-rt f-blue">确认收货</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!--<div class="kk" >{{data.bidding.biddingList[0].count}}</div>-->
+				<div class="f-d">
+					<span>显示第<iw>{{page}}</iw>页，共<w>{{num}}</w>条记录</span>
+					<div class="f-r">
+						<nav aria-label="Page navigation" class="clearfix">
+							<ul class="pagination pagination-sm pagination1 fr" style="margin: 0">
+								<li ng-class="{disabled:page==1}">
+									<a href="javascript:void(0)" aria-label="Previous" ng-click="sub(page-1<1?1:page-1)" ng-disabled="page==1">
+										<span aria-hidden="true">上一页</span>
+									</a>
+								</li>
+								<li ng-if="page >= pageNum && lastPage !== pageNum" ng-click="sub(1)" ng-class="{active:item==1}">
+									<a href="javascript:void(0)">1</a>
+								</li>
+								<li ng-if="page >= pageNum && lastPage !== pageNum">
+									<a href="javascript:void(0)">...</a>
+								</li>
+								<li ng-click="sub(item)" ng-class="{active:item==page}" ng-repeat="item in pages">
+									<a href="javascript:void(0)">{{item}}</a>
+								</li>
+								<li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum">
+									<a href="javascript:void(0)">...</a>
+								</li>
+								<li ng-if="lastPage > pageNum && firstPage <= lastPage - pageNum" ng-click="sub(lastPage)" ng-class="{active:item==page}">
+									<a href="javascript:void(0)">{{lastPage}}</a>
+								</li>
+								<li ng-class="{disabled:page==lastPage}">
+									<a href="javascript:void(0)" aria-label="Next" ng-click="sub(page+1>lastPage?page:page+1)">
+										<span aria-hidden="true">下一页</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>

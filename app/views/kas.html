@@ -1,0 +1,194 @@
+ <div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
+    		 <div class="dak">
+     		<div class="container">
+     			
+     			<!--头部-->
+     			<div class="had clearfloat" style="background: #E6E6E6;">
+     				<div class="had-s"><a ui-sref="index.publicity">网站首页</a></div>
+     				<div class="span">400-3636-4534</div>
+     				<div class="had-q " ng-show="pq" >亲，请您先<span ui-sref="login">[登录]</span>免费<span ui-sref="register.rigc">[注册]</span></div>
+     				<div class="ha-b clearfloat" ng-show="pl">Hi 欢迎来到慧筑云<span ng-bind="username">{{username}}</span><b ng-click="tuichu()">退出</b>
+     					<div class="kld"><span>消息<!--<sk>10</sk>--></span><span  style="cursor: pointer; margin-left: 30px;">采购车<!--<sk>99+</sk>--></span><i class="glyphicon glyphicon-shopping-cart"></i></div>
+     				</div>
+     				<div class="ul clearfloat" id="kehu">
+     					<li style="margin-left: 0px;"><a>手机慧筑云<b></b></a>
+     						<div class="kehu1">
+							
+						</div></li>
+     					<li ng-mouseover="fn(1)" ng-mouseleave="th(1)" >
+     						<a>帮助中心<b></b></a>
+     						<div class="kehu1"id="kehu1"  style="display: none;" ng-show="yt">
+							<span><r>采购帮助</r></span>
+							<span><r>供应帮助</r></span>
+							<span ui-sref="index.zhongxin"><r>常见问题</r></span>
+							<span ui-sref="index.zx"><r>在线回答</r></span>
+						</div>
+     					
+     				</li>
+     				<li ng-mouseover="fn(2)" ng-mouseleave="th(2)"><a>网站地图<b></b></a>
+     					<div class="kehu1 km" style="right: 0px; display: none;" ng-show="wd">
+     						<div class="ma-s">
+     						<h4>特色市场</h4>
+							<ks>首页</ks>
+							<ks>搜索</ks>
+							<ks>供应</ks>
+							<ks>求购</ks>
+							<ks>产品门户</ks>
+							<ks>企业大全</ks>
+							<ks>搜搜</ks>
+							<ks>手机站</ks>
+							<ks>极速版</ks>
+							<ks>产业带</ks>
+     						</div>
+							<div class="ma-s">
+     						<h4>专业市场</h4>
+							<ks>首页</ks>
+							<ks>搜索</ks>
+							<ks>供应</ks>
+							<ks>求购</ks>
+							<ks>产品门户</ks>
+							<ks>企业大全</ks>
+							<ks>搜搜</ks>
+							<ks>手机站</ks>
+							<ks>极速版</ks>
+							<ks>产业带</ks>
+							<ks>产品门户</ks>
+							<ks>企业大全</ks>
+							<ks>搜搜</ks>
+							<ks>手机站</ks>
+							<ks>极速版</ks>
+							<ks>产业带</ks>
+     						</div>
+							
+						</div>
+     				</li>
+     				</div>
+     			</div>
+     		</div>
+     	
+
+	
+	
+<!--导航-->
+		<div class="c-dh">
+			<div class="container" style="padding-left: 0px;">
+				<div class="nav1">
+				<li  style="height: 60px; margin-right: 50px;  ">
+					<img src="images/hlogo.png" alt="" style=" "/>
+					<span></span>
+				</li>
+				<li color ng-class="{active1:isActive === 0}" data="1"   >
+					<a >买家电商管理</a>
+				</li>
+				<li color ng-class="{active1:isActive === 1}"   data="1"  >
+					<a >卖家电商管理</a>
+				</li>
+				<li color ng-class="{active1:isActive === 2}" >
+					<a >联合采购</a>
+				</li>
+				<li color ng-class="{active1:isActive === 3}" >
+					<a >询价采购</a>
+				</li>
+				<li color ng-class="{active1:isActive === 4}" >
+					<a>易货</a>
+				</li>
+				<li color ng-class="{active1:isActive === 5}" >
+					<a>供应链金融</a>
+				</li>
+			
+				</div>
+			</div>
+		</div>
+		
+<div class="buyer" style="padding-bottom: 0px; ">
+	<div class="container clearfix" >
+		<div style="display: table; border-collapse:separate;    margin-left: auto;
+    margin-right: auto;">
+			<div style="display: table-row; ">
+		<div  class="a" style="background: #F5F5F5;">
+				<div class="c-rigth a" >
+		<ul class="rg-mu1" >
+			<li   >
+				<i class="icon-suoye"></i>
+				<span>首页</span>
+			</li>
+			<li>
+				<i class="icon-chaigou"></i>
+				<span>商品交易</span>
+				<div class="c-xa" >
+					<samp>发布采购计划</samp>
+					<samp>管理采购计划</samp>
+					<samp>我的招标信息</samp>
+				</div>
+			</li>
+			<li>
+				<i class="icon-dingdan"></i>
+				<span>交易管理</span>
+			</li>
+			<!--<li>
+				<i class="icon-pingjia"></i>
+				<span>我的店铺</span>
+			</li>
+			<li>
+				<i class="icon-fanxiu"></i>
+				<span>返修/退换商品</span>
+			</li>
+			<li>
+				<i class="icon-shouchang"></i>
+				<span>我的收藏</span>
+			</li>
+			<li>
+				<i class="icon-toushu"></i>
+				<span>投诉管理</span>
+			</li>-->
+			<!--<li sdown>
+				<i class="icon-shezhi"></i>
+				<span>账户设置</span>	
+				<ul style="display: none;">
+					<li>同鑫快捷支付</li>
+					<li>修改密码</li>
+					<li>安全验证设置</li>
+					<li>公司信息</li>
+					<li>联系信息</li>
+					<li>收发货地址管理</li>h
+					<li>信用认证</li>
+				</ul>-->
+				<li >
+					<h class="active2" style="width:100%; display: inline-block; height: 60px; line-height: 60px;">
+				<i class="icon-shezhi"></i>
+				<span>账户设置</span>	
+				</h>
+				<ul >
+					<!--<li>同鑫快捷支付</li>
+					<li>修改密码</li>
+					<li>安全验证设置</li>-->
+					<li class="active3" ui-sref="hoe.perinfor">公司信息</li>
+					<!--<li>联系信息</li>
+					<li>收发货地址管理</li>
+					<li>信用认证</li>-->
+				</ul>
+			</li>
+		</ul>
+		
+	</div>
+		</div>
+        <div class="a" style="width:1030px;	margin-left: 160px;   vertical-align: middle;">
+        	<div ui-view></div>
+        	<div>
+        </div>
+        </div>
+        </div>
+	</div>
+</div>
+<style>
+
+.a{
+	width:160px;
+	 display: table-cell;  
+}
+
+</style>
+	 
+       
+		</div>
+</div>

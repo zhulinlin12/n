@@ -1,0 +1,83 @@
+<div class="c-jh">
+	<div class="c-k">
+		<div class="hea clearfloat">
+			<h4>管理采购计划>>确认收货</h4>
+			<span>查看我的采购信息>></span>
+		</div>
+		<div class="c-qw">
+				<div class="c-wr dgd">
+				<span>单号:</span>
+				<f class="gayw hs">{{data.biddingApplyDetail.applyDetailList[0].orderCode}}</f>
+			</div>
+				<div class="c-wr dgd">
+				<span>发货日期:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].createTime}}</f>
+			</div>
+				<div class="c-wr dgd">
+				<span>物资名称:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].materialName}}</f>
+			</div>
+				<div class="c-wr dgd">
+				<span>规格:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].materialModel}}</f>
+			</div>
+				<div class="c-wr dgd">
+				<span>单位:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].materialUnit}}</f>
+			</div>
+				<div class="c-wr dgd">
+				<span>采购类型:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].biddingType}}</f>
+			</div>
+				<div class="c-wr dgd">
+				<span>送货地点:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].deliveryAddre}}</f>
+			</div>
+			<div class="c-wr dgd">
+				<span>到货日期:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].arrivalTime}}</f>
+			</div>
+			<div class="c-wr dgd" style="margin-bottom: 0px;">
+				<span>报价截止日期:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].endTime}}</f>
+			</div>
+			
+		<div class="c-wr2 dgd">
+	      <span>其它要求:</span>
+	            <div class="ysa">
+		          <div class="tex">
+			<samp class="gayw">{{data.biddingApplyDetail.applyDetailList[0].otherRequire}}</samp>
+		            </div>
+	             </div>
+              </div>
+				<div class="c-wr dgd">
+				<span>报价金额:</span>
+				<f class="gayw">{{data.biddingApplyDetail.applyDetailList[0].materialNumber*data.biddingApplyDetail.applyDetailList[0].biddingPrice}}</f>
+			</div>
+				<div class="c-wr dgd" style="margin-top: 20px;">
+				<span>录入快递单号:</span>
+				 <div class="ysa">
+				<input type="text" />
+				</div>
+			</div>
+				<div class="c-wr">
+				<span>承运电话:</span>
+				 <div class="ysa">
+				<input type="text" />
+				</div>
+			</div>
+			<div class="c-wr2" style="margin-top: 30px; padding-bottom: 20px;">
+				<span></span>
+				 <div class="ysa">
+				<div class="tex">
+			<button class="qww">确认发货</button>
+				</div>
+				</div>
+			</div>
+			<div class="f-img">
+				我是图片
+			</div>
+		</div>
+	</div>
+
+</div>

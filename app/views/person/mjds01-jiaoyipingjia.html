@@ -1,0 +1,98 @@
+<div id="ymc">
+    <div class="tit_box01">
+        <h2 class="tit">交易评价管理</h2>
+        <p class="a2">去商品管理上架商品吧>></p>
+    </div>
+    <div class="tab_nav2 clear">
+        <div class="list ac"><a href="javascript:;">来自买家的评价</a></div>
+       <!-- <div class="list"><a href="javascript:;">来自卖家的评价</a></div>-->
+    </div>
+    <div class="content" id="cgdd">
+
+        <div class="t_warp pj_con">
+            <div class="row tit_box">
+                <div class="col-xs-4">评价人</div>
+                <div class="col-xs-3">买家</div>
+                <div class="col-xs-3">物资信息</div>
+                <div class="col-xs-2">操作</div>
+                
+
+            </div>
+            <div class="item_warp">
+                <div class="con_inner">
+                    <div class="row item_box" ng-repeat="item in data.evaluate.productList">
+                        <div class="col-xs-4 col_box sp_box">
+                            <p class="pp1">{{item.evaluate}}</p>
+                            <p class="pp2">{{item.createTime}}</p>
+                        </div>
+                        <div class="col-xs-3 col_box"><p class="pn3">{{item.evaluateId}}</p></div>
+                        <div class="col-xs-3 col_box">
+                            <p class="pp4">{{item.productName}}</p>
+                            <p class="pp5">¥22000.00</p>
+                        </div>
+                        <div class="col-xs-2 col_box" style="border-right: 1px solid #eaeaea;">
+                            <button href="javascript:;" class="btn2" ng-class="{'btn_dis':item.replyFlag>0}" ng-disabled="item.replyFlag==1" data-skuId="{{item.skuId}}" data-productId="{{item.productId}}" data-evaluateId="{{item.evaluateId}}" data-num="{{$index}}" ng-click="getId($event)">回复</button>
+                        </div>
+                        <div class="hf_box clear" ng-class="{'hf_hide':item.replyFlag>0}">
+                            <a href="javascript:;" class="close">×</a>
+                            <textarea class="wbk_1" ng-model="item.txt" maxlength="500"></textarea>
+                            <span style="color:#ff5e5e;line-height: 38px" ng-show="item.txt.length>500">超出了字数限制</span>
+
+                            <button type="button" class="send" disabled="disabled"  ng-click="replyFn($event,item.txt)" style="background: #999">发表回复</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <p>{{hfTxt}}</p>
+            <script>
+                setTimeout(function(){
+                
+                    $('.pj_con .btn2').on('click',function(){
+                        $('.pj_con .hf_box').hide();
+                        $(this).parent().next().show();
+                    })
+                    $('.pj_con .close').on('click',function(){
+                        $(this).parents('.pj_con .hf_box').hide();
+                    })
+                },1000)
+            </script>
+
+
+        </div>
+        <p ng-show="data.evaluate.productList.length<1" style="text-align: center;line-height: 56px;font-size:15px;color:#999;">没有数据！</p>
+
+        <div class="page_box2 clear">
+            <!--<div class="page">-->
+                <!--<a href="javascript:;" class="item"><<</a>-->
+                <!--<a href="javascript:;" class="item ac">1</a>-->
+                <!--<a href="javascript:;" class="item">2</a>-->
+                <!--<a href="javascript:;" class="item">3</a>-->
+                <!--<a href="javascript:;" class="item">>></a>-->
+            <!--</div>-->
+            <div class="box">
+                <div id="pagination2" class="page fl"></div>
+                <div class="info fl">
+                </div>
+            </div>
+            <p class="page_hint">一共{{data.evaluate.count}}条信息，共<span class="page_num1"></span>页</p>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

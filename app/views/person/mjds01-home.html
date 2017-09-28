@@ -1,0 +1,87 @@
+<div class="home_warp">
+    <div class="floor_1 clear">
+        <div class="f_left">
+            <div class="pic"><img src="images/gy_home_pic1_03.jpg" /></div>
+            <div class="mes">
+                <h2 class="name">{{data.shop.companyName}}</h2>
+                <p class="txt">您尚未完善企业资质信息，<a href="javascript:;">请完善 >></a></p>
+            </div>
+        </div>
+        <div class="f_right">
+            <div class="top_box clear">
+                <span class="s1">安全等级</span>
+                <div class="item_box">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+
+            </div>
+            <ul class="btm_box">
+                <li class="list list1" ng-class="{'ac':data.shop.companyStatus}">安全资质认证</li>
+                <li class="list list2" ng-class="{'ac':data.shop.phoneFlag}">邮箱认证</li>
+                <li class="list list3" ng-class="{'ac':data.shop.emailFlag}">手机认证</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+    <div class="floor_2">
+        <h2 class="tit">待办提醒</h2>
+        <ul class="list_box clear">
+            <li class="list">
+               <a ui-sref="buyt.mjds01-yimaichu"> <p class="num">{{data.shop.orderCount}}</p>
+                <p class="txt">订单处理</p></a>
+            </li>
+            <li class="list">
+                <p class="num">{{data.shop.serviceCount}}</p>
+                <p class="txt">退货/换货/返修</p>
+            </li>
+            <li class="list">
+                <p class="num">-</p>
+                <p class="txt">投诉信息处理</p>
+            </li>
+            <li class="list">
+                <p class="num">{{data.shop.productCount}}</p>
+                <p class="txt">上架商品处理</p>
+            </li>
+            <li class="list">
+                <a ui-sref="buyt.mjds01-jiaoyipingjia"> <p class="num">{{data.shop.evaluateCount}}</p>
+                <p class="txt">评论回复</p></a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="floor_3">
+        <h2 class="tit">待办提醒</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>采购产品</th>
+                <th>数量</th>
+                <th>时间</th>
+                <th>采购商所在地</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in data.shop.recordList">
+                <td>{{item.materialName}}</td>
+                <td>{{item.biddingNumber}}</td>
+                <td>{{item.createTime}}</td>
+                <td>{{item.deliveryAddre}}</td>
+                <td><a href="javascript:;" class="color-1">立即查看</a></td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+<wo></wo>
+</div>

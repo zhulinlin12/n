@@ -1,0 +1,57 @@
+
+	 <div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
+<div class="dak">
+<!--导航-->
+		<div class="c-dh">
+			<div class="container" style="padding-left: 0px;">
+				<div class="nav1">
+				<li  style="height: 60px; margin-right: 50px;  ">
+					<a ui-sref="index.op"><img  src="images/hlogo.png" alt="" /></a>
+					<span></span>
+				</li>
+				<li data="1"  ui-sref="buyt.perinfor({staur:0})"   >
+					<a>买家电商管理</a>
+				</li>
+				<!--<li color ng-class="{active1:isActive === 1}" ui-sref="buyt.await({staur:1})"   data="1"  >-->
+				<li ui-sref="buyt.mjds01-home" class="active1"   data="1"  >
+					<a >卖家电商管理</a>
+				</li>
+				<li  ui-sref="buyt.pur" >
+					<a >联合采购</a>
+				</li>
+				<li  ui-sref="buyt.await({staur:3})" >
+					<a >询价采购</a>
+				</li>
+				<li  ui-sref="buyt.await({staur:4})" >
+					<a>易货</a>
+				</li>
+				<li  ui-sref="buyt.await({staur:5})">
+					<a>供应链金融</a>
+				</li>
+			
+				</div>
+			</div>
+		</div>
+
+<div class="buyer" style="padding-bottom: 0px; ">
+	<div class="container" >
+		<div style="display: table; border-collapse:separate;    margin-left: auto;
+    margin-right: auto;">
+			<div style="display: table-row; ">
+		<div  class="a"ui-view="a" style="background: #F5F5F5; margin-right: 200px;"></div>
+        <div class="a" ui-view="b" style="width:1030px; background: #FFFFFF; border-left: 10px solid #E6E6E6; border-top: 10px solid #E6E6E6;	vertical-align: top;"></div>
+        </div>
+        </div>
+	</div>
+</div>
+</div>
+</div>
+<style>
+
+.a{
+	width:160px;
+	 display: table-cell;  
+}
+
+</style>
+

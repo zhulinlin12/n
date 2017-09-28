@@ -1,0 +1,50 @@
+<div class="container succew" ng-controller="resetPassword">
+    <div class="zh-pw-body1">
+        <div class="clearfix" style="height:145px;">
+            <ul>
+                <li class="xg" style="width: 30px;height: 30px;border-radius: 50px;color: #FFFFFF;text-align: center;line-height: 30px;">1 <span>验证身份</span></li>
+                <li class="xg" style="width: 320px;height: 4px;position: relative;top:14px"></li>
+                <li class="xg" style="width: 30px;height: 30px;border-radius: 50px;color: #FFFFFF;text-align: center;line-height: 30px;">2 <span class="xg-z">重置登录</span></li>
+                <li class="xg-hs" style="width: 320px;height: 4px; position: relative;top:14px"></li>
+                <li class="xg-hs" style="width: 30px;height: 30px;border-radius: 50px;color: #FFFFFF;text-align: center;line-height: 30px;">3 <span> 密码重置成功</span></li>
+            </ul>
+        </div>
+        <div id="">
+        
+            <form name="restPass" id="form-2" style="margin: auto;">
+                 <ul>
+                    <li>账户名</li>
+                    <li>新的登录密码</li>
+                    <li>确认新的登录密码</li>
+                </ul>
+                <ul>
+                    <li style="color: #FA850D;">{{phoneNum | to_faleNum}}</li>
+                    
+                    <li>
+                        <input type="password" required ng-model="password" name="password" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_.]{6,16}$/" ng-minlength="6" ng-maxlength="16" ng-blur="passwordFocus=true" onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false" />
+                        <i class="glyphicon glyphicon-eye-close" ng-if="!eye" ng-click="passwdChange($event.target)"></i>
+                        <i class="glyphicon glyphicon-eye-open" ng-if="eye" ng-click="passwdChange($event.target)"></i>
+                        <span style="color:red" ng-show="restPass.password.$invalid && passwordFocus">
+                            <span ng-show="restPass.password.$error.required">密码是必须的。</span>
+                            <span ng-show="restPass.password.$error.pattern">输入6-16位数字及字母组合的密码。</span>
+                        </span>
+                    </li>
+                    <li>
+                        <input type="password" required name="passwordAgain" ng-model="passwordAgain" id="" value="" ng-focus="passwordAgainFocus=true" />
+                        <span style="color:red" ng-show="restPass.passwordAgain.$invalid && passwordAgainFocus">
+                            <span ng-show="restPass.passwordAgain.$error.required">请确认密码</span>
+                        </span>
+                        <span style="color:red; width:120px;line-height: 40px; display: inline-block;" ng-if="password!=passwordAgain&&passwordAgainFocus">俩次密码不一致</span>
+                    </li>
+                </ul>
+                <h5 id="changeErrInfo" style="color: #ee2e2c; margin-left: 163px; position: absolute; bottom:55px;"></h5>
+                <div class="zc" style="width: 120px; height: 40px;">
+
+                    <button ng-click="changePassword()" id="ture2">确定</button>
+                </div>
+
+            </form>
+           
+        </div>
+    </div>
+</div>
